@@ -1,15 +1,18 @@
 
       <div class="card mb-4 shadow-sm">
-        <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://static01.nyt.com/images/2012/02/12/magazine/12wmt/12wmt-jumbo-v2.jpg?quality=75&auto=webp" >
+        <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="productItem.imageurl" >
         <div class="card-body">
           <p class="card-text">
-            <strong>{{254|currency:'INR'}}</strong>
+            <strong>{{productItem.price|currency:'INR'}}</strong>
+            <i *ngIf="addedTowishlist" class="fas fa-heart float-right" (click)="handleRemoveFromwishlist()"></i>
+            <i *ngIf="!addedTowishlist" class="far fa-heart float-right" (click)=" handleAddToWishlist()" ></i>
           </p>
           
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text">{{productItem.description | slice: 0:80}}...</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-primary">Add to cart</button>
+              <button type="button" class="btn btn-sm btn-primary"
+              (click)="handleAddToCart()">Add to cart</button>
               <button type="button" class="btn btn-sm btn-outline-secondary">View Details</button>
             </div>
           </div>

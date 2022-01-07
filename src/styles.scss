@@ -17,3 +17,18 @@
     border-bottom-right-radius: 0;
     
 }
+.guest-form-card h2{
+    text-transform: uppercase;
+    font-size: medium;
+}
+.guest-form-card label{
+    font-size: small;
+}
+.btn-primary.disabled, .btn-primary:disabled {
+ cursor: not-allowed;
+    
+} 
+.fa-heart{
+color: red;
+cursor: pointer;
+}

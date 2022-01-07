@@ -1,0 +1,14 @@
+<div class="card">
+
+    <div class="class-header ">
+        <strong>Wishlist Items</strong>
+    </div>
+    <div *ngIf="wishitems.length===0" class="alert alert-info">Your wishlist is empty</div>
+    <ul  *ngIf="wishitems.length > 0" class="list-group">
+        <li class="list-group-item" *ngFor="let items of wishitems">
+            <app-wishitem [wishItem]="items"></app-wishitem>
+        </li>
+       
+    </ul>
+    
+</div>

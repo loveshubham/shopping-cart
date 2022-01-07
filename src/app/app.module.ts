@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
@@ -12,6 +11,13 @@ import { CartComponent } from './components/shoppingcart/cart/cart.component';
 import { ProductListComponent } from './components/shoppingcart/product-list/product-list.component';
 import { CartItemComponent } from './components/shoppingcart/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './components/shoppingcart/product-list/product-item/product-item.component';
+import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { WishlistComponent } from './components/shoppingcart/wishlist/wishlist.component';
+import { WishitemComponent } from './components/shoppingcart/wishlist/wishitem/wishitem.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +30,19 @@ import { ProductItemComponent } from './components/shoppingcart/product-list/pro
     CartComponent,
     ProductListComponent,
     CartItemComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    LoginComponent,
+    RegisterComponent,
+    PageNotFoundComponent,
+    WishlistComponent,
+    WishitemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

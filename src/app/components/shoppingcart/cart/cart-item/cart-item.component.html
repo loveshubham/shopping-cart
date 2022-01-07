@@ -1,4 +1,7 @@
-<div class="cart-item">
+<div class="cart-item" >
 
-    <span>Item 1</span>*<span>4</span>:<strong>{{500|currency:'INR'}}</strong>
+  <strong >
+      <span>{{cartItem.imageurl}}</span><span>{{cartItem.productName}}</span> <strong> X </strong><span>{{cartItem.qty}}</span><strong>=</strong><strong>{{(cartItem.qty)*(cartItem.price)|currency:'INR'}}</strong>
+      <!-- <span>{{cartItem.id}}:</span> -->
+  </strong>
 </div>
