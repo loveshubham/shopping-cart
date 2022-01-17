@@ -8,7 +8,7 @@ import { WishlistService } from '../services/wishlist.service';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent implements OnInit {
-wishitems:Product[]=[];
+wishitems:any=[];
   constructor( private WishlistService:WishlistService) { }
 
   ngOnInit() {
@@ -17,9 +17,10 @@ wishitems:Product[]=[];
 
   loadingwishItems(){
 
-    this.WishlistService.getwishlistitems().subscribe((product:Product[])=>{
+    this.WishlistService.getwishlistitems().subscribe((productIds:any)=>{
 
-    this.wishitems=product;
+    this.wishitems=productIds;
+    console.log('wish23',this.wishitems)
 
     });
   }
