@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessengerService} from 'src/app/components/shoppingcart/services/messenger.service'
+import { cartUrl } from '../config/api';
 import { CartItem } from '../models/cart-item';
 import { Product } from '../models/product';
 import { CartService } from '../services/cart.service';
@@ -52,9 +53,14 @@ export class CartComponent implements OnInit {
       //  console.log(product)
        const index= this.cartItems.indexOf(product)
        this.cartItems.splice(index,1)
+      //  this.removeFromCart(product)
+      // }
 
+      //  removeFromCart(product:Product){
+      //   return this.cartService.delete(cartUrl +'/'+ product)
 
-     }
+      }
+
 
 
 

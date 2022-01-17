@@ -10,6 +10,7 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+  [x: string]: any;
   cartItems: any;
 
   constructor(private http:HttpClient) { }
@@ -44,5 +45,9 @@ export class CartService {
   }
   addProductsToCart(product: Product): Observable<any>{
     return this.http.post(cartUrl,{product});
+  }
+  removeFromCart(product:Product){
+    return this.http.delete(cartUrl +'/'+ product)
+
   }
 }
