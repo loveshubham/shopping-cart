@@ -6,6 +6,7 @@ import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.co
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { CartComponent } from './components/shoppingcart/cart/cart.component';
 import { WishlistComponent } from './components/shoppingcart/wishlist/wishlist.component';
+import { ProductDetailComponent } from './components/shoppingcart/product-list/product-item/product-detail/product-detail.component';
 
 const routes: Routes = [
   {path:'' , redirectTo:'/shop', pathMatch:'full'},
@@ -14,8 +15,9 @@ const routes: Routes = [
   {path:'shop', component:ShoppingcartComponent},
   {path:'cart',component:CartComponent},
   {path:'wishlist',component:WishlistComponent},
+  {path:'productdetail' , component:ProductDetailComponent },
   {path:'**', component:PageNotFoundComponent}
-  
+
 
 ];
 

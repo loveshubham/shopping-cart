@@ -1,7 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Product } from 'src/app/components/shoppingcart/models/product';
-import{ MessengerService} from 'src/app/components/shoppingcart/services/messenger.service';
+import { MessengerService} from 'src/app/components/shoppingcart/services/messenger.service';
 import { CartService } from '../../services/cart.service';
 import { WishlistService } from '../../services/wishlist.service';
 
