@@ -1,23 +1,25 @@
 
 <div class="card">
-    <div class="class-header">
-        <strong>Filters</strong>
+    <div class="class-header bg-primary text-center">
+        <strong><h5>Filters</h5></strong>
     </div>
 
-        <div class="card-body">
+        <div class="card-body ">
             
             
-            <form>
+            <form  [formGroup]="filterForm" (ngSubmit)="filters()">
                 <div class="form-group">
                     <label for="form" >From</label>
-                    <input type="number" id="from" class="form-control">
+                    <input type="number" id="from" class="form-control"  name="from" formControlName="from">
+                    <span *ngIf=" from && from.invalid && from.touched " >Enter the valid filters</span>
                 </div>
                 <div class="form-group">
                     <label for="to" >To </label>
-                    <input type="number" id="to" class="form-control">
+                    <input type="number" id="to" class="form-control" name="to" formControlName="to">
+                    <span *ngIf=" from && from.invalid && from.touched " >Enter the valid Range</span>
                 </div>
                 
-                <button class="btn btn-primary btn-block">Filter by price</button>
+                <button class="btn btn-primary btn-block" >Filter by price</button>
             </form>
         </div>
 </div>

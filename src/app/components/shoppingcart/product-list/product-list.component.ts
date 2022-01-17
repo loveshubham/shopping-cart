@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(private productService:ProductService ,
     private wishlistService:WishlistService
-              
+
     ){ }
 
   ngOnInit(): void {
@@ -29,7 +29,9 @@ export class ProductListComponent implements OnInit {
 
   }
   loadWishlist() {
-    // this.wishlistService.getWishlist().subscribe((productIds)=>{this.wishlist=productIds})
+   this.wishlistService.getwishlistitems().subscribe((productIds)=>{
+    console.log(productIds)
+    this.wishlist=productIds})
   }
 
 }

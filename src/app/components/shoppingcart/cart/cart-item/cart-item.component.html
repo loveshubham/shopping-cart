@@ -1,7 +1,13 @@
 <div class="cart-item" >
 
   <strong >
-      <span>{{cartItem.imageurl}}</span><span>{{cartItem.productName}}</span> <strong> X </strong><span>{{cartItem.qty}}</span><strong>=</strong><strong>{{(cartItem.qty)*(cartItem.price)|currency:'INR'}}</strong>
+      <span><span>{{cartItem.id}}:</span> <img src="{{cartItem.imageurl}}"  width="50" height="50"></span><span>{{cartItem.productName}}</span> <strong> X </strong><span> Qty {{cartItem.qty}}</span><strong>=</strong><strong>{{(cartItem.qty)*(cartItem.price)|currency:'INR'}}</strong>
       <!-- <span>{{cartItem.id}}:</span> -->
   </strong>
+  <div >
+
+    <button type="button" class="btn btn-md btn-danger " style="position: relative; "
+    (click)="deletetodo(cartItem)">Delete</button>
+  </div>
+  
 </div>

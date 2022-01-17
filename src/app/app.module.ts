@@ -11,13 +11,16 @@ import { CartComponent } from './components/shoppingcart/cart/cart.component';
 import { ProductListComponent } from './components/shoppingcart/product-list/product-list.component';
 import { CartItemComponent } from './components/shoppingcart/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './components/shoppingcart/product-list/product-item/product-item.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { WishlistComponent } from './components/shoppingcart/wishlist/wishlist.component';
 import { WishitemComponent } from './components/shoppingcart/wishlist/wishitem/wishitem.component';
+import { FormGroup  , FormControl} from '@angular/forms';
+import { ProductDetailComponent } from './components/shoppingcart/product-list/product-item/product-detail/product-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -35,14 +38,16 @@ import { WishitemComponent } from './components/shoppingcart/wishlist/wishitem/w
     RegisterComponent,
     PageNotFoundComponent,
     WishlistComponent,
-    WishitemComponent
+    WishitemComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

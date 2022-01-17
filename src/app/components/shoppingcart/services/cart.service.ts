@@ -17,11 +17,9 @@ export class CartService {
     return this.http.get<CartItem[]>(cartUrl).pipe(
       map((result:any[])=>{
         let cartItems:CartItem[]=[];
-        
+
         for (let item of result){
           let productExists=false
-          
-
 
         for(let i in cartItems){
           if(cartItems[i].productId===item.product.id){
@@ -38,7 +36,7 @@ export class CartService {
 
         }
         }
-        
+
         return cartItems;
       })
 

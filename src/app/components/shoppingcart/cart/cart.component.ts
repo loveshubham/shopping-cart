@@ -4,6 +4,7 @@ import { CartItem } from '../models/cart-item';
 import { Product } from '../models/product';
 import { CartService } from '../services/cart.service';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -12,19 +13,21 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
   cartItems: Product[] = [];
   cartTotal=0
+  product: any;
   constructor(private msg:MessengerService,
               private cartService:CartService) { }
 
   ngOnInit(): void {
     this.handleSubscription();
     this.loadCartItems();
-    
+    // console.log(this.cartItems)
+
     }
       handleSubscription(){
       this.msg.getMsg().subscribe((product:Product)=>{
-      console.log(product)
+      // console.log(product)
       this.loadCartItems()
-      
+
       //this.addProductTocart(product)
       })
 
@@ -33,7 +36,7 @@ export class CartComponent implements OnInit {
       this.cartService.getCartItem().subscribe((items: CartItem[])=>{
       this.cartItems=items;
       this.calculateCartTotal();
-      console.log(this.cartItems)
+      // console.log(this.cartItems)
 
       })
 
@@ -44,6 +47,23 @@ export class CartComponent implements OnInit {
      this.cartTotal+=(items.qty*items.price)
      });
      }
+
+     itemdelete(product:Product){
+      //  console.log(product)
+       const index= this.cartItems.indexOf(product)
+       this.cartItems.splice(index,1)
+
+
+     }
+
+
+
+
+
+
+
+
+    //  todelete()
   }
     //     addProductTocart(product:Product)
     //     {
@@ -63,11 +83,11 @@ export class CartComponent implements OnInit {
   //       //     name:product.name,
   //       //     qty:1,
   //       //     price:product.price
-            
+
   //       //   });
 
   //       // }
-  //   //     else{ 
+  //   //     else{
   //   //       for(let i in this.cartItems){
   //   //             if(this.cartItems[i].id===product.id){
   //   //               this.cartItems[i].qty++
@@ -91,7 +111,7 @@ export class CartComponent implements OnInit {
   //       //       break;
   //       //     }
   //       //     else{
-              
+
   //       //   this.cartItems.push({
   //       //     id:product.id,
   //       //     name:product.name,
@@ -105,4 +125,4 @@ export class CartComponent implements OnInit {
   //     }
 
 
-    
+
