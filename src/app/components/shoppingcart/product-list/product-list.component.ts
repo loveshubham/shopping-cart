@@ -12,6 +12,7 @@ import { WishlistService } from '../services/wishlist.service';
 export class ProductListComponent implements OnInit {
   productList:Product[]=[];
   wishlist:any[]=[]
+  searchTerm!:string
 
   constructor(private productService:ProductService ,
     private wishlistService:WishlistService
@@ -21,6 +22,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.loadProducts()
     this.loadWishlist()
+    // console.log("line 24",this.productList)
   }
   loadProducts(){
     this.productService.getProducts().subscribe((products)=>{this.productList=products;
@@ -30,7 +32,7 @@ export class ProductListComponent implements OnInit {
   }
   loadWishlist() {
    this.wishlistService.getwishlistitems().subscribe((productIds)=>{
-    console.log(productIds)
+    // console.log(productIds)
     this.wishlist=productIds})
   }
 

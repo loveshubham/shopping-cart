@@ -18,6 +18,8 @@ export class WishlistService {
     .pipe(map((result:any[])=>{
         console.log('result 21', result);
         let productIds: any[]=[]
+
+
         result.forEach((item: { id: any; }) => productIds.push(item.id) )
         return productIds;
       })

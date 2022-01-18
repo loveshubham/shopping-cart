@@ -1,5 +1,13 @@
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="search by name" style="width: 300px;"
+  [(ngModel)]="searchTerm"/>
+</div>
+
+
+
 <div class="row">
-    <div class="col-md-4" *ngFor="let product of productList">
+    <div class="col-md-4" *ngFor="let product of productList | productFilters:searchTerm">
        <app-product-item [productItem]="product" [addedTowishlist]="wishlist.indexOf(product.id)>=0"></app-product-item>
-</div>
-</div>
+       <!-- <app-product-detail [productItem]="product" ></app-product-detail> -->
+      </div>
+    </div>

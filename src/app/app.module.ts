@@ -19,7 +19,9 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { WishlistComponent } from './components/shoppingcart/wishlist/wishlist.component';
 import { WishitemComponent } from './components/shoppingcart/wishlist/wishitem/wishitem.component';
 import { FormGroup  , FormControl} from '@angular/forms';
+import { ProductDetailsComponent } from './components/shoppingcart/product-list/product-details/product-details.component';
 import { ProductDetailComponent } from './components/shoppingcart/product-list/product-item/product-detail/product-detail.component';
+import { ProductFiltersPipe } from './product-filters.pipe';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { ProductDetailComponent } from './components/shoppingcart/product-list/p
     PageNotFoundComponent,
     WishlistComponent,
     WishitemComponent,
-    ProductDetailComponent
+    ProductDetailsComponent,
+    ProductDetailComponent,
+    ProductFiltersPipe
   ],
   imports: [
     BrowserModule,

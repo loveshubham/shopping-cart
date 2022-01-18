@@ -15,6 +15,8 @@ export class ProductItemComponent implements OnInit {
   @Input() productItem!: Product;
   @Input() addedTowishlist!:boolean ;
   product!: Product;
+  productD!:Product;
+  // productD:Product[]=[];
   myQty=new FormGroup({
     quantity:new FormControl('1')
   })
@@ -24,6 +26,7 @@ export class ProductItemComponent implements OnInit {
     private wishlistService:WishlistService) { }
 
   ngOnInit(): void {
+    this.loadProductd()
   }
   handleAddToCart(){
     this.cartservice.addProductsToCart(this.productItem).subscribe(()=>{
@@ -46,6 +49,9 @@ export class ProductItemComponent implements OnInit {
   }
   myQuant(){
     console.log(this.myQty.value)
+  }
+  loadProductd(){
+    this.productD=this.productItem
   }
 
 }

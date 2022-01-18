@@ -6,8 +6,8 @@ import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.co
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { CartComponent } from './components/shoppingcart/cart/cart.component';
 import { WishlistComponent } from './components/shoppingcart/wishlist/wishlist.component';
+import { ProductDetailsComponent } from './components/shoppingcart/product-list/product-details/product-details.component';
 import { ProductDetailComponent } from './components/shoppingcart/product-list/product-item/product-detail/product-detail.component';
-
 const routes: Routes = [
   {path:'' , redirectTo:'/shop', pathMatch:'full'},
   {path:'login', component:LoginComponent},
