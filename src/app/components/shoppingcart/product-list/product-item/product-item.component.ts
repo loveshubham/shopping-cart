@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/components/shoppingcart/models/product';
 import { MessengerService} from 'src/app/components/shoppingcart/services/messenger.service';
 import { CartService } from '../../services/cart.service';
@@ -14,6 +15,7 @@ export class ProductItemComponent implements OnInit {
 
   @Input() productItem!: Product;
   @Input() addedTowishlist!:boolean ;
+
   product!: Product;
   productD!:Product;
   // productD:Product[]=[];
@@ -23,10 +25,12 @@ export class ProductItemComponent implements OnInit {
   constructor(
     private msg:MessengerService,
     private cartservice:CartService,
-    private wishlistService:WishlistService) { }
+    private wishlistService:WishlistService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.loadProductd()
+    console.log("30",this.productItem)
   }
   handleAddToCart(){
     this.cartservice.addProductsToCart(this.productItem).subscribe(()=>{
@@ -53,5 +57,13 @@ export class ProductItemComponent implements OnInit {
   loadProductd(){
     this.productD=this.productItem
   }
+  // getDetail(){
+
+  // }
+  // detailview(productItem: any){
+  //   console.log(productItem)
+  //   this.router.navigate(['productdetail'], { state: { productItem:productItem } });
+
+  // }
 
 }

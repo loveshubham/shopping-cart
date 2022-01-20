@@ -1,74 +1,23 @@
-<br />
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="product-image">
-        <div class="view hm-zoom z-depth-2" style="cursor: pointer;">
-          <img
-            [src]=""
-            [alt]=""
-            width="100%"
-            class="img-fluid rounded"
-          />
-        </div>
-        <div class="" style="margin-top: 15px;">
-          <ul class="list-group mb-3">
-            <li
-              class="list-group-item d-flex justify-content-between lh-condensed"
-            >
-              <div>
-                <h6 class="my-0">Product Price</h6>
+<section class="py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="row gx-4 gx-lg-5 align-items-center">
+          <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+          <div class="col-md-6">
+              <div class="small mb-1">SKU: BST-498</div>
+              <h1 class="display-5 fw-bolder">Shop item template</h1>
+              <div class="fs-5 mb-5">
+                  <span class="text-decoration-line-through">$45.00</span>
+                  <span>$40.00</span>
               </div>
-              <span class="text-muted" style="color: crimson !important;"
-                >₹ {{111|currency:'INR' }}</span
-              >
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between lh-condensed"
-            >
-              <div>
-                <h6 class="my-0">Product Seller</h6>
+              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidemm alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+              <div class="d-flex">
+                  <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                  <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                      <i class="bi-cart-fill me-1"></i>
+                      Add to cart
+                  </button>
               </div>
-              <span class="text-muted" style="color: crimson !important;">{{
-               11111
-              }}</span>
-            </li>
-          </ul>
-          <button class="btn btn-primary" >
-            Add to Cart
-          </button>
-        </div>
+          </div>
       </div>
-    </div>
-    <div class="col-sm-8">
-      <div class="product-detail">
-        <h5 class="product-head">Product Details</h5>
-        <table class="table" cellspacing="0" style="max-height: 28px;">
-          <tbody>
-            <tr>
-              <th scope="row">Product Name</th>
-              <td>{{ 11111 }}</td>
-            </tr>
-            <tr>
-              <th scope="row">Product Description</th>
-              <td>{{3333 }}</td>
-            </tr>
-            <tr>
-              <th scope="row">Product Category</th>
-              <td>{{4444 }}</td>
-            </tr>
-            <tr>
-              <th scope="row">No. of quantity available</th>
-              <td>{{5555 }}</td>
-            </tr>
-            <tr>
-              <th scope="row">Product Added on</th>
-              <td>{{6666* 1000 | date }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
   </div>
-</div>
-
+</section>

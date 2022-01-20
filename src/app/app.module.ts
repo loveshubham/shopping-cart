@@ -22,6 +22,11 @@ import { FormGroup  , FormControl} from '@angular/forms';
 import { ProductDetailsComponent } from './components/shoppingcart/product-list/product-details/product-details.component';
 import { ProductDetailComponent } from './components/shoppingcart/product-list/product-item/product-detail/product-detail.component';
 import { ProductFiltersPipe } from './product-filters.pipe';
+import { ProductAddComponent } from './components/shoppingcart/product-list/product-add/product-add.component';
+import { ProductUpdateComponent } from './components/shoppingcart/product-list/product-update/product-update.component';
+import { ProductByCategoryComponent } from './components/shoppingcart/product-list/product-by-category/product-by-category.component';
+import { ProductDeleteComponent } from './components/shoppingcart/product-list/product-delete/product-delete.component';
+import { ProductByDateComponent } from './components/shoppingcart/product-list/product-by-date/product-by-date.component';
 
 
 @NgModule({
@@ -43,7 +48,12 @@ import { ProductFiltersPipe } from './product-filters.pipe';
     WishitemComponent,
     ProductDetailsComponent,
     ProductDetailComponent,
-    ProductFiltersPipe
+    ProductFiltersPipe,
+    ProductAddComponent,
+    ProductUpdateComponent,
+    ProductByCategoryComponent,
+    ProductDeleteComponent,
+    ProductByDateComponent
   ],
   imports: [
     BrowserModule,

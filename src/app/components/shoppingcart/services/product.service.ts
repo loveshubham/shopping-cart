@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Product} from '../models/product';
 import { HttpClient } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
+import { Categories } from '../filters/categories';
 
 const apiUrl='http://localhost:3000/products';
 @Injectable({
@@ -23,5 +24,35 @@ export class ProductService {
   getProducts():Observable<Product[]>{
     //:ToDO get products from an api and return an observable
     return this.http.get<Product[]>(apiUrl);
+  }
+  Addproduct(productBody:any):Observable<Product[]>{
+    return this.http.post<Product[]>(apiUrl , productBody);
+
+  }
+  updateproduct(productId: string , productBody: any):Observable<Product[]>{
+    return this.http.put<Product[]>(apiUrl +'/'+ productId, productBody );
+
+  }
+  deleteproduct(productId: string):Observable<Product[]>{
+    return this.http.delete<Product[]>(apiUrl +'/'+ productId);
+
+  }
+  searchbycatproduct(categoryId: string):Observable<Product[]>{
+    const caturl="http://localhost:3000/products/category="+categoryId
+    return this.http.get<Product[]>(caturl);
+
+  }
+  searchbydateproduct(dateParam: string):Observable<Product[]>{
+    const caturl="http://localhost:3000/products/date="+dateParam;
+    return this.http.get<Product[]>(caturl);
+
+  }
+  productdetail(productId:any):Observable<Product[]>{
+    return this.http.get<Product[]>(apiUrl +'/'+ productId);
+
+  }
+  getcategory(){
+    const categoryUrl="http://localhost:3000/categories"
+    return this.http.get<Categories>(categoryUrl);
   }
 }

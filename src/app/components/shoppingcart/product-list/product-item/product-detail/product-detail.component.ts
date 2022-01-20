@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from '../../../models/product';
 
 @Component({
@@ -8,12 +9,15 @@ import { Product } from '../../../models/product';
 })
 export class ProductDetailComponent implements OnInit {
   @Input() productItem!:Product
-  producitemsD!: Product;
 
-  constructor() { }
+  constructor(private router:Router) {
+
+  }
 
   ngOnInit(): void {
-    console.log(this.producitemsD)
+    // const datadetail = this.router.getCurrentNavigation()?.extras?.state?.['productItem'];
+    //   console.log( this.router.getCurrentNavigation()); // should log out 'bar'
+
   }
 
 }
