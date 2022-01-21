@@ -7,7 +7,6 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
 import { CartComponent } from './components/shoppingcart/cart/cart.component';
 import { WishlistComponent } from './components/shoppingcart/wishlist/wishlist.component';
 import { ProductDetailsComponent } from './components/shoppingcart/product-list/product-details/product-details.component';
-import { ProductDetailComponent } from './components/shoppingcart/product-list/product-item/product-detail/product-detail.component';
 import { ProductAddComponent } from './components/shoppingcart/product-list/product-add/product-add.component';
 import { ProductDeleteComponent } from './components/shoppingcart/product-list/product-delete/product-delete.component';
 import { ProductUpdateComponent } from './components/shoppingcart/product-list/product-update/product-update.component';
@@ -20,7 +19,7 @@ const routes: Routes = [
   {path:'shop', component:ShoppingcartComponent},
   {path:'cart',component:CartComponent},
   {path:'wishlist',component:WishlistComponent},
-  {path:'productdetail/:id' , component:ProductDetailsComponent },
+  {path:'productdetails/:id' , component:ProductDetailsComponent },
   {path:'add' , component:ProductAddComponent },
   {path:'delete' , component:ProductDeleteComponent },
   {path:'update/:id' , component:ProductUpdateComponent },

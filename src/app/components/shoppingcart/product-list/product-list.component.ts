@@ -26,6 +26,7 @@ export class ProductListComponent implements OnInit {
   }
   loadProducts(){
     this.productService.getProducts().subscribe((products)=>{this.productList=products;
+      // console.log("29",this.productList)
       this.loadWishlist()
     })
 

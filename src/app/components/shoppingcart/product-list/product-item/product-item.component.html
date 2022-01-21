@@ -16,6 +16,10 @@
 <div class="card mb-4 shadow-sm">
   <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="productItem.imageurl">
   <div class="card-body">
+    <a routerLink="/productdetails/{{productItem.id}}">
+
+      <strong>{{productItem.name}}</strong>
+    </a>
     <p class="card-text">
       <strong>{{productItem.price|currency:'INR'}}</strong>
       <i *ngIf="addedTowishlist" class="fas fa-heart float-right" (click)="handleRemoveFromwishlist()"></i>
@@ -26,7 +30,7 @@
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <button type="button" class="btn btn-sm btn-primary" (click)="handleAddToCart()">Add to cart</button>
-        <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/productdetail" >View Details</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/productdetails/{{productItem.id}}" >View Details</button>
         <!-- <button type="button" class="btn btn-sm btn-outline-secondary" (click)="detailview(productItem)" >View Details</button> -->
       </div>
     </div>
