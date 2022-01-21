@@ -1,1 +1,31 @@
-<p>product-add works!</p>
+<h1 class="bg-light mb-2 text-center">Add new Products</h1>
+  <form class="row g-3">
+  <div class="col-md-4">
+    <label for="validationServer01" class="form-label">Product Name</label>
+    <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationServer02" class="form-label">CategoryId</label>
+    <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationServerUsername" class="form-label">Description</label>
+    <div class="input-group has-validation">
+      <!-- <span class="input-group-text" id="inputGroupPrepend3">@</span> -->
+      <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        Enter the Description.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-success" type="submit">Submit form</button>
+  </div>
+</form>

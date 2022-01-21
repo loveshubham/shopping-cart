@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
+import { MessengerService} from 'src/app/components/shoppingcart/services/messenger.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,8 +15,11 @@ export class ProductDetailsComponent implements OnInit {
   productdetail!:Product
   productId:number=0;
   productData:any;
+
   constructor( private activatedRoute:ActivatedRoute ,
-    private productservice:ProductService) { }
+    private productservice:ProductService,
+    private cartservice:CartService,
+    private msg:MessengerService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data=>{
@@ -29,7 +34,12 @@ export class ProductDetailsComponent implements OnInit {
       // console.log("29", this.productItem)
     })
   }
+  handleAddToCart(){
+    this.cartservice.addProductsToCart(this.productData).subscribe(()=>{
+      this.msg.sendMsg(this.productData)
+    })
 
   // this.productdetail=this.productItem
   // console.log("15 line",this.productItem)
+}
 }
