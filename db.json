@@ -225,11 +225,7 @@
       "price": 1000
     }
   ],
-  "wishlist": [
-    {
-      "id": 1
-    }
-  ],
+  "wishlist": [],
   "categories": [
     {
       "id": 1,
@@ -307,6 +303,61 @@
         "price": 100
       },
       "id": 5
+    },
+    {
+      "product": {
+        "id": 1,
+        "category_id": "5",
+        "name": "Toy",
+        "description": "small toy for kids , Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "imageurl": "https://m.media-amazon.com/images/I/71G3c6r6BBL._AC_SL1500_.jpg",
+        "price": 100
+      },
+      "id": 6
+    },
+    {
+      "product": {
+        "id": 6,
+        "category_id": "5",
+        "name": "Fighter",
+        "description": "This is a super fighter, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "imageurl": "https://images.indianexpress.com/2021/12/kids-toys.jpg?w=389",
+        "price": 350
+      },
+      "id": 7
+    },
+    {
+      "product": {
+        "id": 26,
+        "category_id": "2",
+        "name": "cap",
+        "description": "This is a blue cap, text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "imageurl": "https://assets.ajio.com/medias/sys_master/root/hd9/h08/15155848183838/-473Wx593H-441050765-skyblue-MODEL.jpg",
+        "price": 1000
+      },
+      "id": 8
+    },
+    {
+      "product": {
+        "id": 17,
+        "category_id": "5",
+        "name": "aeroplane",
+        "description": "This is a aeroplane , text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "imageurl": "https://m.media-amazon.com/images/I/615SgNTD0PL._AC_UL320_.jpg",
+        "price": 1800
+      },
+      "id": 9
+    },
+    {
+      "product": {
+        "id": 23,
+        "category_id": "2",
+        "name": "suit",
+        "description": "This is a blue suit, text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "imageurl": "https://ae01.alicdn.com/kf/HTB16XxTzamWBuNjy1Xaq6xCbXXaZ/Men-Suit-Men-Tuxedo-Custom-Made-Wedding-Suits-For-Men-Tailored-Light-Navy-Blue-Mens-Suits.jpg_Q90.jpg_.webp",
+        "price": 2500
+      },
+      "id": 10
     }
   ],
   "posts": [

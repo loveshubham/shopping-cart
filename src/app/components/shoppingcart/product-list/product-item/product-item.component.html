@@ -1,20 +1,9 @@
-<!-- <div class="row">
-  <div class="col-md-4" *ngFor="let product of productList">
-     <app-product-item [productItem]="product" [addedTowishlist]="wishlist.indexOf(product.id)>=0"></app-product-item>
-</div>
-</div> -->
-<!-- <div (click)="getDetail(productItem)" class="pointerCursor">
-
-     <app-product-detail [productItem]="product" #childComponent></app-product-detail>
-
- </div> -->
-
-
-
-
 
 <div class="card mb-4 shadow-sm">
-  <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="productItem.imageurl">
+  <a routerLink="/productdetails/{{productItem.id}}">
+
+    <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="productItem.imageurl"  >
+  </a>
   <div class="card-body">
     <a routerLink="/productdetails/{{productItem.id}}">
 
