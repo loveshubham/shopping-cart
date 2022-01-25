@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartItem } from '../../shoppingcart/models/cart-item';
+// import {cartItems} from '../../shoppingcart/services/cart.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,6 +8,7 @@ import { CartItem } from '../../shoppingcart/models/cart-item';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+// @Input() cartItems
   cartIT=CartItem;
 
   constructor() { }

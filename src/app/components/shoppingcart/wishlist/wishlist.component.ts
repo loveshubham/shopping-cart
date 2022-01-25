@@ -8,7 +8,7 @@ import { WishlistService } from '../services/wishlist.service';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent implements OnInit {
-wishitems:any=[];
+wishitems:Product[]=[];
   constructor( private WishlistService:WishlistService) { }
 
   ngOnInit() {

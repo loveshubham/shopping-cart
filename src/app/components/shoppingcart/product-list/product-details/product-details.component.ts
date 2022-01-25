@@ -29,8 +29,8 @@ export class ProductDetailsComponent implements OnInit {
     })
     this.productservice.productdetail(this.productId).subscribe(viewData=>{
       this.productData=viewData;
-      console.log("27",viewData)
-      console.log("29", this.productData)
+      // console.log("27",viewData)
+      // console.log("29", this.productData)
       // console.log("29", this.productItem)
     })
   }

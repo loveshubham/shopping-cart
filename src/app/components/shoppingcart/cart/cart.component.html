@@ -3,7 +3,9 @@
     <div class="class-header " style="background-color: blue;">
         <strong>Cart Items</strong>
     </div>
-    <div *ngIf="cartItems.length===0" class="alert alert-info">Your cart is empty</div>
+    <div *ngIf="cartItems.length===0" class="alert alert-info">Your cart is empty
+      <a class="btn btn-primary" routerLink="/shop">Shop Now</a>
+    </div>
     <ul  *ngIf="cartItems.length > 0" class="list-group">
         <li class="list-group-item" *ngFor="let items of cartItems">
             <app-cart-item [cartItem]="items" (todelete)="itemdelete($event)"></app-cart-item>

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Product} from '../models/product';
+import { Product} from '../models/product';
 import { HttpClient } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
 import { Categories } from '../filters/categories';
+import { Productinterface } from '../product-list/productinterface';
 
 const apiUrl='http://localhost:3000/products';
 @Injectable({
@@ -37,8 +38,8 @@ export class ProductService {
     return this.http.delete<Product[]>(apiUrl +'/'+ productId);
 
   }
-  searchbycatproduct(categoryId: string):Observable<Product[]>{
-    const caturl="http://localhost:3000/products?category="+categoryId
+  searchbycatproduct(categoryId:Categories):Observable<Product[]>{
+    const caturl="http://localhost:3000/products?categories="+categoryId
     return this.http.get<Product[]>(caturl);
 
   }

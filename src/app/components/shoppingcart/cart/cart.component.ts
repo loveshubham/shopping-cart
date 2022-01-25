@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
     }
       handleSubscription(){
       this.msg.getMsg().subscribe((product:Product)=>{
-      // console.log(product)
+      // console.log("29",product)
       this.loadCartItems()
 
       //this.addProductTocart(product)
@@ -50,19 +50,25 @@ export class CartComponent implements OnInit {
      }
 
      itemdelete(product:Product){
-      //  console.log(product)
-       const index= this.cartItems.indexOf(product)
-       this.cartItems.splice(index,1)
+                  //  OTHER LOGIC
+                  //  const index= this.cartItems.indexOf(product)
+                  //  this.cartItems.splice(index,1)
+
+      this.cartItems.map((a:any , index:any)=>{
+      if(product.id===a.id){
+      this.cartItems.splice(index,1)
+      }
+       })
+
+
+      }
+
+
       //  this.removeFromCart(product)
       // }
 
       //  removeFromCart(product:Product){
       //   return this.cartService.delete(cartUrl +'/'+ product)
-
-      }
-
-
-
 
 
 

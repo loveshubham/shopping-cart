@@ -20,6 +20,7 @@ export class FiltersComponent implements OnInit {
   ngOnInit() {
     this.productservice.getcategory().subscribe(data=>{
       this.categoryList=data;
+      console.log(this.categoryList)
     })
   }
   filters(){

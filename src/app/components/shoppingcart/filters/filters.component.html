@@ -1,9 +1,13 @@
 
 <div class="card">
   <div class="border-end bg-white" id="sidebar-wrapper">
-    <div class="class-header bg-primary text-center" >Select By Category</div>
+    <div class="class-header bg-primary text-center" style="height: 40px; text-align:center ;"><strong style="color: white;">Select By Category</strong></div>
+    <div class="list-group list-group-flush" >
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/shop">View All Products</a>
+
     <div class="list-group list-group-flush" *ngFor="let catg of categoryList">
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="products/categories/{{catg.id}}"
+        <a class="list-group-item list-group-item-action list-group-item-light p-3"
+        href="/category/{{catg.id}}"
         >
         {{catg.categoryName}}</a>
     </div>
@@ -32,3 +36,4 @@
         </div>
 </div>
 
+</div>

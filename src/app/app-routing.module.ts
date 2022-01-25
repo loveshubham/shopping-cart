@@ -21,9 +21,9 @@ const routes: Routes = [
   {path:'wishlist',component:WishlistComponent},
   {path:'productdetails/:id' , component:ProductDetailsComponent },
   {path:'add' , component:ProductAddComponent },
-  {path:'delete' , component:ProductDeleteComponent },
+  {path:'delete/:id' , component:ProductDeleteComponent },
   {path:'update/:id' , component:ProductUpdateComponent },
-  {path:'searchbycategory' , component:ProductByCategoryComponent },
+  {path:'category/:id' , component:ProductByCategoryComponent },
   {path:'searchbydate' , component:ProductByDateComponent },
   {path:'**', component:PageNotFoundComponent}
 

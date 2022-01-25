@@ -6,4 +6,6 @@ export interface Productinterface {
     imageurl:string;
     qty: number;
     categoryId:number
-}
+  
+  }
+

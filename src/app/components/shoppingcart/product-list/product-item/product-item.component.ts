@@ -30,7 +30,7 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProductd()
-    console.log("30",this.productItem)
+    // console.log("30",this.productItem)
   }
   handleAddToCart(){
     this.cartservice.addProductsToCart(this.productItem).subscribe(()=>{

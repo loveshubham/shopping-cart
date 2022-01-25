@@ -5,7 +5,9 @@ import { Categories } from '../../filters/categories';
 import { Product } from '../../models/product';
 import { CartService } from '../../services/cart.service';
 import { MessengerService } from '../../services/messenger.service';
+import { ProductService } from '../../services/product.service';
 import { WishlistService } from '../../services/wishlist.service';
+
 
 @Component({
   selector: 'app-product-by-category',
@@ -13,12 +15,15 @@ import { WishlistService } from '../../services/wishlist.service';
   styleUrls: ['./product-by-category.component.scss']
 })
 export class ProductByCategoryComponent implements OnInit {
+  // [x: string]: any;
 
   searchCategory!:Categories;
-  @Input() productItem!: Product;
+
+@Input() productItem!: Product;
 @Input() addedTowishlist!:boolean ;
 product!: Product;
 productD!:Product;
+productList:Product[]=[]
 // productD:Product[]=[];
 myQty=new FormGroup({
   quantity:new FormControl('1')
@@ -28,14 +33,19 @@ constructor(
   private cartservice:CartService,
   private wishlistService:WishlistService,
   private router:Router,
-  private activatedRoute:ActivatedRoute) { }
+  private activatedRoute:ActivatedRoute,
+  private productservice:ProductService) { }
 
 ngOnInit(): void {
   this.activatedRoute.queryParams.subscribe(data=>{
     this.searchCategory=data['id'];
+    this.productservice.searchbycatproduct(this.searchCategory).subscribe(categoryData=>{
+      this.productList=categoryData;
+      // console.log("30",this.productList)
+      console.log("30",this.searchCategory)
+    })
   })
   this.loadProductd()
-  console.log("30",this.productItem)
 }
 handleAddToCart(){
   this.cartservice.addProductsToCart(this.productItem).subscribe(()=>{

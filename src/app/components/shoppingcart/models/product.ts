@@ -5,6 +5,7 @@ export class Product {
     price!:number;
     imageurl?:string;
     qty!: number;
+  // value: any;
     // categoryId!:number
 
 constructor( id:number,name:string,description :string,price:number,imageurl:string)
