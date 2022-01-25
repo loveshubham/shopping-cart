@@ -1,6 +1,20 @@
-<h2>Showing results by Category {{searchCategory}}</h2>
+<!-- <h2 > Showing results by Category {{searchCategory}}</h2> -->
+
 <div class="row">
-  <div class="col-md-4"  *ngFor="let product of productList">
+  <div class="col md-3">
+      <app-filters></app-filters>
+  </div>
+  <div class="col-md-9 ">
+    <div class="form-group ">
+      <input type="text" class="form-control bg-light  " placeholder="Search Products By Name" style="width: 300px;"
+      [(ngModel)]="searchTerm"/>
+
+    </div>
+    <h2 > Showing results by Category {{searchCategory}}</h2>
+
+
+<div class="row">
+  <div class="col-md-4"  *ngFor="let product of productList | productFilters:searchTerm">
 
 
 
@@ -35,6 +49,8 @@
       </div>
     </form> -->
   </div>
+</div>
+</div>
 </div>
 </div>
 </div>

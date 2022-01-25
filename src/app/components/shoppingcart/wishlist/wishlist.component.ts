@@ -20,7 +20,7 @@ wishitems:Product[]=[];
     this.WishlistService.getwishlistitems().subscribe((productIds:any)=>{
 
     this.wishitems=productIds;
-    console.log('wish23',this.wishitems)
+    // console.log('wish23',this.wishitems)
 
     });
   }

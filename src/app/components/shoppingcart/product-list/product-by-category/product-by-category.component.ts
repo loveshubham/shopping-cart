@@ -18,6 +18,7 @@ export class ProductByCategoryComponent implements OnInit {
   // [x: string]: any;
 
   searchCategory!:Categories;
+  searchTerm!:string
 
 @Input() productItem!: Product;
 @Input() addedTowishlist!:boolean ;
@@ -39,6 +40,7 @@ constructor(
 ngOnInit(): void {
   this.activatedRoute.queryParams.subscribe(data=>{
     this.searchCategory=data['id'];
+    console.log(data['id'])
     this.productservice.searchbycatproduct(this.searchCategory).subscribe(categoryData=>{
       this.productList=categoryData;
       // console.log("30",this.productList)

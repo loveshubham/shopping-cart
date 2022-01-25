@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup , FormBuilder , Validators} from '@angular/forms'; 
-/** 
-  @param form 
+import { FormGroup , FormBuilder , Validators} from '@angular/forms';
+import {RegisterService} from '../shoppingcart/services/register.service';
+/**
+  @param form
  */
 
 function passwordMatchValidator(form:any){
   const password= form.get('password')
-  const confirmpassword=form.get('confirmPassword') 
+  const confirmpassword=form.get('confirmPassword')
 
   if(password.value !==confirmpassword.value){
     confirmpassword?.setErrors({passwordMatch:true})
@@ -23,7 +24,7 @@ function symbolValidator(control: { hasError: (arg0: string) => any; value: stri
   if(control.hasError('required'))return null;
   if(control.hasError('minlength')) return null;
 
-  console.log(control.value)
+  // console.log(control.value)
  if(control.value.indexOf('@')>-1){
 
    return null
@@ -41,6 +42,8 @@ function symbolValidator(control: { hasError: (arg0: string) => any; value: stri
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
+  hide : boolean = true;
+
 
   formValidations = {
     'name': [
@@ -63,7 +66,8 @@ export class RegisterComponent implements OnInit {
   };
 
 
-  constructor(private builder:FormBuilder) { }
+  constructor(private builder:FormBuilder,
+    private registerservice:RegisterService) { }
 
   ngOnInit() {
     // this.registerForm = new FormGroup({
@@ -78,17 +82,27 @@ export class RegisterComponent implements OnInit {
   }
   buildForm(){
     this.registerForm= this.builder.group({
-      name:['', [Validators.required]],
-      email:["", [Validators.required, Validators.pattern(/^([A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9]))$/)]],
-      username:["", [Validators.required]],
-      password:["", [Validators.required ,symbolValidator , Validators.minLength(4)]],
-      confirmpassword:"",
+      'id':[''],
+      'name':['', [Validators.required ,Validators.minLength(4),Validators.maxLength(30)]],
+      'email':["", [Validators.required, Validators.pattern(/^([A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9]))$/)]],
+      'username':["", [Validators.required]],
+      'password':["", [Validators.required ,symbolValidator , Validators.minLength(4)]],
+      'confirmpassword':["", [Validators.required ,symbolValidator , Validators.minLength(4)]],
     },{
       Validators: passwordMatchValidator
-    })
+    });
+    // console.log("93",this.registerForm.value);
+    // this.registerservice.Addregisterdetail(this.registerForm.value).subscribe(data=>{
+    //   console.log(data)
+      // window.alert('login successful')
+  // })
   }
   register(){
-    console.log(this.registerForm.value)
+    console.log("100",this.registerForm.value)
+    this.registerservice.Addregisterdetail(this.registerForm.value).subscribe(data=>{
+      console.log(data)
+      window.alert('Registration successful')
+  })
   }
 
 }

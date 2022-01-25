@@ -10,7 +10,7 @@ export class WishitemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.wishItem)
+    // console.log(this.wishItem)
   }
 
 }

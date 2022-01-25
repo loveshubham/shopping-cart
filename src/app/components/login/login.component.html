@@ -2,50 +2,51 @@
     <div class="col-md-4 offset-md-4">
         <div class="guest-form-card card">
             <div class="class-header offset-md-5 ">
-                 <strong><i>Login</i></strong>
+                 <strong class="bg-primary" style="text-align: center;"><i>Login</i></strong>
             </div>
-                <div class="card-body">
-
-                    <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()">
-                        <div class="form-group">
-                            <label  for="username">Enter UserName</label>
-                            <input 
-                            id="Username"
-                            name="username"
-                            class="form-control"
-                            [ngClass]="{'is-invalid': username.touched && username.invalid}" #username="ngModel"
-                            [(ngModel)]="model.username" required>
-                            <span class="invalid-feedback">username can't be blank</span>
-                            <!-- <p>valid::{{username.valid}}</p>
+            <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()">
+            <div class="form-group">
+            <label  for="username">Enter UserName</label>
+            <input
+             name="username"
+             class="form-control"
+             [ngClass]="{'is-invalid': username.touched && username.invalid}"
+             #username="ngModel"
+             [(ngModel)]="model.username" required>
+            <span class="invalid-feedback">username can't be blank</span>
+                          <!-- <p>valid::{{username.valid}}</p>
                             <p>invalid::{{username.invalid}}</p>
                             <p>touched::{{username.touched}}</p>
                             <p>untouched::{{username.untouched}}</p> -->
-                        </div>
-                        <div class="form-group">
-                            <label for="Email id">Enter Email Id (Optional)</label>
-                            <input
-                            id="email"
-                            name="email"
-                            class="form-control"
-                            #email="ngModel"
-                            [(ngModel)]="model.email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password" >Enter Password </label>
-                            <input
-                            type="password"
-                            class="form-control "
-                            [ngClass]="{'is-invalid': loginForm.submitted && password.invalid}" name="password" id="password" #password="ngModel" [(ngModel)]="model.Password" required>
-                            <span class="invalid-feedback">Password can't be blank</span>
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" id="remember" [ngModel]="model.remember">
-                            <label class="ml-1" for="remember">Remember me</label>
-                        </div>
-
-                        <button class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Login</button>
-                    </form>
+            </div>
+            <div class="form-group">
+            <label for="Email id">Enter Email Id </label>
+            <input
+             name="email"
+             class="form-control"
+             #email="ngModel"
+             [(ngModel)]="model.email" required>
+             </div>
+            <div class="form-group">
+            <label for="password" >Enter Password </label>
+            <input
+              type="password"
+              class="form-control "
+              [ngClass]="{'is-invalid': loginForm.submitted && password.invalid}"
+              name="password"
+              id="password"
+              #password="ngModel"
+              [(ngModel)]="model.password" required>
+              <span class="invalid-feedback">Password can't be blank</span>
+              </div>
+              <div class="form-group">
+              <input type="checkbox" id="remember" name="remember"
+              [ngModel]="model.remember">
+              <label class="ml-1" for="remember">Remember me</label>
+              </div>
+             <button class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Login</button>
+          </form>
                 </div>
             </div>
         </div>

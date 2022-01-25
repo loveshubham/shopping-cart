@@ -16,7 +16,7 @@ export class WishlistService {
   getwishlistitems(){
     return this.http.get<Product[]>(wishlistUrl)
     .pipe(map((result:any[])=>{
-        console.log('result 21', result);
+        // console.log('result 21', result);
         let productIds: any[]=[]
 
 

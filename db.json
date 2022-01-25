@@ -283,6 +283,47 @@
         "price": 100
       },
       "id": 1
+    },
+    {
+      "product": {
+        "id": 29,
+        "categoryId": "1",
+        "name": "maruti 800",
+        "description": "this is maruti car,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "imageurl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Maruti/Maruti-Alto-800/7066/1565265450182/front-left-side-47.jpg?tr=w-456",
+        "price": "200000"
+      },
+      "id": 2
+    },
+    {
+      "product": {
+        "id": 28,
+        "categoryId": "1",
+        "name": "Samsung Mobile",
+        "description": "New samsung mobile phone ",
+        "imageurl": "https://i.gadgets360cdn.com/products/large/samsung-galaxy-s20-379x800-1581443902.jpg",
+        "price": "50000"
+      },
+      "id": 3
+    }
+  ],
+  "login": [],
+  "register": [
+    {
+      "id": 1,
+      "name": "kush sharma",
+      "email": "kushsharma@gmail.com",
+      "username": "loveshubham",
+      "password": "@lkmrefk",
+      "confirmpassword": "njieffnewkmewfmlk@"
+    },
+    {
+      "id": 2,
+      "name": "qwerty12",
+      "email": "asdf@yopmail.com.in",
+      "username": "qwerty12",
+      "password": "asdf@",
+      "confirmpassword": "asdf@"
     }
   ],
   "posts": [
