@@ -12,6 +12,7 @@ import { map } from 'rxjs';
 export class CartService {
   // [x: string]: any;
   cartItems: any;
+  subject: any;
 
   constructor(private http:HttpClient) { }
   getCartItem():Observable<CartItem[]>{
@@ -47,7 +48,14 @@ export class CartService {
     return this.http.post(cartUrl,{product});
   }
   removeFromCart(product:Product){
-    return this.http.delete(cartUrl +'/'+ product)
-
+    return this.http.delete(cartUrl +'/'+ product.id)
   }
+  // sendMsg(product: Product){
+  //   // console.log("13",product)
+  // this.subject.next(product as Product)//triggering an event
+  // }
+  // getMsg(){
+  //   return this.subject.asObservable()
+  // }
 }
+               

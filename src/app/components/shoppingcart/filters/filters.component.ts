@@ -9,24 +9,39 @@ import { Categories } from './categories';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit {
+  // @Input('price') price;
   categoryList: any;
+  price$: any;
   filterForm=new FormGroup({
     from:new FormControl('',[Validators.required]),
      to:new FormControl(''),
   })
 
-  constructor(private productservice:ProductService) { }
+  constructor(private productservice:ProductService,
+    // priceService: PriceService
+    )
+    {
+      // this.price$ = priceService.getPrice();
+    }
 
   ngOnInit() {
     this.productservice.getcategory().subscribe(data=>{
       this.categoryList=data;
       // console.log(this.categoryList)
     })
-  }
+  }  
   filters(){
     console.log(this.filterForm.value)
   }
   get from(){
     return this.filterForm.get('from')
   }
+
+
+
+
+
+
+
 }
+

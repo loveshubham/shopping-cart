@@ -23,7 +23,7 @@ export class WishlistService {
         result.forEach((item: { id: any; }) => productIds.push(item.id) )
         return productIds;
       })
-    )
+    )                 
 
   }
 

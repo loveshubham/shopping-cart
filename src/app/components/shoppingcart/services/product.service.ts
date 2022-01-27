@@ -39,7 +39,7 @@ export class ProductService {
 
   }
   searchbycatproduct(categoryId:Categories):Observable<Product[]>{
-    const caturl="http://localhost:3000/products?categories="+categoryId
+    const caturl="http://localhost:3000/products?categoryId="+categoryId
     return this.http.get<Product[]>(caturl);
 
   }
@@ -53,7 +53,7 @@ export class ProductService {
     return this.http.get<Product[]>(viewurl);
 
   }
-  getcategory(){
+  getcategory():Observable<Categories>{
     const categoryUrl="http://localhost:3000/categories"
     return this.http.get<Categories>(categoryUrl);
   }

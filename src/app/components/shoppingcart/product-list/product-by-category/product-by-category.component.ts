@@ -38,13 +38,13 @@ constructor(
   private productservice:ProductService) { }
 
 ngOnInit(): void {
-  this.activatedRoute.queryParams.subscribe(data=>{
+  this.activatedRoute.params.subscribe(data=>{
     this.searchCategory=data['id'];
-    console.log(data['id'])
+    console.log("43",data['id'])
     this.productservice.searchbycatproduct(this.searchCategory).subscribe(categoryData=>{
       this.productList=categoryData;
-      // console.log("30",this.productList)
-      console.log("30",this.searchCategory)
+      //  console.log("46",this.productList)
+       console.log("47",this.searchCategory)
     })
   })
   this.loadProductd()

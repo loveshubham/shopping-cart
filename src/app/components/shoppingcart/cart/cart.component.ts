@@ -3,6 +3,7 @@ import { MessengerService} from 'src/app/components/shoppingcart/services/messen
 import { cartUrl } from '../config/api';
 import { CartItem } from '../models/cart-item';
 import { Product } from '../models/product';
+import { ProductAddComponent } from '../product-list/product-add/product-add.component';
 import { CartService } from '../services/cart.service';
 
 
@@ -16,52 +17,77 @@ export class CartComponent implements OnInit {
   cartTotal=0
   product: any;
   constructor(private msg:MessengerService,
-              private cartService:CartService) { }
+    private cartService:CartService) { }
 
-  ngOnInit(): void {
-    this.handleSubscription();
-    this.loadCartItems();
-    // console.log(this.cartItems)
+    ngOnInit(): void {
+      this.handleSubscription();
+      this.loadCartItems();
+      // console.log(this.cartItems)
 
     }
-      handleSubscription(){
+    handleSubscription(){
       this.msg.getMsg().subscribe((product:Product)=>{
-      // console.log("29",product)
+        // console.log("29",product)
       this.loadCartItems()
 
       //this.addProductTocart(product)
-      })
+    })
 
-      }
-      loadCartItems(){
-      this.cartService.getCartItem().subscribe((items: CartItem[])=>{
+  }
+  loadCartItems(){
+    this.cartService.getCartItem().subscribe((items: CartItem[])=>{
       this.cartItems=items;
       this.calculateCartTotal();
       // console.log(this.cartItems)
 
-      })
+    })
+      
+  }
+  calculateCartTotal(){
+    this.cartTotal = 0;
+    this.cartItems.forEach(items=>{
+      this.cartTotal+=(items.qty*items.price)
+    });
+  }
 
-     }
-     calculateCartTotal(){
-     this.cartTotal = 0;
-     this.cartItems.forEach(items=>{
-     this.cartTotal+=(items.qty*items.price)
-     });
-     }
+  itemdelete(product:Product){
+    //  OTHER LOGIC
+    // console.log(product)
+     const index= this.cartItems.indexOf(product)
+     this.cartItems.splice(index,1)
+     this.cartService.removeFromCart(product)
 
-     itemdelete(product:Product){
-                  //  OTHER LOGIC
-                  //  const index= this.cartItems.indexOf(product)
-                  //  this.cartItems.splice(index,1)
+    // this.cartItems.map((a:any , index:any)=>{
+    //   if(product.id===a.id){
+    //     this.cartItems.splice(index,1)
+    //   }
+    // })
+    // console.log(product)
+    return this.cartService.removeFromCart(product)
 
-      this.cartItems.map((a:any , index:any)=>{
-      if(product.id===a.id){
-      this.cartItems.splice(index,1)
-      }
-       })
+  }
+}
 
 
-      }
+
+//   this.cartService.removeFromCart(product).subscribe(()=>{
+//     this.cartService.sendMsg(this.product)
+
+// }
+    // this.removeFromCart(product)
+    // removeFromCart(product:Product){
+    //     return this.http.delete(cartUrl +'/'+ product)
+
+    //   }
+
+      //  handleRemoveFromwishlist(){
+      //   this.wishlistService.removeFromWishlist(this.productItem).subscribe(()=>{
+      //     this.addedTowishlist=false;
+      //   })
+      //   removeFromWishlist(productId:any){
+      //     return this.http.delete(wishlistUrl +'/'+ productId)
+
+      //   }
 
 
       //  this.removeFromCart(product)
@@ -76,7 +102,6 @@ export class CartComponent implements OnInit {
 
 
     //  todelete()
-  }
     //     addProductTocart(product:Product)
     //     {
   //       // let productExists=false
@@ -135,6 +160,4 @@ export class CartComponent implements OnInit {
   //       // }
   //     this.calculateCartTotal();
   //     }
-
-
 
