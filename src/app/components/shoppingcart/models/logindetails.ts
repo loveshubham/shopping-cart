@@ -1,4 +1,5 @@
 export class Logindetails{
+  
   username?:string;
   email?:string;
   password?:string;

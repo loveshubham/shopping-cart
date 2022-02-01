@@ -18,7 +18,9 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'shop', component:ShoppingcartComponent},
   {path:'cart',component:CartComponent},
-  {path:'wishlist',component:WishlistComponent},
+  {path:'wishlist',component:WishlistComponent
+  // , canActivate:[AuthGuard]
+},
   {path:'productdetails/:id' , component:ProductDetailsComponent },
   {path:'add' , component:ProductAddComponent },
   {path:'delete/:id' , component:ProductDeleteComponent },

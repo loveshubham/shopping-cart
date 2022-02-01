@@ -45,7 +45,7 @@
   <a *ngFor="let p of price$ | async"
   class="list-group-item list-group-item-action"
   routerLink="/" [queryParams]="{ price : p.key}"
-  [class.active]="price === p.key">
+  [class.active]="price === p.key">               
         {{p.name}}
   </a>
 </div> -->

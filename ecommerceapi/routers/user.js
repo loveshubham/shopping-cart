@@ -13,7 +13,7 @@ router.get('/',verifyTokenAndAdmin, async(req,res)=>{
 })
 router.put('/:id',verifyTokenAndAuthorization, async(req,res)=>{
     if(req.body.password){
-        req.body.password = cryptojs.AES.encrypt(req.body.password,process.env.PASSWORD_SECRET) 
+        req.body.password = cryptojs.AES.encrypt(req.body.password,process.env.PASSWORD_SECRET)
     }
     try{
         const updateUser = await User.findByIdAndUpdate(req.params.id,{

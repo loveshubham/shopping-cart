@@ -228,7 +228,7 @@
       "id": 28,
       "categoryId": "1",
       "name": "Samsung Mobile",
-      "description": "New samsung mobile phone ",
+      "description": "New samsung mobile phone ,,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu",
       "imageurl": "https://i.gadgets360cdn.com/products/large/samsung-galaxy-s20-379x800-1581443902.jpg",
       "price": "50000"
     },
@@ -247,6 +247,94 @@
       "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
       "imageurl": "https://cdn1.ethoswatches.com/media/catalog/product/cache/6e5de5bc3d185d8179cdc7258143f41a/u/r/urwerk-ur-satellite-ur-210-rg-large_7.jpg",
       "price": "1000000"
+    },
+    {
+      "id": 31,
+      "categoryId": "4",
+      "name": "Chair",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://rukminim1.flixcart.com/image/416/416/ky65wnk0/living-room-chair/l/d/g/560-brown-540-mango-wood-6-5-wlchrlocke-wakefit-brown-finish-810-original-imagagyaa5tgxzge.jpeg?q=70",
+      "price": "1000000"
+    },
+    {
+      "id": 32,
+      "categoryId": "4",
+      "name": "Table",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://i.pinimg.com/originals/f9/53/b6/f953b6760e7b91e48ad20cb5d491c613.jpg",
+      "price": "1000000"
+    },
+    {
+      "id": 33,
+      "categoryId": "4",
+      "name": "Sofaset",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://www.ikea.com/in/en/images/products/ektorp-cover-for-3-seat-sofa-with-chaise-longue-totebo-dark-turquoise__0818585_pe774507_s5.jpg?f=xxs",
+      "price": "1000000"
+    },
+    {
+      "id": 34,
+      "categoryId": "4",
+      "name": "Bed",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://www.godrejinterio.com/imagestore/B2C/56101515SD00434/56101515SD00434_01_803x602.png",
+      "price": "1000000"
+    },
+    {
+      "id": 35,
+      "categoryId": "4",
+      "name": "Dining Table",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://f1af951e8abcbc4c70b9-9997fa854afcb64e87870c0f4e867f1d.lmsin.net/1000010749381-1000010749380_01-710.jpg",
+      "price": "1000000"
+    },
+    {
+      "id": 36,
+      "categoryId": "3",
+      "name": "makeup",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://m.media-amazon.com/images/I/51EpXI7jIVL._AC_SY580_.jpg",
+      "price": "1000000"
+    },
+    {
+      "id": 37,
+      "categoryId": "3",
+      "name": "shoes",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://5.imimg.com/data5/XZ/AG/ID/SELLER-87238623/ladies-shoes-500x500.jpg",
+      "price": "1000000"
+    },
+    {
+      "id": 38,
+      "categoryId": "3",
+      "name": "sandles",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://5.imimg.com/data5/SELLER/Default/2021/7/VD/YB/IL/76584784/zxyzo-ladies-sandals-500x500.JPG",
+      "price": "1000000"
+    },
+    {
+      "id": 39,
+      "categoryId": "3",
+      "name": "tshirt",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://cdn.luxe.digital/media/2020/09/17110441/best-white-t-shirt-women-hanes-nano-tee-luxe-digital.jpg",
+      "price": "1000000"
+    },
+    {
+      "id": 40,
+      "categoryId": "3",
+      "name": "jackets",
+      "description": "It is beautiful Ethos watches , URWERK Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+      "imageurl": "https://image.uniqlo.com/UQ/ST3/in/imagesgoods/439702/item/ingoods_64_439702.jpg?width=1600&impolicy=quality_75",
+      "price": "1000000"
+    },
+    {
+      "id": 41,
+      "categoryId": "3",
+      "name": "women sweater",
+      "description": "this is  cool women sweater ,,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu",
+      "imageurl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNqk3ka86TELTutEk6DFB93FNpkXIiSSOU9A&usqp=CAU",
+      "price": "100"
     }
   ],
   "wishlist": [],
@@ -286,44 +374,33 @@
     },
     {
       "product": {
-        "id": 29,
-        "categoryId": "1",
-        "name": "maruti 800",
-        "description": "this is maruti car,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-        "imageurl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Maruti/Maruti-Alto-800/7066/1565265450182/front-left-side-47.jpg?tr=w-456",
-        "price": "200000"
+        "id": 22,
+        "categoryId": 2,
+        "name": "pent",
+        "description": "This is a white, text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "imageurl": "https://4.imimg.com/data4/KJ/UU/MY-517220/men-s-cotton-pant-500x500.jpg",
+        "price": 1500
       },
       "id": 2
-    },
-    {
-      "product": {
-        "id": 28,
-        "categoryId": "1",
-        "name": "Samsung Mobile",
-        "description": "New samsung mobile phone ",
-        "imageurl": "https://i.gadgets360cdn.com/products/large/samsung-galaxy-s20-379x800-1581443902.jpg",
-        "price": "50000"
-      },
-      "id": 3
     }
   ],
   "login": [],
   "register": [
     {
       "id": 1,
-      "name": "kush sharma",
-      "email": "kushsharma@gmail.com",
-      "username": "loveshubham",
-      "password": "@lkmrefk",
-      "confirmpassword": "njieffnewkmewfmlk@"
+      "name": "gvcghjv",
+      "email": "vjhbjh@guiujk.cgtfgfuy",
+      "username": "cghhvygh",
+      "password": "vvvv@",
+      "confirmpassword": "abcd@"
     },
     {
       "id": 2,
-      "name": "qwerty12",
-      "email": "asdf@yopmail.com.in",
-      "username": "qwerty12",
-      "password": "asdf@",
-      "confirmpassword": "asdf@"
+      "name": "Samsung Mobile",
+      "email": "lovesharma101192@gmail.com",
+      "username": "kushSharma",
+      "password": "1111@",
+      "confirmpassword": "1112@"
     }
   ],
   "posts": [

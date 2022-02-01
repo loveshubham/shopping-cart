@@ -22,6 +22,7 @@ export class CartComponent implements OnInit {
     ngOnInit(): void {
       this.handleSubscription();
       this.loadCartItems();
+      this.itemdelete(this.product);
       // console.log(this.cartItems)
 
     }
@@ -41,7 +42,7 @@ export class CartComponent implements OnInit {
       // console.log(this.cartItems)
 
     })
-      
+
   }
   calculateCartTotal(){
     this.cartTotal = 0;
@@ -63,101 +64,13 @@ export class CartComponent implements OnInit {
     //   }
     // })
     // console.log(product)
-    return this.cartService.removeFromCart(product)
+    this.cartService.removeFromCart(this.product).subscribe(deletedata=>{
+
+      console.log("product to delete")
+    })
 
   }
 }
 
 
-
-//   this.cartService.removeFromCart(product).subscribe(()=>{
-//     this.cartService.sendMsg(this.product)
-
-// }
-    // this.removeFromCart(product)
-    // removeFromCart(product:Product){
-    //     return this.http.delete(cartUrl +'/'+ product)
-
-    //   }
-
-      //  handleRemoveFromwishlist(){
-      //   this.wishlistService.removeFromWishlist(this.productItem).subscribe(()=>{
-      //     this.addedTowishlist=false;
-      //   })
-      //   removeFromWishlist(productId:any){
-      //     return this.http.delete(wishlistUrl +'/'+ productId)
-
-      //   }
-
-
-      //  this.removeFromCart(product)
-      // }
-
-      //  removeFromCart(product:Product){
-      //   return this.cartService.delete(cartUrl +'/'+ product)
-
-
-
-
-
-
-    //  todelete()
-    //     addProductTocart(product:Product)
-    //     {
-  //       // let productExists=false
-
-  //       // for(let i in this.cartItems){
-  //       //   if(this.cartItems[i].id===product.id){
-  //       //     this.cartItems[i].qty++
-  //       //     productExists=true
-  //       //     break;
-  //       //   }
-  //       // }
-
-  //       // if (!productExists){
-  //       //   this.cartItems.push({
-  //       //     id:product.id,
-  //       //     name:product.name,
-  //       //     qty:1,
-  //       //     price:product.price
-
-  //       //   });
-
-  //       // }
-  //   //     else{
-  //   //       for(let i in this.cartItems){
-  //   //             if(this.cartItems[i].id===product.id){
-  //   //               this.cartItems[i].qty++
-  //   //               break;
-  //   //     }
-  //   //   }
-  //   // }
-  //       // if (this.cartItems.length===0){
-
-  //       //   this.cartItems.push({
-  //       //     id:product.id,
-  //       //     name:product.name,
-  //       //     qty:1,
-  //       //     price:product.price
-  //       //   });
-  //       // }
-  //       // else{
-  //       //   for(let i in this.cartItems){
-  //       //     if(this.cartItems[i].id===product.id){
-  //       //       this.cartItems[i].qty++
-  //       //       break;
-  //       //     }
-  //       //     else{
-
-  //       //   this.cartItems.push({
-  //       //     id:product.id,
-  //       //     name:product.name,
-  //       //     qty:1,
-  //       //     price:product.price
-  //       //   });
-  //       //     }
-  //       //   }
-  //       // }
-  //     this.calculateCartTotal();
-  //     }
 

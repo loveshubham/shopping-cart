@@ -1,4 +1,5 @@
 const express = require('express');
+var cors = require('cors')
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
@@ -10,6 +11,7 @@ const cartRoute = require('./routers/cart')
 const app = express();
 dotenv.config();
 app.use(bodyParser.json());
+app.use(cors())
 mongoose.connect(process.env.dbURL,{
     useNewUrlParser : true,
     useUnifiedTopology : true,

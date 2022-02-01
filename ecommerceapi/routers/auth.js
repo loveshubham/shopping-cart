@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken')
 router.post('/register',async(req,res) => {
     try{
     const newUser =  new User({
-        username : req.body.username,
+
         email : req.body.email,
-        password : cryptojs.AES.encrypt(req.body.password,process.env.PASSWORD_SECRET) 
+        password : cryptojs.AES.encrypt(req.body.password,process.env.PASSWORD_SECRET)
     })
     const savedUser = await newUser.save()
     res.status(200).send({status:"pass",message: "User Registration Succesufull" })
@@ -28,7 +28,7 @@ router.post('/login',async(req,res) => {
         if(orignalpassword != req.body.password ){
         res.status(401).send({message: "Wrong Credential"})
         }else{
-        
+
         const accessToken = jwt.sign({id:user._id,isAdmin:user.isAdmin},process.env.JWT_SECRET_KEY,{expiresIn:process.env.JWT_EXPIRE})
         const {password,...other} = user._doc
         res.status(200).send({message: "User Authentication Succesful",user:other,accessToken:accessToken})

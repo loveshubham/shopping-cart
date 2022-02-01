@@ -1,12 +1,21 @@
-<div class="row">
+
+<!-- <div class="row">
     <div class="col-md-4 offset-md-4">
         <div class="guest-form-card card">
             <div class="class-header offset-md-5 ">
                  <strong class="bg-primary" style="text-align: center;"><i>Login</i></strong>
             </div>
             <div class="card-body">
-            <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()">
-            <div class="form-group">
+            <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()"> -->
+
+
+
+                <!-- it is for user name login details -->
+
+
+
+
+              <!-- <div class="form-group">
             <label  for="username">Enter UserName</label>
             <input
              name="username"
@@ -15,11 +24,17 @@
              #username="ngModel"
              [(ngModel)]="model.username" required>
             <span class="invalid-feedback">username can't be blank</span>
+          </div> -->
                           <!-- <p>valid::{{username.valid}}</p>
                             <p>invalid::{{username.invalid}}</p>
-                            <p>touched::{{username.touched}}</p>
+                               <p>touched::{{username.touched}}</p>
                             <p>untouched::{{username.untouched}}</p> -->
-            </div>
+
+
+
+                               <!-- it is for Email login details -->
+
+<!--
             <div class="form-group">
             <label for="Email id">Enter Email Id </label>
             <input
@@ -50,7 +65,56 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="card-link">
-        <h5 ><a routerLink="/register">Register here</a> </h5>
-    </div>
+    </div> -->
+
+                 <!-- it is for new reactive form login details -->
+
+
+     <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class="guest-form-card card">
+          <div class="class-header text-center bg-primary">
+            <strong style="color: white;">login Here</strong>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)=" loginfor()" >
+                   <div class="form-group">
+                     <label  for="Email id">Enter Email Id </label>
+                     <input
+                     id="email"
+                     name="email"
+                     placeholder="Enter your Email "
+                     class="form-control"
+                     formControlName="email"
+                     [ngClass]="{'is-invalid':loginForm.get('email')?.touched && loginForm.get('email')?.invalid}"
+                     />
+                     <!-- <span class="invalid-feedback">
+                       <span *ngIf="registerForm.get('email')?.hasError('required')">Email id can't be blank</span>
+                       <span *ngIf="registerForm.get('email')?.hasError('email')">Email must be valid</span>
+                      </span> -->
+                    </div>
+                    <div class="form-group">
+                            <label for="password" >Enter Password </label>
+                            <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your Password"
+                            class="form-control "
+                            formControlName="password"
+                            [ngClass]="{'is-invalid':loginForm.get('password')?.touched && loginForm.get('password')?.invalid}"
+                            />
+                          </div>
+                          <button class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Login</button>
+                          </form>
+          </div>
+        </div>
+      </div>
+     </div>
+                       <div class="card-link">
+                      <h5 >New user. <a routerLink="/register">Register here</a> </h5>
+                  </div>
+
+
+
+
+

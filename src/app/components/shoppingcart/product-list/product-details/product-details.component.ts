@@ -33,7 +33,7 @@ export class ProductDetailsComponent implements OnInit {
       // console.log("29", this.productData)
       // console.log("29", this.productItem)
     })
-  }
+  } 
   handleAddToCart(){
     this.cartservice.addProductsToCart(this.productData).subscribe(()=>{
       this.msg.sendMsg(this.productData)
