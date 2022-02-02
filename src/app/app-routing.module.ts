@@ -12,12 +12,20 @@ import { ProductDeleteComponent } from './components/shoppingcart/product-list/p
 import { ProductUpdateComponent } from './components/shoppingcart/product-list/product-update/product-update.component';
 import { ProductByCategoryComponent } from './components/shoppingcart/product-list/product-by-category/product-by-category.component';
 import { ProductByDateComponent } from './components/shoppingcart/product-list/product-by-date/product-by-date.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { UserComponent } from './components/user/user.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+// import { AuthGuard } from './components/auth.guard';
 const routes: Routes = [
   {path:'' , redirectTo:'/shop', pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'shop', component:ShoppingcartComponent},
   {path:'cart',component:CartComponent},
+  {path:'admin', component:AdminComponent
+  // ,  canActivate:[AuthGuard]
+},
+  {path:'user',component:UserComponent},
   {path:'wishlist',component:WishlistComponent
   // , canActivate:[AuthGuard]
 },
@@ -27,6 +35,7 @@ const routes: Routes = [
   {path:'update/:id' , component:ProductUpdateComponent },
   {path:'category/:id' , component:ProductByCategoryComponent },
   {path:'searchbydate' , component:ProductByDateComponent },
+  {path:'forbidden',component:ForbiddenComponent},
   {path:'**', component:PageNotFoundComponent}
 
 

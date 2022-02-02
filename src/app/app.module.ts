@@ -11,7 +11,7 @@ import { CartComponent } from './components/shoppingcart/cart/cart.component';
 import { ProductListComponent } from './components/shoppingcart/product-list/product-list.component';
 import { CartItemComponent } from './components/shoppingcart/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './components/shoppingcart/product-list/product-item/product-item.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
@@ -26,6 +26,12 @@ import { ProductUpdateComponent } from './components/shoppingcart/product-list/p
 import { ProductByCategoryComponent } from './components/shoppingcart/product-list/product-by-category/product-by-category.component';
 import { ProductDeleteComponent } from './components/shoppingcart/product-list/product-delete/product-delete.component';
 import { ProductByDateComponent } from './components/shoppingcart/product-list/product-by-date/product-by-date.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { UserComponent } from './components/user/user.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+// import { AuthGuard } from './components/auth.guard';
+// import { AuthInterceptor } from './components/auth.interceptor';
+import { LoginService } from './components/shoppingcart/services/login.service';
 
 
 @NgModule({
@@ -51,7 +57,10 @@ import { ProductByDateComponent } from './components/shoppingcart/product-list/p
     ProductUpdateComponent,
     ProductByCategoryComponent,
     ProductDeleteComponent,
-    ProductByDateComponent
+    ProductByDateComponent,
+    AdminComponent,
+    UserComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +70,16 @@ import { ProductByDateComponent } from './components/shoppingcart/product-list/p
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    // AuthGuard,
+    // {
+    //   provide:HTTP_INTERCEPTORS,
+    //   useClass:AuthInterceptor,
+    //   multi:true
+
+    // },
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
