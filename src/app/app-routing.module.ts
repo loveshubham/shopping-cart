@@ -23,11 +23,11 @@ const routes: Routes = [
   {path:'shop', component:ShoppingcartComponent},
   {path:'cart',component:CartComponent},
   {path:'admin', component:AdminComponent
-  // ,  canActivate:[AuthGuard]
+  // ,  canActivate:[AuthGuard] , data:{roles:['true']}
 },
   {path:'user',component:UserComponent},
   {path:'wishlist',component:WishlistComponent
-  // , canActivate:[AuthGuard]
+  // , canActivate:[AuthGuard], data:{roles:['false']}
 },
   {path:'productdetails/:id' , component:ProductDetailsComponent },
   {path:'add' , component:ProductAddComponent },
