@@ -5,12 +5,12 @@
     </div>
     <span class="fas fa-search search-icon"></span> -->
 
-    <!-- *ngIf="loginservice.rolematch(true)" -->
     <button
+    *ngIf="loginservice.roleMatch('true')"
       type="button"  class="ml-2 btn btn-outline-primary" routerLink="/admin">Admin</button>
     <button
+    *ngIf="loginservice.roleMatch('false')"
     type="button"  class="ml-2 btn btn-outline-primary" routerLink="/user">User</button>
-    <!-- *ngIf="loginservice.rolematch(['false'])" -->
 
 
     <nav class="my-2 my-md-0 mr-md-3">

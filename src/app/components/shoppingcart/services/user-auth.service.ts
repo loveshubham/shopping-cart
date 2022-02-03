@@ -7,16 +7,16 @@ export class UserAuthService {
 
   constructor() { }
 public setRoles(roles:any){
-  localStorage.setItem("roles",roles)
+  localStorage.setItem("roles", roles)
 }
 public getRoles(){
   return localStorage.getItem("roles")
 }
 public setToken(accessToken:string){
-   localStorage.setItem("accessToken", "Bearer "+ accessToken)
+   localStorage.setItem("accessToken", accessToken)
 }
 public getToken() {
-  return  localStorage.getItem("accessToken" )
+  return  localStorage.getItem("accessToken")
 }
 public clear(){
  localStorage.clear();

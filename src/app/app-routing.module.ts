@@ -15,7 +15,7 @@ import { ProductByDateComponent } from './components/shoppingcart/product-list/p
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
-// import { AuthGuard } from './components/auth.guard';
+import { AuthGuard } from './components/auth.guard';
 const routes: Routes = [
   {path:'' , redirectTo:'/shop', pathMatch:'full'},
   {path:'login', component:LoginComponent},

@@ -29,8 +29,8 @@ import { ProductByDateComponent } from './components/shoppingcart/product-list/p
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
-// import { AuthGuard } from './components/auth.guard';
-// import { AuthInterceptor } from './components/auth.interceptor';
+import { AuthGuard } from './components/auth.guard';
+import { AuthInterceptor } from './components/auth.interceptor';
 import { LoginService } from './components/shoppingcart/services/login.service';
 
 
@@ -71,13 +71,13 @@ import { LoginService } from './components/shoppingcart/services/login.service';
     FormsModule
   ],
   providers: [
-    // AuthGuard,
-    // {
-    //   provide:HTTP_INTERCEPTORS,
-    //   useClass:AuthInterceptor,
-    //   multi:true
+    AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
 
-    // },
+    },
     LoginService
   ],
   bootstrap: [AppComponent]

@@ -21,15 +21,35 @@ export class LoginService {
     return this.http.post<Logindetails>(this.loginUrl , user , {headers:this.requestHeader});
 
 }
-// public rolematch (allowedRole:any)
-// {
-// let ismatch=false;
-// const userroles = this.userauth.getRoles();
-// if(userroles===allowedRole){
+public roleMatch(allowedRole:any):any
+{
+let ismatch=false;
+const userroles:any = this.userauth.getRoles();
+
+
+// if (userroles != null && userroles) {
+// for (let i = 0; i < userroles.length; i++) {
+//   for (let j = 0; j < allowedRole.length; j++) {
+    if (userroles === allowedRole) {
+      ismatch = true;
+      return ismatch;
+    } else {
+      return ismatch;
+    }
+
+
+
+
+
+
+// if(userroles=="true" && allowedRole==true){
 //   ismatch=true;
 // }
 // else{
 //   return ismatch=false;
+// }
+}
+// }
 // }
 // }
 
