@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginService } from '../services/login.service';
 import { ProductService } from '../services/product.service';
 import { Categories } from './categories';
 @Component({
@@ -18,6 +19,7 @@ export class FiltersComponent implements OnInit {
   })
 
   constructor(private productservice:ProductService,
+    public loginservice :LoginService
     // priceService: PriceService
     )
     {
@@ -29,7 +31,7 @@ export class FiltersComponent implements OnInit {
       this.categoryList=data;
       // console.log(this.categoryList)
     })
-  }  
+  }
   filters(){
     console.log(this.filterForm.value)
   }

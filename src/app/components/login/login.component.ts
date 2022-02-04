@@ -63,15 +63,19 @@ export class LoginComponent implements OnInit {
     this.loginservice.Addlogindetail(this.loginForm.value).subscribe((data: any)=>{
       // console.log(data.jwtToken)
       console.log(data)
-      this.userAuthservice.setRoles(data.user.role);
-      this.userAuthservice.setToken(data.jwtToken);
+      console.log(data.user.isAdmin)
+      console.log(data.accessToken)
+
+      this.userAuthservice.setRoles(data.user.isAdmin);
+      this.userAuthservice.setToken(data.accessToken);
 
       const role = data.user.isAdmin;
       if(role===true){
-        this.router.navigate(['/add']);
+        this.router.navigate(['/admin']);
       }
       else {
-        this.router.navigate(['/shop']);
+
+        this.router.navigate(['/user']);
       }
       window.alert('login successful')
     },(error)=>{

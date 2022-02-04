@@ -4,17 +4,42 @@
       <input type="text" class="form-control" placeholder="search products">
     </div>
     <span class="fas fa-search search-icon"></span> -->
+
+    <!-- <button
+    *ngIf="loginservice.roleMatch('true')"
+      type="button"  class="ml-2 btn btn-outline-primary" routerLink="/admin">Admin</button>
+    <button
+    *ngIf="loginservice.roleMatch('false')"
+    type="button"  class="ml-2 btn btn-outline-primary" routerLink="/user">User</button> -->
+
+
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" routerLink="/shop">Shop</a>
 
-      <a class="p-2 text-dark" routerLink="**">Enterprise</a>
-      <a class="p-2 text-dark" href="/add">Add Product</a>
+
+      <!-- <a class="p-2 text-dark" routerLink="**">Enterprise</a> -->
+      <!-- <a class="p-2 text-dark" href="/add">Add Product</a> -->
       <a class="p-2 text-dark" routerLink="/wishlist">Wishlist</a>
+
 
     </nav>
 
-    <a class="btn btn-primary" routerLink="/register">Register</a>
-    <a class="ml-2 btn btn-outline-primary" routerLink="/login">Login</a>
+
+
+      <button *ngIf="!isLoggedin()" class="btn btn-primary" routerLink="/register">Register</button>
+      <button *ngIf="!isLoggedin()" class="ml-2 btn btn-outline-primary" routerLink="/login">Login</button>
+      <button *ngIf="isLoggedin()"  class="ml-2 btn btn-outline-primary" (click)="logout()">Logout</button>
+
+
+
+
+
+
+
+
+
+    <!-- <button type="button"  class="ml-2 btn btn-outline-primary" routerLink="/login">Login</button>
+    <button type="button" class="ml-2 btn btn-outline-primary" (click)="logout()" >Logout</button> -->
 
     <!-- <div *ngIf="cartIT.length===0" class="alert alert-info">
       <a routerLink="/cart">

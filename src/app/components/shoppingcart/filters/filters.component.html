@@ -12,11 +12,11 @@
         {{catg.categoryName}}</a>
     </div>
   </div>
-  <div class="class-header bg-primary text-center">
+  <!-- <div class="class-header bg-primary text-center">
     <strong><h5>Filters</h5></strong>
-  </div>
+  </div> -->
 
-        <div class="card-body ">
+        <!-- <div class="card-body ">
 
 
             <form  [formGroup]="filterForm" (ngSubmit)="filters()">
@@ -33,9 +33,25 @@
 
                 <button class="btn btn-primary btn-block" >Filter by price</button>
             </form>
-        </div>
+        </div> -->
 </div>
 
+<div *ngIf="loginservice.roleMatch('true')">
+
+  <div   class="class-header bg-primary text-center" style="height: 40px; text-align:center ;"><strong style="color: white;">Admin Component</strong></div>
+  <div class="list-group list-group-flush" >
+    <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/add">Add Products</a>
+
+  </div>
+</div>
+<div *ngIf="loginservice.roleMatch('false')">
+
+  <div  class="class-header bg-primary text-center" style="height: 40px; text-align:center ;"><strong style="color: white;">User Component</strong></div>
+    <div class="list-group list-group-flush" >
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" routerLink="/wishlist">wishlist</a>
+
+    </div>
+</div>
 </div>
 <!-- <div class="list-group">
   <a class="list-group-item list-group-item-action"
@@ -45,7 +61,7 @@
   <a *ngFor="let p of price$ | async"
   class="list-group-item list-group-item-action"
   routerLink="/" [queryParams]="{ price : p.key}"
-  [class.active]="price === p.key">               
+  [class.active]="price === p.key">
         {{p.name}}
   </a>
 </div> -->
