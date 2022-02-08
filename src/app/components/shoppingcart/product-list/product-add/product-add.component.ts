@@ -29,7 +29,7 @@ export class ProductAddComponent implements OnInit {
       image:this.model.imageurl,
       categories:"men",
       size:this.model.size,
-      price:this.model.price,
+      price:this.model.price
 
 
 

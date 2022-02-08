@@ -32,6 +32,7 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { AuthGuard } from './components/auth.guard';
 import { AuthInterceptor } from './components/auth.interceptor';
 import { LoginService } from './components/shoppingcart/services/login.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { LoginService } from './components/shoppingcart/services/login.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    InfiniteScrollModule
   ],
   providers: [
     AuthGuard,

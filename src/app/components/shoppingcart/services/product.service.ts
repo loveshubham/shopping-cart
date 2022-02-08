@@ -7,6 +7,7 @@ import { Productinterface } from '../product-list/productinterface';
 
 const apiUrl='http://localhost:3000/products';
 const delurl='http://localhost:3001/api/product';
+const updateurl="localhost:3001/api/product";
 
 
 const producturl='http://localhost:3001/api/product';
@@ -44,7 +45,7 @@ export class ProductService {
 
   }
   updateproduct(productId: string , productBody: any):Observable<Product[]>{
-    return this.http.put<Product[]>(apiUrl +'/'+ productId, productBody );
+    return this.http.put<Product[]>(updateurl +'/'+ productId, productBody );
 
   }
   deleteproduct(productId: string):Observable<Product[]>{

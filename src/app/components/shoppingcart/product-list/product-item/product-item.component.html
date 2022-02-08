@@ -13,6 +13,16 @@
 
       <strong>{{productItem.title}}</strong>
     </a>
+    <br>
+    <div  *ngIf="loginservice.roleMatch('true')">
+      <span>
+        <a href="/update/{{productItem._id}}">Update</a>
+      </span> |
+      <span>
+        <a href="/delete/{{productItem._id}}">Delete</a>
+      </span>
+
+    </div>
     <p class="card-text">
       <strong>{{productItem.price|currency:'INR'}}</strong>
       <i *ngIf="addedTowishlist" class="fas fa-heart float-right" (click)="handleRemoveFromwishlist()"></i>

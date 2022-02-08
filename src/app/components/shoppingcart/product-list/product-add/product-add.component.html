@@ -1,11 +1,24 @@
 <h1 class="bg-light mb-2 text-center">Add new Products</h1>
 <form class="row g-3" (ngSubmit)="AddproductForm.valid && Addnewproduct()" #AddproductForm="ngForm">
-  <div class="col-md-4">
+  <!-- <div class="col-md-4">
     <label for="validationServer02" class="form-label">Enter Size</label>
     <input type="text" class="form-control " id="validationServer02" value="Enter Size" name="size" [(ngModel)]="model.size" required>
     <div class="valid-feedback">
       Looks good!
     </div>
+  </div> -->
+  <div class="col-md-6 mb-3">
+    <label>
+      select size
+    </label>
+    <select class="custom-select" required name="size" [(ngModel)]="model.size">
+      <option selected value="">choose..</option>
+      <option selected value="s">s</option>
+      <option selected value="m">m</option>
+      <option selected value="l">l</option>
+
+    </select>
+
   </div>
   <div class="col-md-4">
     <label for="validationServer01" class="form-label">Enter Product Title</label>
@@ -88,3 +101,4 @@
   <br>
 
 </div>
+

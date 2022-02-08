@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/components/shoppingcart/models/product';
 import { MessengerService} from 'src/app/components/shoppingcart/services/messenger.service';
 import { CartService } from '../../services/cart.service';
+import { LoginService } from '../../services/login.service';
 import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
@@ -27,7 +28,8 @@ export class ProductItemComponent implements OnInit {
     private msg:MessengerService,
     private cartservice:CartService,
     private wishlistService:WishlistService,
-    private router:Router) { }
+    private router:Router,
+    public loginservice:LoginService) { }
 
   ngOnInit(): void {
     console.log("30",this.productItem)
