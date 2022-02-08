@@ -16,9 +16,12 @@ export class LoginService {
   {"No-auth":"True"}
   );
   constructor(private http:HttpClient ,
-    private userauth:UserAuthService) {   }
+    private userauth:UserAuthService) {}
   Addlogindetail(user:any):Observable<Logindetails>{
-    return this.http.post<Logindetails>(this.loginUrl , user , {headers:this.requestHeader});
+    return this.http.post<Logindetails>(this.loginUrl , user ,
+       {headers:this.requestHeader}
+       );
+       
 
 }
 public roleMatch(allowedRole:any):any

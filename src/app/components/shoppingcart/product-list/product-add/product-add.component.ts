@@ -17,16 +17,25 @@ export class ProductAddComponent implements OnInit {
   Addnewproduct(){
     console.log(this.model)
     let newproduct={
-      id:'',
-      categoryId:this.model.categoryId,
-      name:this.model.name,
+      // id:'',
+      // categoryId:this.model.categoryId,
+      // name:this.model.name,
+      // description:this.model.description,
+      // imageurl:this.model.imageurl,
+      // price:this.model.price
+
+      title:this.model.name,
       description:this.model.description,
-      imageurl:this.model.imageurl,
-      price:this.model.price
+      image:this.model.imageurl,
+      categories:"men",
+      size:this.model.size,
+      price:this.model.price,
+
+
 
     };
     console.log(newproduct);
-    window.alert('Your product has been added to the cart!');
+    window.alert('Your product has been added ');
     this.productservice.Addproduct(newproduct).subscribe(data=>{
       console.log(data)
     })

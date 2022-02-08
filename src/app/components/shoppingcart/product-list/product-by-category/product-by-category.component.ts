@@ -18,7 +18,9 @@ export class ProductByCategoryComponent implements OnInit {
   // [x: string]: any;
 
   searchCategory!:Categories;
-  searchTerm!:string
+  searchbyCategory!:Categories;
+  searchTerm!:string;
+  titles!:string;
 
 @Input() productItem!: Product;
 @Input() addedTowishlist!:boolean ;
@@ -37,16 +39,36 @@ constructor(
   private activatedRoute:ActivatedRoute,
   private productservice:ProductService) { }
 
-ngOnInit(): void {
-  this.activatedRoute.params.subscribe(data=>{
-    this.searchCategory=data['id'];
-    console.log("43",data['id'])
-    this.productservice.searchbycatproduct(this.searchCategory).subscribe(categoryData=>{
-      this.productList=categoryData;
-      //  console.log("46",this.productList)
-       console.log("47",this.searchCategory)
-    })
-  })
+ngOnInit(): void
+{
+              // this is product by cagtegory slug
+               // get the category from the url
+    const categoryName = this.activatedRoute.snapshot.paramMap.get('category');
+    const titleName = this.activatedRoute.snapshot.paramMap.get('title');
+
+     // TODO: implement categoryService
+     this.productservice.searchbycatproduct(this.searchbyCategory).subscribe(category => {
+      if (!this.titles) {
+        // this.router.navigateByUrl(`/category/${category.name}/${category.title}`);
+        return;
+      }
+
+      // TODO: render the category
+    });
+
+
+
+  // This is product by category Id
+
+  // this.activatedRoute.params.subscribe(data=>{
+  //   this.searchCategory=data['id'];
+  //   console.log("43",data['id'])
+  //   this.productservice.searchbycatproduct(this.searchCategory).subscribe(categoryData=>{
+  //     this.productList=categoryData;
+  //     //  console.log("46",this.productList)
+  //      console.log("47",this.searchCategory)
+  //   })
+  // })
   this.loadProductd()
 }
 handleAddToCart(){
@@ -56,14 +78,14 @@ handleAddToCart(){
 
 }
 handleAddToWishlist(){
-  this.wishlistService.addTowishlist(this.productItem.id).subscribe(()=>{
+  this.wishlistService.addTowishlist(this.productItem.title).subscribe(()=>{
     this.addedTowishlist=true;
     // console.log(this.productItem)
   })
 
 }
 handleRemoveFromwishlist(){
-  this.wishlistService.removeFromWishlist(this.productItem.id).subscribe(()=>{
+  this.wishlistService.removeFromWishlist(this.productItem.title).subscribe(()=>{
     this.addedTowishlist=false;
   })
 

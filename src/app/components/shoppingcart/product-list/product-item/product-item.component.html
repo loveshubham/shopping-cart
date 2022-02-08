@@ -3,14 +3,15 @@
 
 
 <div class="card mb-4 shadow-sm">
-  <a routerLink="/productdetails/{{productItem.id}}">
+  <a
+  routerLink="/productdetails/{{productItem._id}}">
 
-    <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="productItem.imageurl"  >
+    <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="productItem.image"  >
   </a>
   <div class="card-body">
-    <a routerLink="/productdetails/{{productItem.id}}">
+    <a routerLink="/productdetails/{{productItem._id}}">
 
-      <strong>{{productItem.name}}</strong>
+      <strong>{{productItem.title}}</strong>
     </a>
     <p class="card-text">
       <strong>{{productItem.price|currency:'INR'}}</strong>
@@ -22,7 +23,7 @@
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <button type="button" class="btn btn-sm btn-primary" (click)="handleAddToCart()">Add to cart</button>
-        <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/productdetails/{{productItem.id}}" >View Details</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/productdetails/{{productItem._id}}" >View Details</button>
         <!-- <button type="button" class="btn btn-sm btn-outline-secondary" (click)="detailview(productItem)" >View Details</button> -->
       </div>
     </div>

@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
     })
   }
  loginfor(){
-    console.log("100",this.loginForm.value)
+    console.log("62",this.loginForm.value)
     this.loginservice.Addlogindetail(this.loginForm.value).subscribe((data: any)=>{
       // console.log(data.jwtToken)
       console.log(data)
@@ -74,7 +74,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/admin']);
       }
       else {
-
         this.router.navigate(['/user']);
       }
       window.alert('login successful')

@@ -6,6 +6,11 @@ import { Categories } from '../filters/categories';
 import { Productinterface } from '../product-list/productinterface';
 
 const apiUrl='http://localhost:3000/products';
+const delurl='http://localhost:3001/api/product';
+
+
+const producturl='http://localhost:3001/api/product';
+const addurl='http://localhost:3001/api/product/';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,13 +26,21 @@ export class ProductService {
 //     new Product(8,1,'product 8','this is the product description',800),
 // ]
 
+  // constructor(private http:HttpClient) { }
+  // getProducts():Observable<Product[]>{
+
+  //   return this.http.get<Product[]>(apiUrl);
+  // }
+
+                                     // New one mentioned
   constructor(private http:HttpClient) { }
   getProducts():Observable<Product[]>{
-    //:ToDO get products from an api and return an observable
-    return this.http.get<Product[]>(apiUrl);
+
+    return this.http.get<Product[]>(producturl);
   }
+
   Addproduct(productBody:any):Observable<Product[]>{
-    return this.http.post<Product[]>(apiUrl , productBody);
+    return this.http.post<Product[]>(addurl, productBody);
 
   }
   updateproduct(productId: string , productBody: any):Observable<Product[]>{
@@ -35,7 +48,7 @@ export class ProductService {
 
   }
   deleteproduct(productId: string):Observable<Product[]>{
-    return this.http.delete<Product[]>(apiUrl +'/'+ productId);
+    return this.http.delete<Product[]>(delurl +'/'+ productId);
 
   }
   searchbycatproduct(categoryId:Categories):Observable<Product[]>{
@@ -48,8 +61,8 @@ export class ProductService {
     return this.http.get<Product[]>(caturl);
 
   }
-  productdetail(categoryId:any):Observable<Product[]>{
-    const viewurl="http://localhost:3000/products/"+ categoryId;
+  productdetail(Id:any):Observable<Product[]>{
+    const viewurl="http://localhost:3001/api/product/"+Id;
     return this.http.get<Product[]>(viewurl);
 
   }

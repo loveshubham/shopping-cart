@@ -15,11 +15,13 @@ export class AuthInterceptor implements HttpInterceptor{
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if(req.headers.get('No-Auth')==='True'){
-      return next.handle(req.clone());
-    }
+    // if(req.headers.get('No-Auth')==='True'){
+    //   return next.handle(req.clone());
+    // }
     const token = this.userAuthservice.getToken();
-    req=this.addToken(req, JSON.stringify(token));
+    // console.log("22",token)
+    req=this.addToken(req,token);
+      // console.log("25",req)
     return next.handle(req).pipe(
       catchError(
         (err:HttpErrorResponse)=>{
@@ -29,15 +31,15 @@ export class AuthInterceptor implements HttpInterceptor{
           }else if(err.status===403){
             this.router.navigate(['/forbidden'])
           }
-          return throwError("something is wrong")
+          return throwError("something is wrong");
         }
       )
-    )
+    );
   }
-  private addToken(request:HttpRequest<any>, token:string){
+  private addToken(request:HttpRequest<any>, token:any){
     return request.clone({
       setHeaders:{
-        Authorization:`bearer$(token)`
+        Authorization:`Bearer ${token}`
       }
 
     });

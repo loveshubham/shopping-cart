@@ -5,7 +5,7 @@
 
 
   <!-- You are searching for ...{{searchTerm}} -->
-  <!-- <div class="form-group ">
+  <!-- <div class="form-group  ">
     <span class="fas fa-search search-icon"></span>
   </div> -->
 
@@ -13,8 +13,8 @@
 
 
 <div class="row">
-    <div class="col-md-4" *ngFor="let product of productList | productFilters:searchTerm">
-       <app-product-item [productItem]="product" [addedTowishlist]="wishlist.indexOf(product.id)>=0"></app-product-item>
+    <div class="col-md-4" *ngFor="let product of productList.products | productFilters:searchTerm">
+       <app-product-item [productItem]="product" [addedTowishlist]="wishlist.indexOf(product.title)>=0"></app-product-item>
        <!-- <app-product-detail [productItem]="product" ></app-product-detail> -->
       </div>
     </div>

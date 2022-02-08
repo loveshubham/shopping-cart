@@ -35,9 +35,9 @@ export class CartComponent implements OnInit {
     })
 
   }
-  loadCartItems(){
+    loadCartItems(){
     this.cartService.getCartItem().subscribe((items: CartItem[])=>{
-      this.cartItems=items;
+      // this.cartItems=items;
       this.calculateCartTotal();
       // console.log(this.cartItems)
 
@@ -46,8 +46,8 @@ export class CartComponent implements OnInit {
   }
   calculateCartTotal(){
     this.cartTotal = 0;
-    this.cartItems.forEach(items=>{
-      this.cartTotal+=(items.qty*items.price)
+    this.cartItems.forEach((items)=>{
+      this.cartTotal += (items.qty*items.price)
     });
   }
 
@@ -64,7 +64,7 @@ export class CartComponent implements OnInit {
     //   }
     // })
     // console.log(product)
-    this.cartService.removeFromCart(this.product).subscribe(deletedata=>{
+    this.cartService.removeFromCart(this.product).subscribe((deletedata)=>{
 
       console.log("product to delete")
     })

@@ -9,8 +9,8 @@ export class WishItem {
 
     constructor(id:number, product: Product){
         this.id = id;
-        this.productId = product.id;
-        this.productName = product.name;
+        // this.productId = product.id;
+        // this.productName = product.name;
         this.price = product.price;
     }
 

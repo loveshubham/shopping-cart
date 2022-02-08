@@ -48,7 +48,7 @@ export class CartService {
     return this.http.post(cartUrl,{product});
   }
   removeFromCart(product:Product){
-    return this.http.delete(cartUrl +'/'+ product.id)
+    return this.http.delete(cartUrl +'/'+ product.title)
   }
   // sendMsg(product: Product){
   //   // console.log("13",product)
@@ -58,4 +58,3 @@ export class CartService {
   //   return this.subject.asObservable()
   // }
 }
-               

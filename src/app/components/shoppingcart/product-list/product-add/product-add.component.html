@@ -1,14 +1,14 @@
 <h1 class="bg-light mb-2 text-center">Add new Products</h1>
 <form class="row g-3" (ngSubmit)="AddproductForm.valid && Addnewproduct()" #AddproductForm="ngForm">
   <div class="col-md-4">
-    <label for="validationServer02" class="form-label">Enter CategoryId</label>
-    <input type="text" class="form-control " id="validationServer02" value="Enter Category Id" name="categoryId" [(ngModel)]="model.categoryId" required>
+    <label for="validationServer02" class="form-label">Enter Size</label>
+    <input type="text" class="form-control " id="validationServer02" value="Enter Size" name="size" [(ngModel)]="model.size" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col-md-4">
-    <label for="validationServer01" class="form-label">Enter Product Name</label>
+    <label for="validationServer01" class="form-label">Enter Product Title</label>
     <input type="text" class="form-control " id="validationServer01" value="Enter product name" name="name"  [(ngModel)]="model.name" required>
 
   </div>
@@ -19,13 +19,13 @@
       Looks good!
     </div>
   </div>
-  <div class="col-md-4">
+  <!-- <div class="col-md-4">
     <label for="validationServer02" class="form-label">Enter Imageurl</label>
     <input type="text" class="form-control " id="validationServer02" value="Enter the image url" name="imageurl"  [(ngModel)]="model.imageurl" required>
     <div class="valid-feedback">
       Looks good!
     </div>
-  </div>
+  </div> -->
   <div class="col-md-4">
     <label for="validationServer02" class="form-label">Enter Price</label>
     <input type="text" class="form-control " id="validationServer02" value="Enter the price"  name="price"  [(ngModel)]="model.price" required>
@@ -33,6 +33,23 @@
       Looks good!
     </div>
   </div>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+    <!-- <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Select Size
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">s</a></li>
+        <li><a class="dropdown-item" href="#">l</a></li>
+        <li><a class="dropdown-item" href="#">xl</a></li>
+      </ul>
+  </div> -->
+
   <!-- <div class="col-md-4">
     <label for="validationServerUsername" class="form-label">Description</label>
     <div class="input-group has-validation"> -->

@@ -29,11 +29,14 @@ const routes: Routes = [
   {path:'wishlist',component:WishlistComponent
   // , canActivate:[AuthGuard], data:{roles:['false']}
 },
+// {path:'productdetails/:category/:title' , component:ProductDetailsComponent },
   {path:'productdetails/:id' , component:ProductDetailsComponent },
   {path:'add' , component:ProductAddComponent },
   {path:'delete/:id' , component:ProductDeleteComponent },
   {path:'update/:id' , component:ProductUpdateComponent },
-  {path:'category/:id' , component:ProductByCategoryComponent },
+  // {path:'category/:category/:title' , component:ProductByCategoryComponent },
+  {path:'category/:category' , component:ProductByCategoryComponent },
+  // {path:'category/:id' , component:ProductByCategoryComponent },
   {path:'searchbydate' , component:ProductByDateComponent },
   {path:'forbidden',component:ForbiddenComponent},
   {path:'**', component:PageNotFoundComponent}

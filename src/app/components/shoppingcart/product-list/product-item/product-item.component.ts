@@ -13,7 +13,8 @@ import { WishlistService } from '../../services/wishlist.service';
 })
 export class ProductItemComponent implements OnInit {
 
-  @Input() productItem!: Product;
+  @Input() productItem!:any;
+  // @Input() productItem!: Product;
   @Input() addedTowishlist!:boolean ;
 
   product!: Product;
@@ -29,8 +30,8 @@ export class ProductItemComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
+    console.log("30",this.productItem)
     this.loadProductd()
-    // console.log("30",this.productItem)
   }
   handleAddToCart(){
     this.cartservice.addProductsToCart(this.productItem).subscribe(()=>{
@@ -39,14 +40,14 @@ export class ProductItemComponent implements OnInit {
 
   }
   handleAddToWishlist(){
-    this.wishlistService.addTowishlist(this.productItem.id).subscribe(()=>{
+    this.wishlistService.addTowishlist(this.productItem.title).subscribe(()=>{
       this.addedTowishlist=true;
       // console.log(this.productItem)
     })
 
   }
   handleRemoveFromwishlist(){
-    this.wishlistService.removeFromWishlist(this.productItem.id).subscribe(()=>{
+    this.wishlistService.removeFromWishlist(this.productItem.title).subscribe(()=>{
       this.addedTowishlist=false;
     })
 
