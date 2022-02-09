@@ -22,7 +22,10 @@ public clear(){
  localStorage.clear();
 }
 public isloggedin(){
+  // console.log(this.getRoles())
+  // console.log(this.getToken())
   return this.getRoles() && this.getToken();
+
 
 }
 }

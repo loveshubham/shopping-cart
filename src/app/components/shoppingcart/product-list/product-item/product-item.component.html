@@ -1,7 +1,3 @@
-
-
-
-
 <div class="card mb-4 shadow-sm">
   <a
   routerLink="/productdetails/{{productItem._id}}">
@@ -23,18 +19,29 @@
       </span>
 
     </div>
-    <p class="card-text">
-      <strong>{{productItem.price|currency:'INR'}}</strong>
-      <i *ngIf="addedTowishlist" class="fas fa-heart float-right" (click)="handleRemoveFromwishlist()"></i>
-      <i *ngIf="!addedTowishlist" class="far fa-heart float-right" (click)=" handleAddToWishlist()"></i>
+    <div>
+    <p>
+      Size:{{productItem.size}}
     </p>
+    </div>
+    <div  *ngIf="!loginservice.roleMatch('true')">
+
+      <p class="card-text">
+        <strong>{{productItem.price|currency:'INR'}}</strong>
+        <i *ngIf="addedTowishlist" class="fas fa-heart float-right" (click)="handleRemoveFromwishlist()"></i>
+        <i *ngIf="!addedTowishlist" class="far fa-heart float-right" (click)=" handleAddToWishlist()"></i>
+      </p>
+    </div>
 
     <p class="card-text">{{productItem.description | slice: 0:80}}...</p>
     <div class="d-flex justify-content-between align-items-center">
-      <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-primary" (click)="handleAddToCart()">Add to cart</button>
-        <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/productdetails/{{productItem._id}}" >View Details</button>
-        <!-- <button type="button" class="btn btn-sm btn-outline-secondary" (click)="detailview(productItem)" >View Details</button> -->
+      <div  *ngIf="!loginservice.roleMatch('true')">
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-primary" (click)="handleAddToCart()">Add to cart</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/productdetails/{{productItem._id}}" >View Details</button>
+          <!-- <button type="button" class="btn btn-sm btn-outline-secondary" (click)="detailview(productItem)" >View Details</button> -->
+        </div>
       </div>
     </div>
     <!-- <form [formGroup]="myQty" (ngSubmit)="myQuant()">

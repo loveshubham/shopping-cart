@@ -4,7 +4,7 @@ const productcontroller = require('../controller/productController')
 const {verifyToken,verifyTokenAndAdmin} = require('../utils/verifyToken')
 
 
-router.get('/',verifyTokenAndAdmin,productcontroller.allProduct)
+router.get('/',verifyToken,productcontroller.allProduct)
 
 router.post('/',verifyTokenAndAdmin,productcontroller.addProduct)
 

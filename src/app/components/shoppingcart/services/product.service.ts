@@ -7,7 +7,7 @@ import { Productinterface } from '../product-list/productinterface';
 
 const apiUrl='http://localhost:3000/products';
 const delurl='http://localhost:3001/api/product';
-const updateurl="localhost:3001/api/product";
+const updateurl="http://localhost:3001/api/product";
 
 
 const producturl='http://localhost:3001/api/product';
@@ -36,7 +36,6 @@ export class ProductService {
                                      // New one mentioned
   constructor(private http:HttpClient) { }
   getProducts():Observable<Product[]>{
-
     return this.http.get<Product[]>(producturl);
   }
 
@@ -44,7 +43,7 @@ export class ProductService {
     return this.http.post<Product[]>(addurl, productBody);
 
   }
-  updateproduct(productId: string , productBody: any):Observable<Product[]>{
+  updateproduct(productId: any , productBody: any):Observable<Product[]>{
     return this.http.put<Product[]>(updateurl +'/'+ productId, productBody );
 
   }

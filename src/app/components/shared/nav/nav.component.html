@@ -5,22 +5,25 @@
     </div>
     <span class="fas fa-search search-icon"></span> -->
 
-    <!-- <button
+    <button
     *ngIf="loginservice.roleMatch('true')"
       type="button"  class="ml-2 btn btn-outline-primary" routerLink="/admin">Admin</button>
-    <button
-    *ngIf="loginservice.roleMatch('false')"
-    type="button"  class="ml-2 btn btn-outline-primary" routerLink="/user">User</button> -->
+      <button
+      type="button"  class="ml-2 btn btn-outline-primary" routerLink="/shop">View Products</button>
 
+      <button *ngIf="loginservice.roleMatch('false')"
+    type="button"  class="ml-2 btn btn-outline-primary" routerLink="/user">User</button>
 
     <nav class="my-2 my-md-0 mr-md-3">
+      <div  *ngIf="!loginservice.roleMatch('true')">
       <a class="p-2 text-dark" routerLink="/shop">Shop</a>
 
 
       <!-- <a class="p-2 text-dark" routerLink="**">Enterprise</a> -->
       <!-- <a class="p-2 text-dark" href="/add">Add Product</a> -->
-      <a class="p-2 text-dark" routerLink="/wishlist">Wishlist</a>
 
+      <a class="p-2 text-dark" routerLink="/wishlist">Wishlist</a>
+      </div>
 
     </nav>
 

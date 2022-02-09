@@ -68,12 +68,12 @@ export class LoginComponent implements OnInit {
 
       this.userAuthservice.setRoles(data.user.isAdmin);
       this.userAuthservice.setToken(data.accessToken);
-
       const role = data.user.isAdmin;
       if(role===true){
         this.router.navigate(['/admin']);
       }
       else {
+
         this.router.navigate(['/user']);
       }
       window.alert('login successful')

@@ -17,11 +17,12 @@ export class LoginService {
   );
   constructor(private http:HttpClient ,
     private userauth:UserAuthService) {}
-  Addlogindetail(user:any):Observable<Logindetails>{
+
+    Addlogindetail(user:any):Observable<Logindetails>{
     return this.http.post<Logindetails>(this.loginUrl , user ,
        {headers:this.requestHeader}
        );
-       
+
 
 }
 public roleMatch(allowedRole:any):any
@@ -36,11 +37,10 @@ const userroles:any = this.userauth.getRoles();
     if (userroles === allowedRole) {
       ismatch = true;
       return ismatch;
-    } else {
+    }
+    else {
       return ismatch;
     }
-
-
 
 
 

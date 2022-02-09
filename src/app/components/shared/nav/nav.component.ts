@@ -27,7 +27,7 @@ export class NavComponent implements OnInit {
   }
   public logout(){
     this.userAuthservice.clear();
-    this.routes.navigate(['/shop']);
+    this.routes.navigate(['/login']);
   }
 
 }
