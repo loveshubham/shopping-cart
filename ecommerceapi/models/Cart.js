@@ -14,9 +14,13 @@ const cartSchema = new mongoose.Schema({
             quantity:{
                 type: Number,
                 default:1 
+            },
+            subtotal:{
+                type:Number
             }
+
         }
-    ]
+    ],
 },{timestamps: true })
 
 const Cart =  mongoose.model('Cart',cartSchema)

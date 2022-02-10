@@ -6,13 +6,18 @@ const cartcontroller = require('../controller/cartController')
 
 const {verifyToken, verifyTokenAndAuthorization,verifyTokenAndAdmin} = require('../utils/verifyToken')
 
+
+router.post('/',verifyToken, cartcontroller.createCart)  
+
+router.get('/mycart',verifyToken, cartcontroller.myCart)
+
+router.delete('/',verifyToken,cartcontroller.deleteCart)
+
+router.put('/:productId',verifyToken, cartcontroller.decreaseQuantity)
+
+//Admin Cart Routes
+
 router.get('/',verifyTokenAndAdmin,cartcontroller.cartListAdmin)
-
-router.post('/',verifyTokenAndAuthorization, cartcontroller.createCart)  
-
-router.put('/:id',verifyTokenAndAuthorization, cartcontroller.myCart)
-
-router.delete('/:id',verifyTokenAndAdmin,cartcontroller.deleteCart)
 
 router.get('/:userid',verifyTokenAndAdmin,cartcontroller.searchCartById)
 

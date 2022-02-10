@@ -2,7 +2,7 @@ const Product = require('../models/Product')
 const User = require('../models/User')
 const Cart = require('../models/Cart')
 const {verifyToken, verifyTokenAndAuthorization,verifyTokenAndAdmin} = require('../utils/verifyToken')
-
+let total = 0;
 module.exports.cartListAdmin = async(req,res)=>{
     try{
       const Carts = await Cart.find()
@@ -18,21 +18,80 @@ module.exports.cartListAdmin = async(req,res)=>{
 }
 
 module.exports.createCart = async(req,res)=>{
-    const  newCart = new  Cart(req.body)
+   const productId = req.body.products[0].productId
+   const addedProduct =  await Product.findById(productId)
     try{
-        const saveCart= await newCart.save()
-        res.status(200).send({message:"Cart Created",Cart_Detail:saveCart})
+        let  cart = await Cart.findOne({userId:req.user.id})
+        if(cart){
+            let productIndex = cart.products.findIndex(p => p.productId == productId);
+            if (productIndex > -1) {
+              let productItem = cart.products[productIndex];
+              productItem.quantity += 1;
+              productItem.subtotal = (addedProduct.price * productItem.quantity)
+              cart.products[productIndex] = productItem;
+            } else {
+              cart.products.push({ productId, quantity : 1, subtotal:addedProduct.price });
+            }
+            // const total = cart.products.reduce((sum, product)=>{
+            //     return sum + product.subtotal;
+            // });
+            // console.log(38,cart.total,total);
+            // cart.total = total.subtotal;
+            cart = await cart.save();
+            return res.status(201).send(cart);
+        }else{
+            const newCart = await Cart.create({
+                userId:req.user.id,
+                products: [{ productId, quantity:1,subtotal:addedProduct.price }],
+              });
+              return res.status(201).send({status:"pass",message:"new cart created",newCart:newCart});
+        }
     }catch(err){
+        res.status(401).send({Error:err.message})
+    }
+}
+
+module.exports.decreaseQuantity = async(req,res)=>{
+    try{
+        const productId = req.params.productId
+        const addedProduct =  await Product.findById(productId)
+
+        let  cart = await Cart.findOne({userId:req.user.id})
+        if(cart){
+            let productIndex = cart.products.findIndex(p => p.productId == productId);
+            if (productIndex > -1) {
+              let productItem = cart.products[productIndex];
+              if(productItem.quantity == 0){
+                cart.products.splice(productIndex, 1)[0]
+              }else{
+              productItem.quantity -= 1;
+              productItem.subtotal = (addedProduct.price * productItem.quantity)
+              cart.products[productIndex] = productItem;
+              }
+            } else {
+                res.status(404).send({status: 'Not Found', message:"ProductId you have entered not exist in Cart"})
+            }
+            cart.total = cart.products.reduce((sum, item)=>{
+                return sum + item.quantity;
+            },0);
+            cart = await cart.save();
+            return res.status(201).send(cart);
+        }else{
+            res.status(404).send({status: 'Cart Not Found', message:"Add  Product to cart to do further process"})
+    }}
+    catch(err){
         res.status(401).send({Error:err.message})
     }
 }
 
 module.exports.myCart = async(req,res)=>{
     try{
-        const updateCart = await Cart.findByIdAndUpdate(req.params.id,{
-            $set : req.body
-        },{new:true})
-        res.status(200).send({message:"Cart Updated successfully ",updatedCart:updateCart})
+        let  cart = await Cart.findOne({userId:req.user.id})
+        if(cart){
+        res.status(200).send({message:"User Cart ",cart:cart})
+        }else{
+            res.status(404).send({status:"failed",message:"User Cart Not Found"})
+        }
     }catch(err){
         res.status(401).send({Error:err.message})
     }
@@ -40,7 +99,7 @@ module.exports.myCart = async(req,res)=>{
 
 module.exports.deleteCart = async(req,res)=>{
     try{
-        await Cart.findByIdAndDelete(req.params.id)
+        await Cart.deleteOne({userId:req.user.id})
         res.status(200).send({message:"Cart Deleted"})
     }catch(err){
         res.status(401).send({Error:err.message})
