@@ -8,7 +8,7 @@ const authRoute = require('./routers/auth')
 const productRoute = require('./routers/product')
 const orderRoute = require('./routers/order')
 const cartRoute = require('./routers/cart')
-const categoryRoute = require('./routers/category')
+const categoryRoute = require('./routers/category') 
 const app = express();
 dotenv.config();
 app.use(bodyParser.json());
@@ -28,7 +28,7 @@ app.use('/api/auth',authRoute)
 app.use('/api/user',userRoute)
 app.use('/api/product',productRoute)
 app.use('/api/orders',orderRoute)
-app.use('/app/cart',cartRoute)
+app.use('/api/cart',cartRoute)
 app.use('/api/category',categoryRoute)
 
 app.listen(process.env.PORT,()=>{
