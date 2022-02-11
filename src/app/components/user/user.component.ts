@@ -1,4 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../shoppingcart/services/user.service';
+
+
+
+
+
 
 @Component({
   selector: 'app-user',
@@ -7,9 +14,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  userlist:any;
+
+
+  constructor(  private userservice:UserService,
+    private http:HttpClient) { }
+
+  ngOnInit() {
+
+    this.loadusers();
   }
+
+  loadusers(){
+    this.userservice.getuser().subscribe((products)=>{
+      this.userlist=products;
+      console.log(this.userlist)
+    })
+  }
+
 
 }

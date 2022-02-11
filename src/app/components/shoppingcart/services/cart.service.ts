@@ -2,9 +2,13 @@ import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cart-item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { cartUrl } from 'src/app/components/shoppingcart/config/api';
+// import { cartUrl } from 'src/app/components/shoppingcart/config/api';
 import { Product } from '../models/product';
 import { map } from 'rxjs';
+
+
+
+const cartUrl='http://localhost:3001/api/cart';
 
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,23 @@
+
+
+
+<table class="table "  >
+
+  <tbody>
+    <tr>
+      <td>{{userDetails._id}}</td>
+      <td>{{userDetails.email}}</td>
+      <td>{{userDetails.isAdmin}}</td>
+      <div class="d-grid gap-2 d-md-block">
+        <button class="btn btn-primary" type="button" routerLink="/updateuser/{{userDetails._id}}">Update</button>
+        <button class="btn btn-danger" type="button" routerLink="/deleteuser/{{userDetails._id}}">Delete</button>
+      </div>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+
+

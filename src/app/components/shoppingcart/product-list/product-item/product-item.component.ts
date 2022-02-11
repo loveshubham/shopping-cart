@@ -32,7 +32,7 @@ export class ProductItemComponent implements OnInit {
     public loginservice:LoginService) { }
 
   ngOnInit(): void {
-    console.log("30",this.productItem)
+    // console.log("30",this.productItem)
     this.loadProductd()
   }
   handleAddToCart(){

@@ -36,7 +36,7 @@ function symbolValidator(control: { hasError: (arg0: string) => any; value: stri
     return { symbol:true}
   }
 
-}
+} 
 
 @Component({
   selector: 'app-register',

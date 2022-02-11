@@ -65,16 +65,16 @@ export class LoginComponent implements OnInit {
       console.log(data)
       console.log(data.user.isAdmin)
       console.log(data.accessToken)
-
+ 
       this.userAuthservice.setRoles(data.user.isAdmin);
       this.userAuthservice.setToken(data.accessToken);
       const role = data.user.isAdmin;
       if(role===true){
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/shop']);
       }
       else {
 
-        this.router.navigate(['/user']);
+        this.router.navigate(['/shop']);
       }
       window.alert('login successful')
     },(error)=>{
