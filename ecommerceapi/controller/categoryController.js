@@ -3,7 +3,7 @@ const Category = require('../models/Category')
 module.exports.allCategory = async(req,res)=>{
     try{
 
-        const Categorys = await Category.find()
+        const Categorys = await Category.find().sort({ "createdAt": -1 })
 
         if(Categorys.length>0){
         res.status(200).send({message:"Category List",Categorys:Categorys})

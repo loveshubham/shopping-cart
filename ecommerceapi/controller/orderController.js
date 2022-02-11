@@ -1,10 +1,11 @@
 const Product = require('../models/Product')
 const User = require('../models/User')
 const Order = require('../models/Order')
+const Cart = require('../models/Cart')
 
 module.exports.allOrders = async(req,res)=>{
     try{
-      const Orders = await Order.find()
+      const Orders = await Order.find().sort({ "createdAt": -1 })
       if(Orders)
       {
         res.status(200).send({message:"Orders List",Order_List:Orders})
@@ -31,10 +32,17 @@ module.exports.myOrders = async(req,res)=>{
 }
 
 module.exports.createOrder = async(req,res)=>{
-    const  newOrder = new  Order(req.body)
     try{
-        const savedOrder = await newOrder.save()
-        res.status(200).send({message:"Order Created",Order_Detail:savedOrder})
+    let  cart = await Cart.findOne({userId:req.user.id})
+    // const  newOrder = new  Order(req.body)
+    const newOrder = await Order.create({
+        userId:cart.userId,
+        products:cart.products,
+        total:req.body.total,
+        address:req.body.address
+    })
+    await Cart.findOneAndDelete(cart._id)
+    res.status(200).send({message:"Order Created",Order_Detail:newOrder})
     }catch(err){
         res.status(401).send({Error:err.message})
     }
