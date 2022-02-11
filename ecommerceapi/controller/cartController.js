@@ -18,7 +18,7 @@ module.exports.cartListAdmin = async(req,res)=>{
 }
 
 module.exports.createCart = async(req,res)=>{
-   const productId = req.body.products[0].productId
+   const productId = req.body.productId
    const addedProduct =  await Product.findById(productId)
     try{
         let  cart = await Cart.findOne({userId:req.user.id})
