@@ -4,7 +4,7 @@ const {verifyToken,verifyTokenAndAuthorization,verifyTokenAndAdmin} = require('.
 
 router.get('/',verifyTokenAndAdmin,ordercontroller.allOrders)
 
-router.get('/MyOrder',verifyTokenAndAuthorization, ordercontroller.myOrders)
+router.get('/MyOrder',verifyToken, ordercontroller.myOrders)
 
 router.post('/',verifyToken,ordercontroller.createOrder)
 
@@ -12,7 +12,7 @@ router.put('/:id',verifyTokenAndAdmin, ordercontroller.updateOrder)
 
 router.delete('/:id',verifyTokenAndAdmin, ordercontroller.deleteOrder)
 
-router.get('/find/:userId',verifyTokenAndAdmin,ordercontroller.searchUserOrder)
+router.get('/:userId',verifyTokenAndAdmin,ordercontroller.searchUserOrder)
 
 
 

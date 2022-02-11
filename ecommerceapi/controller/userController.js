@@ -4,7 +4,11 @@ const User = require('../models/User')
 module.exports.allUser = async(req,res)=>{
     try{
         const users = await User.find({}).sort({ "createdAt": -1 })
-        res.status(200).send({message:"User List",Users:users})
+        if(users.length > 0){
+            res.status(200).send({message:"User List",Users:users})
+        }else{
+            res.status(404).send({ status: "Not Found",Error:"No User Found.!"})
+        }
     }catch(err){
         res.status(401).send({Error:err.message})
     }

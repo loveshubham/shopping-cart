@@ -12,7 +12,7 @@ module.exports.allProduct = async(req,res)=>{
                 categories :{$in :[qcategory]}
             })
         }else{
-            products = await Product.find()
+            products = await Product.find().sort({ "createdAt": -1 })
         }
         if(products.length>0){
         res.status(200).send({message:"Product List",products:products})

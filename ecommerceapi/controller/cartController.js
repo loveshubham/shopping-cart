@@ -5,7 +5,7 @@ const {verifyToken, verifyTokenAndAuthorization,verifyTokenAndAdmin} = require('
 let total = 0;
 module.exports.cartListAdmin = async(req,res)=>{
     try{
-      const Carts = await Cart.find()
+      const Carts = await Cart.find().sort({ "createdAt": -1 })
       if(Carts)
       {
         res.status(200).send({message:"Carts List",Cart_List:Carts})
@@ -86,7 +86,7 @@ module.exports.decreaseQuantity = async(req,res)=>{
 
 module.exports.myCart = async(req,res)=>{
     try{
-        let  cart = await Cart.findOne({userId:req.user.id})
+        let  cart = await Cart.findOne({userId:req.user.id}).populate('products.productId')
         if(cart){
         res.status(200).send({message:"User Cart ",cart:cart})
         }else{
