@@ -33,6 +33,13 @@ import { AuthGuard } from './components/auth.guard';
 import { AuthInterceptor } from './components/auth.interceptor';
 import { LoginService } from './components/shoppingcart/services/login.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { DeleteUserComponent } from './components/user/delete-user/delete-user.component';
+import { DetailUserComponent } from './components/user/detail-user/detail-user.component';
+import { ViewUserComponent } from './components/user/view-user/view-user.component';
 
 
 @NgModule({
@@ -61,7 +68,11 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     ProductByDateComponent,
     AdminComponent,
     UserComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    UpdateUserComponent,
+    DeleteUserComponent,
+    DetailUserComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +81,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     FormsModule,
     ReactiveFormsModule,
     FormsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     AuthGuard,

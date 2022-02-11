@@ -12,10 +12,14 @@ const orderSchema = new mongoose.Schema({
             },
             quantity:{
                 type: Number,
+<<<<<<< HEAD
                 default:1 
             },
             subtotal:{
                 type:Number
+=======
+                default:1
+>>>>>>> 9cef2e692b3e870e0a857aa897ab3f5fd25ecb0e
             }
         }
     ],

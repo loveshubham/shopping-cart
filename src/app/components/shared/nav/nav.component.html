@@ -1,9 +1,10 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <h5 class="my-0 mr-md-auto font-weight-normal"><app-header></app-header></h5>
-    <!-- <div class="form-grpup">
-      <input type="text" class="form-control" placeholder="search products">
-    </div>
-    <span class="fas fa-search search-icon"></span> -->
+    <!-- <div class="form-group ">
+      <input type="text" class="form-control bg-light  " placeholder="Search Products By Name" style="width: 300px;"
+      />
+       [(ngModel)]="searchTerm"
+    </div> -->
 
     <button
     *ngIf="loginservice.roleMatch('true')"
@@ -11,17 +12,16 @@
       <button
       type="button"  class="ml-2 btn btn-outline-primary" routerLink="/shop">View Products</button>
 
-      <button *ngIf="loginservice.roleMatch('false')"
+      <button *ngIf="loginservice.roleMatch('true')"
     type="button"  class="ml-2 btn btn-outline-primary" routerLink="/user">User</button>
+
+    <button *ngIf="!loginservice.roleMatch('true')"
+    type="button"  class="ml-2 btn btn-outline-primary" routerLink="/updateuser/{{userlist.Users._id}}">update</button>
+
 
     <nav class="my-2 my-md-0 mr-md-3">
       <div  *ngIf="!loginservice.roleMatch('true')">
-      <a class="p-2 text-dark" routerLink="/shop">Shop</a>
-
-
-      <!-- <a class="p-2 text-dark" routerLink="**">Enterprise</a> -->
-      <!-- <a class="p-2 text-dark" href="/add">Add Product</a> -->
-
+      <!-- <a class="p-2 text-dark" routerLink="/shop">Shop</a> -->
       <a class="p-2 text-dark" routerLink="/wishlist">Wishlist</a>
       </div>
 
@@ -35,28 +35,6 @@
 
 
 
-
-
-
-
-
-
-    <!-- <button type="button"  class="ml-2 btn btn-outline-primary" routerLink="/login">Login</button>
-    <button type="button" class="ml-2 btn btn-outline-primary" (click)="logout()" >Logout</button> -->
-
-    <!-- <div *ngIf="cartIT.length===0" class="alert alert-info">
-      <a routerLink="/cart">
-      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
-        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
-        routerLink="/cart" />
-      </svg>
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-      <strong>
-        {{cartIT.length}}
-      </strong>
-    </span>
-  </a>
-    </div> -->
     <div  *ngIf="cartIT.length> 0" class="list-group">
 
       <a routerLink="/cart">

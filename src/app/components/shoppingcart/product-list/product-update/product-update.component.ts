@@ -22,7 +22,7 @@ productdetail:any
         this.productdetail=data;
         console.log(this.productdetail)
       })
-
+ 
     })
   }
   Updatenewproduct(){

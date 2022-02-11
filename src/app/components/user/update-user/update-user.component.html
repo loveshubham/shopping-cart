@@ -1,0 +1,51 @@
+
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+      <div class="guest-form-card card">
+          <div class="class-header text-center bg-danger">
+              <strong style="color: white;">Update User Details</strong>
+           </div>
+          <div class="card-body">
+                  <form [formGroup]="UserupdateForm" (ngSubmit)="Updateuser()" >
+
+                      <div class="form-group">
+                          <label  for="Email id">Enter Email Id </label>
+                          <input
+                          id="email"
+                          name="email"
+                          placeholder="Enter your Email "
+                          class="form-control"
+                          formControlName="email"
+                          [ngClass]="{'is-invalid':UserupdateForm.get('email')?.touched && UserupdateForm.get('email')?.invalid}"
+                          />
+
+                      </div>
+
+
+                      <div class="form-group">
+                          <label for="password" >Enter Password </label>
+                          <input
+                          type="password"
+                          id="password"
+                          placeholder="Enter your Password"
+                          class="form-control "
+                          formControlName="password"
+                          [ngClass]="{'is-invalid':UserupdateForm.get('password')?.touched && UserupdateForm.get('password')?.invalid}"
+                          />
+
+                      </div>
+
+                        <button class="btn btn-primary btn-block" [disabled]="UserupdateForm.invalid">Update
+
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-link">
+                <h5 ><a routerLink="/login">login here</a> </h5>
+              </div>
+
+
+

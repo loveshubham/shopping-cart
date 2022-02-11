@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 import { WishlistService } from '../services/wishlist.service';
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 
 
 @Component({
@@ -14,20 +15,33 @@ export class ProductListComponent implements OnInit {
   // productList:Product[]=[];
   wishlist:any[]=[]
   searchTerm!:string
+  page:number=1;
 
   constructor(private productService:ProductService ,
     private wishlistService:WishlistService
 
     ){ }
 
-  ngOnInit(): void {
-    this.loadProducts()
-    this.loadWishlist()
-    // console.log("line 24",this.productList.products)
-  }
+    ngOnInit(): void {
+      // this.onScroll()
+      this.loadProducts()
+      this.loadWishlist()
+      // console.log("line 24",this.productList.products)
+    }
+    onScroll(){
+      console.log('scrolled!!');
+      this.page=this.page+1;
+      // this.loadProducts();
+    }
   loadProducts(){
-    this.productService.getProducts().subscribe((products)=>{this.productList=products;
-      console.log("29",this.productList)
+    this.productService.getProducts().subscribe((products)=>{
+      // products.forEach(element=>{
+      //   this.productList.push(element)
+        // this.productList.push(products)
+      // })
+      this.productList=products;
+      // console.log("29",this.productList)
+
       this.loadWishlist()
     })
 
@@ -36,6 +50,9 @@ export class ProductListComponent implements OnInit {
    this.wishlistService.getwishlistitems().subscribe((productIds)=>{
     // console.log(productIds)
     this.wishlist=productIds})
+  }
+  onScrollUp(){
+    console.log('scrolled up !!');
   }
 
 }

@@ -15,7 +15,11 @@ import { ProductByDateComponent } from './components/shoppingcart/product-list/p
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { DetailUserComponent } from './components/user/detail-user/detail-user.component';
+import { DeleteUserComponent } from './components/user/delete-user/delete-user.component';
 import { AuthGuard } from './components/auth.guard';
+import { ViewUserComponent } from './components/user/view-user/view-user.component';
 const routes: Routes = [
   {path:'' , redirectTo:'/shop', pathMatch:'full'},
   {path:'login', component:LoginComponent},
@@ -40,6 +44,10 @@ const routes: Routes = [
   {path:'category/:category' , component:ProductByCategoryComponent },
   // {path:'category/:id' , component:ProductByCategoryComponent },
   {path:'searchbydate' , component:ProductByDateComponent },
+  {path:'updateuser/:id' , component:UpdateUserComponent },
+  {path:'deleteuser/:id' , component:DeleteUserComponent },
+  {path:'viewuser',component:ViewUserComponent},
+  {path:'detailuser' , component:DetailUserComponent },
   {path:'forbidden',component:ForbiddenComponent},
   {path:'**', component:PageNotFoundComponent}
 
