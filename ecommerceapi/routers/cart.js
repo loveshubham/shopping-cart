@@ -15,6 +15,8 @@ router.delete('/',verifyToken,cartcontroller.deleteCart)
 
 router.put('/:productId',verifyToken, cartcontroller.decreaseQuantity)
 
+router.delete('/:productId',verifyToken, cartcontroller.removeProductFromCart)
+
 //Admin Cart Routes
 
 router.get('/',verifyTokenAndAdmin,cartcontroller.cartListAdmin)
