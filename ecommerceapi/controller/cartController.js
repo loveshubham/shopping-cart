@@ -61,7 +61,7 @@ module.exports.decreaseQuantity = async(req,res)=>{
             let productIndex = cart.products.findIndex(p => p.productId == productId);
             if (productIndex > -1) {
               let productItem = cart.products[productIndex];
-              if(productItem.quantity == 0){
+              if(productItem.quantity <= 1){
                 cart.products.splice(productIndex, 1)[0]
               }else{
               productItem.quantity -= 1;
@@ -117,4 +117,15 @@ module.exports.searchCartById = async(req,res)=>{
     }catch(err){
         res.status(401).send({Error:err.message})
     }
+}
+
+module.exports.removeProductFromCart = async(req,res)=>{
+    try{
+        const productId = req.params.productId
+        const del = await Cart.updateMany({ $pull: { products: { productId } } });
+         res.status(200).send({status:"pass",message:"cart Product Deleted"})
+        }catch(err){
+            res.status(401).send({Error:err.message})
+            console.log(err);
+        }
 }
