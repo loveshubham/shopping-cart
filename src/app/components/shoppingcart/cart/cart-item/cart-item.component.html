@@ -8,6 +8,7 @@
           <th>Product Image </th>
           <th>Product Name </th>
           <th>Product Quantity </th>
+          <th>Product price per article </th>
           <th>total price </th>
           <th>Action </th>
         </tr>
@@ -15,10 +16,11 @@
       <tbody>
         <tr>
           <!-- <th>{{cartItem.id}}:</th> -->
-          <th> <img src="{{cartItem.imageurl}}"  width="50" height="50"> </th>
-          <th>{{cartItem.productName}}</th>
-          <th>{{cartItem.qty}} </th>
-          <th>{{(cartItem.qty)*(cartItem.price)|currency:'INR'}} </th>
+          <th> <img src="{{cartItem.product.productId.image}}"  width="50" height="50"> </th>
+          <th>{{cartItem.product.productId.title}}</th>
+          <th>{{cartItem.quantity}} </th>
+          <th>{{cartItem.product.productId.price|currency:'INR'}} </th>
+          <th>{{cartItem.product.subtotal|currency:'INR'}} </th>
           <th><button type="button" class="btn btn-md btn-danger " style="position: relative; "
             (click)="deletetodo(cartItem)">Delete</button>
           </th>

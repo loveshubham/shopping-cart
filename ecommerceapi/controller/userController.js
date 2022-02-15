@@ -19,7 +19,7 @@ module.exports.updateUser = async(req,res)=>{
         req.body.password = cryptojs.AES.encrypt(req.body.password,process.env.PASSWORD_SECRET)
     }
     try{
-        const updateUser = await User.findByIdAndUpdate(req.params.id,{
+        const updateUser = await User.findByIdAndUpdate(req.user.id,{
             $set : req.body
         },{new:true})
         res.status(200).send({message:"User Updated",user:updateUser})
@@ -36,7 +36,7 @@ module.exports.deleteUser = async(req,res)=>{
         res.status(401).send({Error:err.message})
     }
 }
-   
+
 module.exports.searchUserById = async(req,res)=>{
     try{
         const user = await User.findById(req.params.id,{_id:1,username:1,email:1})

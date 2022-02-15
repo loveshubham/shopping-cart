@@ -16,6 +16,8 @@ export class ProductListComponent implements OnInit {
   wishlist:any[]=[]
   searchTerm!:string
   page:number=1;
+  Size!:string;
+  price!:number;
 
   constructor(private productService:ProductService ,
     private wishlistService:WishlistService
@@ -27,6 +29,8 @@ export class ProductListComponent implements OnInit {
       this.loadProducts()
       this.loadWishlist()
       // console.log("line 24",this.productList.products)
+
+
     }
     onScroll(){
       console.log('scrolled!!');

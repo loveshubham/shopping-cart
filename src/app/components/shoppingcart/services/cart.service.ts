@@ -6,9 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product';
 import { map } from 'rxjs';
 
+const sendtocarturl='http://localhost:3001/api/cart';
 
-
-const cartUrl='http://localhost:3001/api/cart';
+const getcartUrl='http://localhost:3001/api/cart/mycart';
 
 @Injectable({
   providedIn: 'root'
@@ -19,17 +19,19 @@ export class CartService {
   subject: any;
 
   constructor(private http:HttpClient) { }
-  getCartItem():Observable<CartItem[]>{
-    return this.http.get<CartItem[]>(cartUrl).pipe(
-      map((result:any[])=>{
+  getCartItem():Observable<any>{
+    return this.http.get<any>(getcartUrl).pipe(
+      map((result:any)=>{
         let cartItems:CartItem[]=[];
+        console.log(result)
 
-        for (let item of result){
+        for (let item of result.cart.products){
+          // console.log(item)
           let productExists=false
 
         for(let i in cartItems){
-          if(cartItems[i].productId===item.product.id){
-            cartItems[i].qty++
+          if(cartItems[i].productId===item.productId._id){
+            cartItems[i].quantity++
             productExists=true
             break;
           }
@@ -37,8 +39,12 @@ export class CartService {
 
         if (!productExists){
           cartItems.push(
-            new CartItem(item.id,
-             item.product));
+            new CartItem(
+              item,
+              item.quantity,
+             item.subtotal
+             )
+            );
 
         }
         }
@@ -48,12 +54,13 @@ export class CartService {
 
     );
   }
-  addProductsToCart(product: Product): Observable<any>{
-    return this.http.post(cartUrl,{product});
+  addProductsToCart(productId: any): Observable<any>{
+    return this.http.post(sendtocarturl,{productId});
   }
-  removeFromCart(product:Product){
-    return this.http.delete(cartUrl +'/'+ product.title)
+  removeFromCart(product:any){
+    return this.http.delete(getcartUrl +'/'+ product._id)
   }
+
   // sendMsg(product: Product){
   //   // console.log("13",product)
   // this.subject.next(product as Product)//triggering an event

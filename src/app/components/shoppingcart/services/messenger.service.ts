@@ -6,14 +6,14 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class MessengerService {
-  subject =new Subject<Product>();
+  subject =new Subject<any>();
 
   constructor() { }
-  sendMsg(product: Product){
+  sendMsg(product: any){
     // console.log("13",product)
-  this.subject.next(product as Product)//triggering an event
+  this.subject.next(product as any)//triggering an event
   }
   getMsg(){
     return this.subject.asObservable()
-  } 
+  }
 }

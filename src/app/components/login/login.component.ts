@@ -59,13 +59,13 @@ export class LoginComponent implements OnInit {
     })
   }
  loginfor(){
-    console.log("62",this.loginForm.value)
+    // console.log("62",this.loginForm.value)
     this.loginservice.Addlogindetail(this.loginForm.value).subscribe((data: any)=>{
       // console.log(data.jwtToken)
-      console.log(data)
-      console.log(data.user.isAdmin)
-      console.log(data.accessToken)
- 
+      // console.log(data)
+      // console.log(data.user.isAdmin)
+      // console.log(data.accessToken)
+
       this.userAuthservice.setRoles(data.user.isAdmin);
       this.userAuthservice.setToken(data.accessToken);
       const role = data.user.isAdmin;

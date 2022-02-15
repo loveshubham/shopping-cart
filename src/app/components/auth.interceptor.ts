@@ -15,9 +15,9 @@ export class AuthInterceptor implements HttpInterceptor{
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if(req.headers.get('No-Auth')==='True'){
-      return next.handle(req.clone());
-    }
+    // if(req.headers.get('No-Auth')==='True'){
+    //   return next.handle(req.clone());
+    // }
     const token = this.userAuthservice.getToken();
     // console.log("22",token)
     req=this.addToken(req,token);

@@ -6,14 +6,16 @@ const verifyToken = (req,res,next) => {
         const token = authHeader.split(" ")[1]
         jwt.verify (token,process.env.JWT_SECRET_KEY,(err,user)=>{
             if(err){
+              console.log(err)
                 res.status(404).send(err)
+
             }else{
                 req.user = user
                 next()
             }
         })
     }else{
-        return res.status(401).send({Error:"JWT NOT FOUND.!",message:"Not AUthenticated"})    } 
+        return res.status(401).send({Error:"JWT NOT FOUND.!",message:"Not AUthenticated"})    }
 }
 
 const verifyTokenAndAuthorization = (req,res,next) => {

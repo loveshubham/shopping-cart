@@ -53,6 +53,7 @@ export class UpdateUserComponent implements OnInit {
 
   this.activatedRoute.params.subscribe(data=>{
     this.userId=data['id'];
+    console.log(this.userId)
     this.userservice.getdetails(this.userId).subscribe((data)=>{
       this.userdet=data;
       console.log(this.userdet)

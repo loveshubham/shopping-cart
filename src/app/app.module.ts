@@ -40,6 +40,8 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
 import { DeleteUserComponent } from './components/user/delete-user/delete-user.component';
 import { DetailUserComponent } from './components/user/detail-user/detail-user.component';
 import { ViewUserComponent } from './components/user/view-user/view-user.component';
+import { SizeFiltersPipe } from './size-filters.pipe';
+import { PriceFiltersPipe } from './price-filters.pipe';
 
 
 @NgModule({
@@ -72,7 +74,9 @@ import { ViewUserComponent } from './components/user/view-user/view-user.compone
     UpdateUserComponent,
     DeleteUserComponent,
     DetailUserComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    SizeFiltersPipe,
+    PriceFiltersPipe
   ],
   imports: [
     BrowserModule,
