@@ -28,7 +28,7 @@ export class LoginService {
 public roleMatch(allowedRole:any):any
 {
 let ismatch=false;
-const userroles:any = this.userauth.getRoles();
+ const userroles = this.userauth.getRoles();
 
 
 // if (userroles != null && userroles) {

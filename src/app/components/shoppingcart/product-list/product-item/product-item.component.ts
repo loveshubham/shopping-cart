@@ -14,9 +14,9 @@ import { WishlistService } from '../../services/wishlist.service';
 })
 export class ProductItemComponent implements OnInit {
 
-  @Input() productItem!:any;
+  @Input() productItem:any;
   // @Input() productItem!: Product;
-  @Input() addedTowishlist!:boolean ;
+  @Input() addedTowishlist!:boolean;
 
   product!: Product;
   productD!:Product;
@@ -34,10 +34,12 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {
     // console.log("30",this.productItem)
     this.loadProductd()
+
   }
   handleAddToCart(){
-    this.cartservice.addProductsToCart(this.productItem).subscribe(()=>{
-      this.msg.sendMsg(this.productItem)
+    console.log(this.productItem._id)
+    this.cartservice.addProductsToCart(this.productItem._id).subscribe(()=>{
+      this.msg.sendMsg(this.productItem._id)
     })
 
   }
@@ -59,6 +61,7 @@ export class ProductItemComponent implements OnInit {
   }
   loadProductd(){
     this.productD=this.productItem
+
   }
   // getDetail(){
 
@@ -68,5 +71,9 @@ export class ProductItemComponent implements OnInit {
   //   this.router.navigate(['productdetail'], { state: { productItem:productItem } });
 
   // }
+
+
+
+  
 
 }

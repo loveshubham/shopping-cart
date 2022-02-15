@@ -10,6 +10,8 @@ export class Product {
     color?:string;
     price!:number;
     qty!: number;
+    subtotal!:number;
+    quantity;
 
   // value: any;
     // categoryId!:number
@@ -24,7 +26,8 @@ constructor(
   id:number,
   name:string,
   price:number,
-  imageurl:string)
+  imageurl:string,
+  subtotal:number)
 
 {
     // this.id=id,
@@ -38,7 +41,8 @@ constructor(
     this.price=price,
     this.imageurl=imageurl
     ,
-    this.qty= 1
+    this.quantity= 1,
+    this.subtotal=subtotal
     // this.categoryId=categoryId
     // console.log("produts 16",this.qty)
 }

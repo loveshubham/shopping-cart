@@ -10,7 +10,9 @@
       <strong>{{productItem.title}}</strong>
     </a>
     <br>
-    <div  *ngIf="loginservice.roleMatch('true')">
+    <div
+    *ngIf="loginservice.roleMatch('true')"
+     >
       <span>
         <a href="/update/{{productItem._id}}">Update</a>
       </span> |
@@ -35,7 +37,10 @@
 
     <p class="card-text">{{productItem.description | slice: 0:80}}...</p>
     <div class="d-flex justify-content-between align-items-center">
-      <div  *ngIf="!loginservice.roleMatch('true')">
+
+      <div
+      *ngIf="!loginservice.roleMatch('true')"
+      >
 
         <div class="btn-group">
           <button type="button" class="btn btn-sm btn-primary" (click)="handleAddToCart()">Add to cart</button>
@@ -44,6 +49,9 @@
         </div>
       </div>
     </div>
+
+
+    
     <!-- <form [formGroup]="myQty" (ngSubmit)="myQuant()">
 
       <div class="def-number-input number-input safari_only">

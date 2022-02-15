@@ -19,6 +19,7 @@ module.exports.cartListAdmin = async(req,res)=>{
 
 module.exports.createCart = async(req,res)=>{
    const productId = req.body.productId
+  //  console.log(req.body.productId)
    const addedProduct =  await Product.findById(productId)
     try{
         let  cart = await Cart.findOne({userId:req.user.id})
@@ -40,6 +41,7 @@ module.exports.createCart = async(req,res)=>{
             cart = await cart.save();
             return res.status(201).send(cart);
         }else{
+          console.log(addedProduct)
             const newCart = await Cart.create({
                 userId:req.user.id,
                 products: [{ productId, quantity:1,subtotal:addedProduct.price }],

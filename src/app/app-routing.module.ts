@@ -44,9 +44,9 @@ const routes: Routes = [
   {path:'category/:category' , component:ProductByCategoryComponent },
   // {path:'category/:id' , component:ProductByCategoryComponent },
   {path:'searchbydate' , component:ProductByDateComponent },
-  {path:'updateuser/:id' , component:UpdateUserComponent },
+  {path:'updateuser' , component:UpdateUserComponent },
   {path:'deleteuser/:id' , component:DeleteUserComponent },
-  {path:'viewuser',component:ViewUserComponent},
+  {path:'viewuser/:id',component:ViewUserComponent},
   {path:'detailuser' , component:DetailUserComponent },
   {path:'forbidden',component:ForbiddenComponent},
   {path:'**', component:PageNotFoundComponent}

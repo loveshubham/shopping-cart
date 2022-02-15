@@ -28,7 +28,7 @@ export class UserService {
     return this.http.get<Users[]>(usersurl);
   }
   getdetails(Id:any):Observable<Users[]>{
-    const usersurl="http://localhost:3001/api/user/"+Id;
+    const usersurl="http://localhost:3001/api/user/";
       return this.http.get<Users[]>(usersurl);
 
   }

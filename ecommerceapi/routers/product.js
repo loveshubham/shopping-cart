@@ -12,6 +12,6 @@ router.put('/:id',verifyTokenAndAdmin,productcontroller.updateProduct)
 
 router.delete('/:id',verifyTokenAndAdmin,productcontroller.deleteProduct)
 
-router.get('/:id',verifyTokenAndAdmin,productcontroller.searchProductById)
+router.get('/:id',verifyToken,productcontroller.searchProductById)
 
 module.exports = router

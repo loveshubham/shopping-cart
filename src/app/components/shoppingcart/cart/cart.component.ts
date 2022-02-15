@@ -27,8 +27,8 @@ export class CartComponent implements OnInit {
 
     }
     handleSubscription(){
-      this.msg.getMsg().subscribe((product:Product)=>{
-        // console.log("29",product)
+      this.msg.getMsg().subscribe((product:any)=>{
+        console.log("29",product)
       this.loadCartItems()
 
       //this.addProductTocart(product)
@@ -36,10 +36,10 @@ export class CartComponent implements OnInit {
 
   }
     loadCartItems(){
-    this.cartService.getCartItem().subscribe((items: CartItem[])=>{
-      // this.cartItems=items;
+    this.cartService.getCartItem().subscribe((items:any)=>{
+      this.cartItems=items;
       this.calculateCartTotal();
-      // console.log(this.cartItems)
+      console.log(this.cartItems)
 
     })
 
@@ -47,7 +47,8 @@ export class CartComponent implements OnInit {
   calculateCartTotal(){
     this.cartTotal = 0;
     this.cartItems.forEach((items)=>{
-      this.cartTotal += (items.qty*items.price)
+      console.log(items)
+    this.cartTotal += (items.subtotal)
     });
   }
 
