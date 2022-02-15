@@ -33,11 +33,6 @@ module.exports.createCart = async(req,res)=>{
             } else {
               cart.products.push({ productId, quantity : 1, subtotal:addedProduct.price });
             }
-            // const total = cart.products.reduce((sum, product)=>{
-            //     return sum + product.subtotal;
-            // });
-            // console.log(38,cart.total,total);
-            // cart.total = total.subtotal;
             cart = await cart.save();
             return res.status(201).send(cart);
         }else{

@@ -18,11 +18,23 @@
           <!-- <th>{{cartItem.id}}:</th> -->
           <th> <img src="{{cartItem.product.productId.image}}"  width="50" height="50"> </th>
           <th>{{cartItem.product.productId.title}}</th>
-          <th>{{cartItem.quantity}} </th>
+
+          <th>
+              <button (click)="onDecrement()">-</button>
+              <input value=" {{cartItem.quantity}}" name="quantity"
+              >
+              <!-- [(ngModel)]="model.quantity" -->
+              <button (click)="onIncrement()">+</button>
+
+           </th>
+
+
           <th>{{cartItem.product.productId.price|currency:'INR'}} </th>
           <th>{{cartItem.product.subtotal|currency:'INR'}} </th>
           <th><button type="button" class="btn btn-md btn-danger " style="position: relative; "
-            (click)="deletetodo(cartItem)">Delete</button>
+
+            (click)="deletetodo(cartItem)"
+            >Delete</button>
           </th>
         </tr>
       </tbody>
@@ -31,3 +43,15 @@
         </div>
 
 </div>
+
+<!--
+<div class="row">
+  <div class="small-12 columns">
+    <button type="button"
+            class="secondary button small expanded js-btn-empty-cart"
+            (click)="emptyCart()"
+            [attr.disabled]="itemCount === 0 ? true : null">
+      Empty shopping basket
+    </button>
+  </div>
+</div> -->

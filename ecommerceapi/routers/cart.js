@@ -7,7 +7,7 @@ const cartcontroller = require('../controller/cartController')
 const {verifyToken, verifyTokenAndAuthorization,verifyTokenAndAdmin} = require('../utils/verifyToken')
 
 
-router.post('/',verifyToken, cartcontroller.createCart)  
+router.post('/',verifyToken, cartcontroller.createCart)
 
 router.get('/mycart',verifyToken, cartcontroller.myCart)
 
