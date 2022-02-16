@@ -9,9 +9,9 @@
           <th> <img src="{{cartItem.product.productId.image}}" width="50" height="50"> </th>
           <th>{{cartItem.product.productId.title}}</th>
 
-          <th>
+          <th>      
               <button (click)="onDecrement()">-</button>
-              <input value=" {{cartItem.quantity}}" name="quantity"
+              <input style="width:50px " value=" {{cartItem.quantity}}" name="quantity"
               >
               <!-- [(ngModel)]="model.quantity" -->
               <button (click)="onIncrement()">+</button>
@@ -28,7 +28,7 @@
         </tr>
       </tbody>
     </table>
-    
+
 
         </div>
 

@@ -17,6 +17,8 @@ export class CartComponent implements OnInit {
   cartTotal=0
   product: any;
   deleted:any;
+  popup!:boolean;
+  model:any={}
 
 
   constructor(private msg:MessengerService,
@@ -73,10 +75,30 @@ export class CartComponent implements OnInit {
     window.location.reload();
 
   }
-  orders(product:any){
-    
-  }
+
+  orders(){
+    let Address={
+      // id:'',
+      // categoryId:this.model.categoryId,
+      // name:this.model.name,
+      // description:this.model.description,
+      // imageurl:this.model.imageurl,
+      // price:this.model.price
+
+      address:this.model.Address,
+      total:this.cartTotal
+      // city:this.model.City,
+      // zip:this.model.Zip
+
+
+    };
+    console.log(Address)
+    console.log(this.cartTotal)
+
+     this.cartService.addcarttoorderhistory(Address).subscribe(()=>{
+        })
+        window.location.reload();
 }
 
 
-
+}

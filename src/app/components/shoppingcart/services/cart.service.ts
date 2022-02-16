@@ -11,6 +11,9 @@ const updateCart='http://localhost:3001/api/cart/';
 const decreasecart='http://localhost:3001/api/cart';
 const delparticularitem='http://localhost:3001/api/cart';
 const getcartUrl='http://localhost:3001/api/cart/mycart';
+const getorderUrl='http://localhost:3001/api/orders/MyOrder';
+const orderurl='http://localhost:3001/api/orders';
+
 
 @Injectable({
   providedIn: 'root'
@@ -81,7 +84,13 @@ export class CartService {
   // deleteaproduct(){
   //   return this.http.delete
   // }
+  addcarttoorderhistory(address:any): Observable<any>{
+    return this.http.post<any>(orderurl,address);
 
+  }
+  getorderItem():Observable<any>{
+    return this.http.get<any>(getorderUrl)
+  }
 }
 
 

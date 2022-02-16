@@ -18,7 +18,7 @@
               <th>Product Image </th>
               <th>Product Name </th>
               <th>Product Quantity </th>
-              <th>Product price per article </th>
+              <th> price  </th>
               <th>total price </th>
               <th>Action </th>
             </tr>
@@ -32,11 +32,31 @@
       </table>
       <button type="button" class="btn btn-md btn-danger" style="position: relative; "
 
-      (click)="deletetodo(cartItems)">Delete cart</button>
+       (click)="deletetodo(cartItems)">Delete cart</button>
       <button type="button" class="btn btn-md btn-primary" style="position: relative; "
 
-      (click)="orders(cartItems)">Checkout</button>
+       (click)="popup = true" >Select Address</button>
     </div>
     </ul>
+    <div class="overlay" *ngIf="popup">
+      <form class="row g-3" (ngSubmit)="AddproductForm.valid && orders()" #AddproductForm="ngForm">
+            <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="Address" [(ngModel)]="model.Address" required>
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity" name="City" [(ngModel)]="model.City" required>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip" name="Zip" [(ngModel)]="model.Zip" required>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" (click)="orders()" >Order Now</button>
+        </div>
+      </form>
+     </div>
 
 </div>
