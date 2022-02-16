@@ -115,10 +115,9 @@ module.exports.searchCartById = async(req,res)=>{
         res.status(401).send({Error:err.message})
     }
 }
-<<<<<<< HEAD
 
 module.exports.removeProductFromCart = async(req,res)=>{
-    try{
+    try{ console.log("in remove product")
         const productId = req.params.productId
         const del = await Cart.updateMany({ $pull: { products: { productId } } });
          res.status(200).send({status:"pass",message:"cart Product Deleted"})
@@ -127,5 +126,3 @@ module.exports.removeProductFromCart = async(req,res)=>{
             console.log(err);
         }
 }
-=======
->>>>>>> c31a39e0edb827f06f527fd2248f404a61c501e8

@@ -9,7 +9,7 @@ import { map } from 'rxjs';
 const sendtocarturl='http://localhost:3001/api/cart';
 const updateCart='http://localhost:3001/api/cart/';
 const decreasecart='http://localhost:3001/api/cart';
-const delparticularitem='localhost:3001/api/cart/userId';
+const delparticularitem='http://localhost:3001/api/cart';
 const getcartUrl='http://localhost:3001/api/cart/mycart';
 
 @Injectable({
@@ -60,19 +60,21 @@ export class CartService {
     return this.http.post(sendtocarturl,{productId});
   }
   removeFromCart(productId:any):Observable<any>{
-    return this.http.delete<any>(delparticularitem)
+    console.log("63",productId)
+    return this.http.delete<any>(delparticularitem +'/'+productId)
   }
 
 
-  empty(){
-    return this.http.delete(sendtocarturl)
-  }
+  // empty(){
+  //   return this.http.delete(sendtocarturl)
+  // }
 
   increasecartquant(productId: any): Observable<any>{
     return this.http.post(updateCart,{productId})
 
   }
   decreasecartquant(productId:any): Observable<any>{
+
     return this.http.put<any>(decreasecart+'/'+ productId,Product)
 
   }

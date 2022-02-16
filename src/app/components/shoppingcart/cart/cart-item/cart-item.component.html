@@ -2,21 +2,11 @@
 
   <div class="cart-item" >
     <table class="table table-responsive">
-      <thead>
-        <tr>
-          <!-- <th>Sr no. </th> -->
-          <th>Product Image </th>
-          <th>Product Name </th>
-          <th>Product Quantity </th>
-          <th>Product price per article </th>
-          <th>total price </th>
-          <th>Action </th>
-        </tr>
-      </thead>
+
       <tbody>
         <tr>
           <!-- <th>{{cartItem.id}}:</th> -->
-          <th> <img src="{{cartItem.product.productId.image}}"  width="50" height="50"> </th>
+          <th> <img src="{{cartItem.product.productId.image}}" width="50" height="50"> </th>
           <th>{{cartItem.product.productId.title}}</th>
 
           <th>
@@ -33,8 +23,7 @@
           <th>{{cartItem.product.subtotal|currency:'INR'}} </th>
           <th><button type="button" class="btn btn-md btn-danger " style="position: relative; "
 
-            (click)="deletetodo(cartItem)"
-            >Delete</button>
+            (click)="deletetodo(cartItem.product.productId._id)">Delete</button>
           </th>
         </tr>
       </tbody>

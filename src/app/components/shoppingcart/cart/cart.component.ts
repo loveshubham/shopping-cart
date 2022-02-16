@@ -52,23 +52,14 @@ export class CartComponent implements OnInit {
     });
   }
 
-  itemdelete(product:Product){
+  itemdelete(productId:any){
     //  OTHER LOGIC
     // console.log(product)
-     const index= this.cartItems.indexOf(product)
-     this.cartItems.splice(index,1)
-     this.cartService.removeFromCart(product)
+    // const index= this.cartItems.indexOf(productId)
+    // this.cartItems.splice(index,1)
+    // this.cartService.removeFromCart(productId)
+    //  console.log(productId)
 
-    // this.cartItems.map((a:any , index:any)=>{
-    //   if(product.id===a.id){
-    //     this.cartItems.splice(index,1)
-    //   }
-    // })
-    // console.log(product)
-    this.cartService.removeFromCart(this.product).subscribe((deletedata)=>{
-
-      console.log("product to delete")
-    })
 
   }
 }

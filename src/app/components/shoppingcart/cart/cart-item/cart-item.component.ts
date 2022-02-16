@@ -17,6 +17,7 @@ export class CartItemComponent implements OnInit {
   carttotal:any;
   carttotals:any;
   productId:any;
+  products:any;
 
 @Input() cartItem:any
  @Output() todelete:EventEmitter<Product>=new EventEmitter();
@@ -25,27 +26,29 @@ export class CartItemComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.cartItem)
-    // this.activatedRoute.params.subscribe(data=>{
-    // this.productId=data['id'];
-    // console.log("30", this.productId)
+  //   this.activatedRoute.params.subscribe(data=>{
+  //   this.productId=data['id'];
+  //   console.log("30", this.productId)
 
-    // })
-    this.cartservice.removeFromCart(this.cartItem.product.productId).subscribe(viewData=>{
-      this.productId=viewData;
-      console.log(this.productId)
-    })
+  //   })
+  //   this.cartservice.removeFromCart(this.productId).subscribe(viewData=>{
+  //     this.productId=viewData;
+  //   })
 
-  }
+   }
   deletetodo(product:Product){
     this.todelete.emit(product);
     // console.log(product)
+    this.cartservice.removeFromCart(product).subscribe(viewData=>{
+    this.products=viewData});
+    window.location.reload();
 
 
 
   }
-  public emptyCart(): void {
-    this.cartservice.empty();
-  }
+  // public emptyCart(): void {
+  //   this.cartservice.empty();
+  // }
 
   onDecrement(){
     if(this.cartItem.quantity==1){
