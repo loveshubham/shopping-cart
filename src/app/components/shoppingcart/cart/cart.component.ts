@@ -16,6 +16,9 @@ export class CartComponent implements OnInit {
   cartItems: Product[] = [];
   cartTotal=0
   product: any;
+  deleted:any;
+
+
   constructor(private msg:MessengerService,
     private cartService:CartService) { }
 
@@ -61,6 +64,17 @@ export class CartComponent implements OnInit {
     //  console.log(productId)
 
 
+  }
+  deletetodo(product:any){
+    console.log(product)
+    this.cartService.empty(product).subscribe(data=>{
+      this.deleted=data;
+    })
+    window.location.reload();
+
+  }
+  orders(product:any){
+    
   }
 }
 

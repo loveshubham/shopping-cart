@@ -65,9 +65,9 @@ export class CartService {
   }
 
 
-  // empty(){
-  //   return this.http.delete(sendtocarturl)
-  // }
+  empty(product:any):Observable<any>{
+    return this.http.delete<any>(sendtocarturl, product)
+  }
 
   increasecartquant(productId: any): Observable<any>{
     return this.http.post(updateCart,{productId})

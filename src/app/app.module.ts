@@ -42,6 +42,8 @@ import { DetailUserComponent } from './components/user/detail-user/detail-user.c
 import { ViewUserComponent } from './components/user/view-user/view-user.component';
 import { SizeFiltersPipe } from './size-filters.pipe';
 import { PriceFiltersPipe } from './price-filters.pipe';
+import { OrderComponent } from './components/shoppingcart/order/order.component';
+import { MyorderComponent } from './components/shoppingcart/order/myorder/myorder.component';
 
 
 @NgModule({
@@ -76,7 +78,9 @@ import { PriceFiltersPipe } from './price-filters.pipe';
     DetailUserComponent,
     ViewUserComponent,
     SizeFiltersPipe,
-    PriceFiltersPipe
+    PriceFiltersPipe,
+    OrderComponent,
+    MyorderComponent
   ],
   imports: [
     BrowserModule,

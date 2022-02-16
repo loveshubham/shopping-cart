@@ -26,14 +26,6 @@ export class CartItemComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.cartItem)
-  //   this.activatedRoute.params.subscribe(data=>{
-  //   this.productId=data['id'];
-  //   console.log("30", this.productId)
-
-  //   })
-  //   this.cartservice.removeFromCart(this.productId).subscribe(viewData=>{
-  //     this.productId=viewData;
-  //   })
 
    }
   deletetodo(product:Product){
@@ -41,6 +33,7 @@ export class CartItemComponent implements OnInit {
     // console.log(product)
     this.cartservice.removeFromCart(product).subscribe(viewData=>{
     this.products=viewData});
+
     window.location.reload();
 
 
