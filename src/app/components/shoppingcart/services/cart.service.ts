@@ -97,11 +97,5 @@ export class CartService {
 
 
 
-  // sendMsg(product: Product){
-  //   // console.log("13",product)
-  // this.subject.next(product as Product)//triggering an event
-  // }
-  // getMsg(){
-  //   return this.subject.asObservable()
-  // }
+
 
