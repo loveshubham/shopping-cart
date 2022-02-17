@@ -43,6 +43,7 @@ import { ViewUserComponent } from './components/user/view-user/view-user.compone
 import { SizeFiltersPipe } from './size-filters.pipe';
 import { PriceFiltersPipe } from './price-filters.pipe';
 import { OrderComponent } from './components/shoppingcart/order/order.component';
+import { AllordersComponent } from './components/shoppingcart/allorders/allorders.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { OrderComponent } from './components/shoppingcart/order/order.component'
     SizeFiltersPipe,
     PriceFiltersPipe,
     OrderComponent,
+    AllordersComponent,
   ],
   imports: [
     BrowserModule,

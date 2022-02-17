@@ -1,0 +1,48 @@
+<li class="list-group-item" *ngFor="let items of cartItems.userOrder">
+  <div class="container-fluid">
+
+    <div class="cart-item" >
+      <table class="table table-responsive">
+
+        <tbody>
+          <tr><th> Order date {{items.createdAt|  date: 'dd/MM/yyyy'}}</th>
+
+            <div *ngFor="let product of items.products">
+               <table>
+                  <li>
+                    ProductId: {{product.productId}}
+                  </li>
+                  <li>
+                    ProductQuantity: {{product.quantity}}
+                  </li>
+                  <li>Product total:{{product.subtotal}}
+                  </li>
+                  <th >
+                    <img src="https://media.istockphoto.com/vectors/male-hand-holding-megaphone-with-new-product-speech-bubble-banner-vector-id1154954910?k=20&m=1154954910&s=612x612&w=0&h=-UnuowcR6R6t7CDpl1516FAsSCZGBYKXK6Fg6CM2nTI="
+                    width="50" height="50"> </th>
+                    <th>{{items.address}}</th>
+                    <th>
+                      {{items.status}}
+
+
+                    </th>
+                  </table>
+              </div>
+
+
+            <th>{{items.total|currency:'INR'}} </th>
+
+
+          </tr>
+        </tbody>
+      </table>
+
+
+          </div>
+
+  </div>
+
+
+
+ </li>
+
