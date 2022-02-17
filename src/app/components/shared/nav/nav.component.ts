@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartItem } from '../../shoppingcart/models/cart-item';
+import { CartService } from '../../shoppingcart/services/cart.service';
 import { LoginService } from '../../shoppingcart/services/login.service';
 import { UserAuthService } from '../../shoppingcart/services/user-auth.service';
 import { UserService } from '../../shoppingcart/services/user.service';
@@ -18,10 +19,11 @@ export class NavComponent implements OnInit {
   userlist:any;
   userId: any;
   userdet:any;
-
+  cartItems:any;
   constructor(private userAuthservice:UserAuthService,
     private routes:Router ,
     public loginservice:LoginService,
+    private cartservice:CartService,
 
     private activatedRoute:ActivatedRoute,
     public userservice:UserService) { }
@@ -36,7 +38,7 @@ export class NavComponent implements OnInit {
         console.log(this.userdet)
       });
     })
-    // this.loadusers();
+     this.loadCartItems();
   }
   public isLoggedin(){
     return this.userAuthservice.isloggedin();
@@ -45,12 +47,15 @@ export class NavComponent implements OnInit {
     this.userAuthservice.clear();
     this.routes.navigate(['/login']);
   }
-  // loadusers(){
+  loadCartItems(){
+    this.cartservice.getCartItem().subscribe((items:any)=>{
+      this.cartItems=items;
 
-  //   this.userservice.getuser().subscribe((products)=>{
-  //     this.userlist=products;
-  //     console.log("39",this.userlist)
-  //   })
-  // }
+      console.log(this.cartItems)
+      console.log(this.cartItems.Users.length)
+
+    })
+
+  }
 
 }

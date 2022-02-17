@@ -6,6 +6,7 @@ const {verifyToken,verifyTokenAndAdmin} = require('../utils/verifyToken')
 
 router.get('/',verifyToken,productcontroller.allProduct)
 
+
 router.post('/',verifyTokenAndAdmin,productcontroller.addProduct)
 
 router.put('/:id',verifyTokenAndAdmin,productcontroller.updateProduct)

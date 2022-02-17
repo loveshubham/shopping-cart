@@ -11,6 +11,11 @@ import { OrdersService } from '../services/orders.service';
 export class AllordersComponent implements OnInit {
   cartItems:any = [];
   userId:any;
+  products: any;
+  status!:any;
+  model:any={};
+  popup:any=false;
+  newdata: any;
   constructor(private orderservice:OrdersService,
     private http:HttpClient,
     private activatedRoute:ActivatedRoute) { }
@@ -29,6 +34,35 @@ export class AllordersComponent implements OnInit {
 
 
 })
+
+}
+deletetodo(orderId:any){
+    // this.todelete.emit(product);
+    // console.log(product)
+
+    this.orderservice.removeorder(orderId).subscribe(viewData=>{
+    this.products=viewData});
+
+
+    // window.location.reload();
+
+
+
+
+}
+splice(items:any){
+  const index= this.cartItems.userOrder.indexOf(items)
+  this.cartItems.userOrder.splice(index,1)
+}
+
+statusorder(userId:any)
+{let data={
+  status:this.model.status
+};
+console.log(data)
+console.log(userId)
+  this.orderservice.orderstat(userId,data).subscribe(data=>{
+    console.log(data)});
 
 }
 }

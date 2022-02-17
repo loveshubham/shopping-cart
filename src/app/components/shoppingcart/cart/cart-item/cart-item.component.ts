@@ -29,16 +29,18 @@ export class CartItemComponent implements OnInit {
 
    }
   deletetodo(product:Product){
-    this.todelete.emit(product);
     // console.log(product)
     this.cartservice.removeFromCart(product).subscribe(viewData=>{
-    this.products=viewData});
+      this.products=viewData});
 
-    window.location.reload();
+      console.log(product)
 
-
-
+    // window.location.reload()
   }
+  splice(itemstodel:any){
+    this.todelete.emit(itemstodel);
+  }
+
   // public emptyCart(): void {
   //   this.cartservice.empty();
   // }

@@ -58,10 +58,13 @@ export class CartComponent implements OnInit {
   }
 
   itemdelete(productId:any){
+
+      // this.cartservice.removeFromCart(product).subscribe(viewData=>{
+    //   this.products=viewData});
     //  OTHER LOGIC
     // console.log(product)
-    // const index= this.cartItems.indexOf(productId)
-    // this.cartItems.splice(index,1)
+    const index= this.cartItems.indexOf(productId)
+    this.cartItems.splice(index,1)
     // this.cartService.removeFromCart(productId)
     //  console.log(productId)
 

@@ -9,7 +9,7 @@
           <th> <img src="{{cartItem.product.productId.image}}" width="50" height="50"> </th>
           <th>{{cartItem.product.productId.title}}</th>
 
-          <th>      
+          <th>
               <button (click)="onDecrement()">-</button>
               <input style="width:50px " value=" {{cartItem.quantity}}" name="quantity"
               >
@@ -23,7 +23,7 @@
           <th>{{cartItem.product.subtotal|currency:'INR'}} </th>
           <th><button type="button" class="btn btn-md btn-danger " style="position: relative; "
 
-            (click)="deletetodo(cartItem.product.productId._id)">Delete</button>
+            (click)="deletetodo(cartItem.product.productId._id);splice(cartItem)">Delete</button>
           </th>
         </tr>
       </tbody>
