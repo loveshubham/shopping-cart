@@ -11,29 +11,18 @@
     <ul  *ngIf="cartItems.length > 0" class="list-group">
 
       <div class="cart-item" >
-        <table class="table table-responsive">
-          <thead>
-            <tr>
-              <!-- <th>Sr no. </th> -->
-              <th>Product Image </th>
-              <th>Product Name </th>
-              <th>Product Quantity </th>
-              <th> price  </th>
-              <th>total price </th>
-              <th>Action </th>
-            </tr>
-          </thead>
+
         <li class="list-group-item" *ngFor="let items of cartItems">
             <app-cart-item [cartItem]="items" (todelete)="itemdelete($event)"></app-cart-item>
         </li>
         <li class="list-group-item active">
             <strong>Total:{{cartTotal| currency:'INR'}}</strong>
         </li>
-      </table>
+
       <button type="button" class="btn btn-md btn-danger" style="position: relative; "
 
        (click)="deletetodo(cartItems)">Delete cart</button>
-      <button type="button" class="btn btn-md btn-primary" style="position: relative; "
+      <button type="button" class="btn btn-md btn-success" style="position: relative; "
 
        (click)="popup = true" >Select Address</button>
     </div>

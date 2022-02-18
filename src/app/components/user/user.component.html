@@ -1,17 +1,16 @@
 <table
-class="table text-center" style="position: relative;"
- >
+class="table " >
   <thead>
   <tr>
-    <th scope="col"> User Id</th>
-    <th scope="col">Email</th>
-    <th scope="col">Admin</th>
+    <th scope="col"  >User Id</th>
+    <th scope="col" style="position: relative;">Email</th>
+    <!-- <th scope="col" style="position:relative;">Admin</th>  -->
   </tr>
 </thead>
 </table>
-<div >
-  <div  *ngFor="let product of userlist.Users  ">
+
+  <div class="table " *ngFor="let product of userlist.Users  ">
     <app-detail-user [userItem]="product" ></app-detail-user>
   </div>
-</div>
+
 

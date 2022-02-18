@@ -34,11 +34,13 @@ export class CartItemComponent implements OnInit {
       this.products=viewData});
 
       console.log(product)
+      
 
     // window.location.reload()
   }
   splice(itemstodel:any){
     this.todelete.emit(itemstodel);
+
   }
 
   // public emptyCart(): void {
@@ -55,8 +57,12 @@ export class CartItemComponent implements OnInit {
           console.log(data)
         })
         // this.loadcarts();
-        window.location.reload();
-       return this.cartItem.quantity--;
+        // window.location.reload();
+        this.cartservice.getCartItem().subscribe(data=>{
+          console.log(data)
+        })
+        return this.cartItem.quantity--;
+
 
     }
     // return this.cartItem.quantity;
@@ -71,6 +77,6 @@ export class CartItemComponent implements OnInit {
    return this.cartItem.quantity++;
 
   }
-  
+
   }
 

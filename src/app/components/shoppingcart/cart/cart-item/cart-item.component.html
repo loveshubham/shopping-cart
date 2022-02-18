@@ -1,47 +1,29 @@
-<div class="container-fluid">
-
-  <div class="cart-item" >
-    <table class="table table-responsive">
-
-      <tbody>
-        <tr>
-          <!-- <th>{{cartItem.id}}:</th> -->
-          <th> <img src="{{cartItem.product.productId.image}}" width="50" height="50"> </th>
-          <th>{{cartItem.product.productId.title}}</th>
-
-          <th>
-              <button (click)="onDecrement()">-</button>
-              <input style="width:50px " value=" {{cartItem.quantity}}" name="quantity"
-              >
-              <!-- [(ngModel)]="model.quantity" -->
-              <button (click)="onIncrement()">+</button>
-
-           </th>
 
 
-          <th>{{cartItem.product.productId.price|currency:'INR'}} </th>
-          <th>{{cartItem.product.subtotal|currency:'INR'}} </th>
-          <th><button type="button" class="btn btn-md btn-danger " style="position: relative; "
-
-            (click)="deletetodo(cartItem.product.productId._id);splice(cartItem)">Delete</button>
-          </th>
-        </tr>
-      </tbody>
-    </table>
 
 
-        </div>
 
-</div>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{cartItem.product.productId.image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{cartItem.product.productId.title}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text">Price:{{cartItem.product.productId.price|currency:'INR'}}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <button (click)="onDecrement()">-</button>
+        <input style="width:50px " value=" {{cartItem.quantity}}" name="quantity"
+        >
+        <!-- [(ngModel)]="model.quantity" -->
+        <button (click)="onIncrement()">+</button>
+        <button type="button" class="btn btn-md btn-danger " style="position: relative; "
 
-<!--
-<div class="row">
-  <div class="small-12 columns">
-    <button type="button"
-            class="secondary button small expanded js-btn-empty-cart"
-            (click)="emptyCart()"
-            [attr.disabled]="itemCount === 0 ? true : null">
-      Empty shopping basket
-    </button>
+        (click)="deletetodo(cartItem.product.productId._id);splice(cartItem)">Delete</button>
+        <p class="card-text">Total Price:{{cartItem.product.subtotal|currency:'INR'}}</p>
+      </div>
+    </div>
   </div>
-</div> -->
+</div>

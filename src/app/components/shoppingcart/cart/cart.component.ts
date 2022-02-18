@@ -59,7 +59,11 @@ export class CartComponent implements OnInit {
   itemdelete(productId:any){
     const index= this.cartItems.indexOf(productId)
     this.cartItems.splice(index,1)
+    this.loadCartItems()
+
   }
+
+
   deletetodo(product:any){
     console.log(product)
     this.cartService.empty(product).subscribe(data=>{
