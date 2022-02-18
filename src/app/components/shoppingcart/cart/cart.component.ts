@@ -36,7 +36,6 @@ export class CartComponent implements OnInit {
         console.log("29",product)
       this.loadCartItems()
 
-      //this.addProductTocart(product)
     })
 
   }
@@ -58,17 +57,8 @@ export class CartComponent implements OnInit {
   }
 
   itemdelete(productId:any){
-
-      // this.cartservice.removeFromCart(product).subscribe(viewData=>{
-    //   this.products=viewData});
-    //  OTHER LOGIC
-    // console.log(product)
     const index= this.cartItems.indexOf(productId)
     this.cartItems.splice(index,1)
-    // this.cartService.removeFromCart(productId)
-    //  console.log(productId)
-
-
   }
   deletetodo(product:any){
     console.log(product)
@@ -81,20 +71,9 @@ export class CartComponent implements OnInit {
 
   orders(){
     let Address={
-      // id:'',
-      // categoryId:this.model.categoryId,
-      // name:this.model.name,
-      // description:this.model.description,
-      // imageurl:this.model.imageurl,
-      // price:this.model.price
-
       address:this.model.Address,
       total:this.cartTotal
-      // city:this.model.City,
-      // zip:this.model.Zip
-
-
-    };
+     };
     console.log(Address)
     console.log(this.cartTotal)
 

@@ -26,7 +26,7 @@ export class ProductAddComponent implements OnInit {
 
       title:this.model.name,
       description:this.model.description,
-      image:this.model.imageurl,
+      image:this.model.image,
       categories:"men",
       size:this.model.size,
       price:this.model.price

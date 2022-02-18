@@ -41,6 +41,7 @@ export class ProductItemComponent implements OnInit {
     this.cartservice.addProductsToCart(this.productItem._id).subscribe(()=>{
       this.msg.sendMsg(this.productItem._id)
     })
+    
 
   }
   handleAddToWishlist(){
@@ -74,6 +75,6 @@ export class ProductItemComponent implements OnInit {
 
 
 
-  
+
 
 }

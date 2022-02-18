@@ -69,32 +69,8 @@ export class CartItemComponent implements OnInit {
     // this.loadcarts();
     window.location.reload();
    return this.cartItem.quantity++;
+
   }
-  // updatecart(){
-  //   console.log(this.model)
-  //   let newproduct={
-  //     quantity:this.model.quantity
-  //   };
-  //   console.log(newproduct);
-  //   // window.alert('You want to decrease the quantity ');
-  //   // this.cartservice.increasecartquant(newproduct).subscribe(data=>{
-  //     console.log(data)
-  //   })
-
-  // }
-  // loadcarts(){
-  //   this.cartservice.getCartItem().subscribe((data)=>{
-
-  //     this.carttotal= data;
-  //     this.carttotal.forEach((items:any)=>{
-  //       console.log(items)
-  //       // this.items.sub
-  //     this.carttotals = (items.product.subtotal)
-  //     });
-  //     console.log(this.carttotals)
-  //   })
-  //   return this.carttotals;
-
-  // }
+  
   }
 

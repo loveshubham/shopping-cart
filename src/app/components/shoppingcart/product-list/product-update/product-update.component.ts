@@ -22,28 +22,17 @@ productdetail:any
         this.productdetail=data;
         console.log(this.productdetail)
       })
- 
     })
   }
   Updatenewproduct(){
     console.log(this.model)
     let updatedproduct={
-      // id:'',
-      // categoryId:this.model.categoryId,
-      // name:this.model.name,
-      // description:this.model.description,
-      // imageurl:this.model.imageurl,
-      // price:this.model.price
-
       title:this.model.name,
       description:this.model.description,
       image:this.model.imageurl,
       categories:"men",
       size:this.model.size,
       price:this.model.price,
-
-
-
     };
     console.log(updatedproduct);
     window.alert('Your product has been added ');

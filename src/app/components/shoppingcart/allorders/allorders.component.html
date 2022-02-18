@@ -1,8 +1,10 @@
-<li class="list-group-item" *ngFor="let items of cartItems.userOrder">
-  <div class="container-fluid">
+
+
+  <div class="list-group-item" *ngFor="let items of cartItems.userOrder">
+    <div class="container-fluid">
     <div class="cart-item" >
       <table class="table table-responsive">
-        <tbody>
+
           <tr><th> Order date {{items.createdAt|  date: 'dd/MM/yyyy'}}</th>
             <div *ngFor="let product of items.products">
                <table>
@@ -23,12 +25,14 @@
                     </th>
                   </table>
               </div>
-            <th>{{items.total|currency:'INR'}} </th>
+              <th>{{items.total|currency:'INR'}} </th>
+            </tr>
+          </table>
             <button class="btn btn-danger" type="button" (click)="deletetodo(items._id);splice(items)" >Delete</button>
             <button class="btn btn-primary" type="button" (click)="popup = true" >Order Status </button>
-          </tr>
-        </tbody>
-      </table>
+
+          </div>
+        </div>
         <div *ngIf="popup">
           <select  style="margin-left: 391px;
             margin-top: -51px;" class="custom-select col-md-4 "  required name="status" [(ngModel)]="model.status">
@@ -37,8 +41,6 @@
           </select>
           <button class="btn btn-primary" type="button" (click)="statusorder(items._id)" >Order confirm </button>
         </div>
-          </div>
-  </div>
- </li>
+      </div>
 
 

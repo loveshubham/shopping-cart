@@ -28,27 +28,13 @@ export class AllordersComponent implements OnInit {
     console.log("22", this.userId)
 
     })
-    this.orderservice.getorderItem(this.userId).subscribe((items:any)=>{
-  this.cartItems=items;
-  console.log(this.cartItems)
-
-
-})
+    this.getDetails();
 
 }
 deletetodo(orderId:any){
     // this.todelete.emit(product);
-    // console.log(product)
-
     this.orderservice.removeorder(orderId).subscribe(viewData=>{
     this.products=viewData});
-
-
-    // window.location.reload();
-
-
-
-
 }
 splice(items:any){
   const index= this.cartItems.userOrder.indexOf(items)
@@ -62,7 +48,16 @@ statusorder(userId:any)
 console.log(data)
 console.log(userId)
   this.orderservice.orderstat(userId,data).subscribe(data=>{
-    console.log(data)});
+    console.log(data)}) ;
+    this.getDetails();
+}
 
+getDetails(): void{
+  this.orderservice.getorderItem(this.userId).subscribe((items:any)=>{
+    this.cartItems=items;
+    console.log(this.cartItems)
+
+
+  })
 }
 }
