@@ -85,6 +85,18 @@ export class CartComponent implements OnInit {
         })
         window.location.reload();
 }
+makepayment(event:any){
+  // let Address = {
+
+  //   "amount": this.cartTotal,
+  //   "recipient_name":this.obj.reciepient_name,
+  //   "recipient_email":this.obj.reciepient_email,
+  //   "user_email":this.obj.your_email,
+  //   "user_name":this.obj.your_name
+  // }
+  console.log("98",event)
+
+  }
 
 
 }
