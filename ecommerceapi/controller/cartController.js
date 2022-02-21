@@ -120,7 +120,6 @@ module.exports.searchCartById = async(req,res)=>{
         res.status(401).send({Error:err.message})
     }
 }
-<<<<<<< HEAD
 
 module.exports.removeProductFromCart = async(req,res)=>{
     try{
@@ -132,5 +131,3 @@ module.exports.removeProductFromCart = async(req,res)=>{
             console.log(err);
         }
 }
-=======
->>>>>>> c31a39e0edb827f06f527fd2248f404a61c501e8
