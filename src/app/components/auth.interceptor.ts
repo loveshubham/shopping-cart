@@ -7,7 +7,7 @@ import { UserAuthService } from "./shoppingcart/services/user-auth.service";
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class AuthInterceptor implements HttpInterceptor{
   constructor(private userAuthservice:UserAuthService ,
     private router:Router){

@@ -42,13 +42,29 @@
           <input type="text" class="form-control" id="inputZip" name="Zip" [(ngModel)]="model.Zip" required>
         </div>
 
-        <div class="col-12">
+        <div class="col-12" style="margin-Top:20px">
           <button type="submit" class="btn btn-primary" (click)="orders()" >Cash On Delivery</button>
         </div>
         <div class="col-12" >
           <button type="submit" class="btn btn-primary" (click)="makepayment(cartTotal)" >order</button>
         </div>
       </form>
+      <div *ngIf="paymentstarted" class="col-12">
+          <h5>
+          Order Id:
+          </h5>
+
+          {{paymentresponse.sub.id}}
+          <br>
+          <h5>
+
+            Amount
+          </h5>
+
+          {{paymentresponse.sub.amount/100}}
+        <button class="btn btn-info" (click)="payWithRazor(paymentresponse)">Pay now</button>
+
+      </div>
      </div>
 
 </div>

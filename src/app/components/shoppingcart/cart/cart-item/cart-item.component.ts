@@ -19,6 +19,7 @@ export class CartItemComponent implements OnInit {
   productId:any;
   products:any;
 
+
 @Input() cartItem:any
  @Output() todelete:EventEmitter<Product>=new EventEmitter();
   constructor(private cartservice:CartService,
@@ -34,7 +35,7 @@ export class CartItemComponent implements OnInit {
       this.products=viewData});
 
       console.log(product)
-      
+
 
     // window.location.reload()
   }

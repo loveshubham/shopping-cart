@@ -10,7 +10,7 @@ const authRoute = require('./routers/auth')
 const productRoute = require('./routers/product')
 const orderRoute = require('./routers/order')
 const cartRoute = require('./routers/cart')
-const categoryRoute = require('./routers/category') 
+const categoryRoute = require('./routers/category')
 const {verifyToken} = require('./utils/verifyToken')
 const app = express();
 dotenv.config();
@@ -54,10 +54,10 @@ app.get("/api/payments", verifyToken, (req, res) => {
         res.send({ sub: error, status: "failed" });
       });
   });
-  
+
   app.post("/api/payment/verify", verifyToken, (req, res) => {
     body = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
-  
+
     var expectedSignature = crypto
       .createHmac("sha256", process.env.KEY_SECRET)
       .update(body.toString())

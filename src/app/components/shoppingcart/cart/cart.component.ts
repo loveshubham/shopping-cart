@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessengerService} from 'src/app/components/shoppingcart/services/messenger.service'
 import { cartUrl } from '../config/api';
 import { CartItem } from '../models/cart-item';
 import { Product } from '../models/product';
 import { ProductAddComponent } from '../product-list/product-add/product-add.component';
 import { CartService } from '../services/cart.service';
+import { PriceService } from '../services/price.service';
+import { WindowRefService } from '../services/window-ref.service';
+
+
 
 
 @Component({
@@ -13,16 +18,28 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+
+
   cartItems: Product[] = [];
   cartTotal=0
   product: any;
   deleted:any;
   popup!:boolean;
   model:any={}
+  paymentresponse:any;
+  paymentstarted=false;
+  newresponse:any;
+  razorpay_order_id:any
+razorpay_payment_id:any;
+razorpay_signature:any;
+sendresponseform:any;
 
 
   constructor(private msg:MessengerService,
-    private cartService:CartService) { }
+    private cartService:CartService,
+    private priceservice:PriceService,
+    private winref:WindowRefService,
+    private router:Router) { }
 
     ngOnInit(): void {
       this.handleSubscription();
@@ -86,15 +103,89 @@ export class CartComponent implements OnInit {
         window.location.reload();
 }
 makepayment(event:any){
-  // let Address = {
+  let Address = {
 
-  //   "amount": this.cartTotal,
+    "amount": this.cartTotal*100
   //   "recipient_name":this.obj.reciepient_name,
   //   "recipient_email":this.obj.reciepient_email,
   //   "user_email":this.obj.your_email,
   //   "user_name":this.obj.your_name
-  // }
-  console.log("98",event)
+  }
+  console.log("98",Address)
+  this.priceservice.payproduct(Address).subscribe((data)=>{
+    this.paymentresponse=data;
+    console.log(data)
+    // this.payWithRazor(data);
+  })
+    this.paymentstarted=true;
+  // this.priceservice.payproduct(Address).open()
+  // this.getpayresponse();
+
+  }
+
+
+
+  payWithRazor(val:any) {
+    const options: any = {
+      // key: 'rzp_test_key',
+      amount:this.cartTotal , // amount should be in paise format to display Rs 1255 without decimal point
+      currency: 'INR',
+      // name: '', // company name or product name
+      // description: '',  // product description
+      // image: './assets/logo.png', // company logo or product image
+      order_id: val.sub.id, // order_id created by you in backend
+      modal: {
+        // We should prevent closing of the form when esc key is pressed.
+        escape: false,
+      },
+      // notes: {
+        // include notes if any
+      // },
+      theme: {
+        color: '#0c238a'
+      }
+    };
+    options.handler = ((response: any, error: any) => {
+      options.response = response;
+      this.newresponse=response;
+      console.log(response);
+      console.log(options);
+      this.sendresponse();
+
+      // call your backend api to verify payment signature & capture transaction
+    });
+    options.modal.ondismiss = (() => {
+      // handle the case when user closes the form while transaction is in progress
+      console.log('Transaction cancelled.');
+      // this.loadCartItems();
+
+    });
+    const rzp = new this.winref.nativeWindow.Razorpay(options);
+    rzp.open();
+    this.sendresponse();
+
+
+
+}
+  sendresponse(){
+    console.log(this.newresponse)
+    let sendresponseform = {
+
+      razorpay_order_id:this.newresponse.razorpay_order_id,
+      razorpay_payment_id:this.newresponse.razorpay_payment_id,
+      razorpay_signature:this.newresponse.razorpay_signature,
+    }
+    console.log("172",sendresponseform)
+  this.priceservice.payresponse(sendresponseform).subscribe((data)=>{
+    console.log(data)
+    this.orders();
+    // this.deletetodo(this.product)
+
+
+    // this.router.navigate(['/shop']);
+  })
+
+
 
   }
 
