@@ -31,25 +31,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  // login(){
-
-  //   let newproduct={
-  //                               id:'',
-  //                                // username:this.model.username,
-  //     email:this.model.email,
-  //     password:this.model.password,
-  //     remember:this.model.remember
-
-  //   };
-  //   console.log(this.model)
-
-  //   console.log(newproduct);
-  //   this.loginservice.Addlogindetail(newproduct).subscribe(data=>{
-  //     window.alert('login successful');
-  //     console.log(data)
-  //   })
-
-  // }
+ 
   buildloginform(){
     this.loginForm= this.builder.group({
       'email':["", [Validators.required, Validators.pattern(/^([A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9]))$/)]],

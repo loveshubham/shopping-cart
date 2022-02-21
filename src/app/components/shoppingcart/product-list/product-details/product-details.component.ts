@@ -59,8 +59,8 @@ export class ProductDetailsComponent implements OnInit {
     })
   }
   handleAddToCart(){
-    this.cartservice.addProductsToCart(this.productData).subscribe(()=>{
-      this.msg.sendMsg(this.productData)
+    this.cartservice.addProductsToCart(this.productData.Searchedproduct._id).subscribe(()=>{
+      this.msg.sendMsg(this.productData.Searchedproduct._id)
     })
 
   }

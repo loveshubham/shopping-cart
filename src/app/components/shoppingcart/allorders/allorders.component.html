@@ -1,0 +1,76 @@
+
+
+  <div class="list-group-item" *ngFor="let items of cartItems.userOrder">
+    <div class="container-fluid">
+    <div class="cart-item" >
+      <table class="table table-responsive">
+
+          <tr><th> Order date {{items.createdAt|  date: 'dd/MM/yyyy'}}</th>
+            <div *ngFor="let product of items.products">
+               <table>
+                  <li>
+                    ProductId: {{product.productId}}
+                  </li>
+                  <li>
+                    ProductQuantity: {{product.quantity}}
+                  </li>
+                  <li>Product total:{{product.subtotal}}
+                  </li>
+                  <th >
+                    <img src="https://media.istockphoto.com/vectors/male-hand-holding-megaphone-with-new-product-speech-bubble-banner-vector-id1154954910?k=20&m=1154954910&s=612x612&w=0&h=-UnuowcR6R6t7CDpl1516FAsSCZGBYKXK6Fg6CM2nTI="
+                    width="50" height="50"> </th>
+                    <th>{{items.address}}</th>
+                    <th>
+                      {{items.status}}
+                    </th>
+                  </table>
+              </div>
+              <th>{{items.total|currency:'INR'}} </th>
+            </tr>
+          </table>
+            <button class="btn btn-danger" type="button" (click)="deletetodo(items._id);splice(items)" >Delete</button>
+            <button class="btn btn-primary" type="button" (click)="popup = true" >Order Status </button>
+
+          </div>
+        </div>
+        <div *ngIf="popup">
+          <select  style="    width: 124px;
+          height: 37px;" class="custom-select col-md-4 "  required name="status" [(ngModel)]="model.status">
+            <option selected value="placed" >placed</option>
+            <option selected value="complete">complete</option>
+          </select>
+          <button class="btn btn-primary" type="button" (click)="statusorder(items._id)" >Order confirm </button>
+        </div>
+      </div>
+      <!-- <div class="card text-center">
+
+        <div class="card-header">
+          Featured
+        </div>
+
+        <div *ngFor="let items of cartItems.userOrder" class="card" style="width: 18rem;">
+          <h5 class="card-title" style="color: red;"> Order date {{items.createdAt|  date: 'dd/MM/yyyy'}}</h5>
+          <div *ngFor="let product of items.products" class="card-body">
+            <img style="height: 250px;width:250px;" src="https://media.istockphoto.com/vectors/male-hand-holding-megaphone-with-new-product-speech-bubble-banner-vector-id1154954910?k=20&m=1154954910&s=612x612&w=0&h=-UnuowcR6R6t7CDpl1516FAsSCZGBYKXK6Fg6CM2nTI=">
+            <h5 class="card-title">ProductId: {{product.productId}}</h5>
+            <h5 class="card-title"> ProductQuantity:{{product.quantity}}</h5>
+            <h5 class="card-title">Product total:{{product.subtotal}}</h5>
+            <h5 class="card-title">Address:{{items.address}}</h5>
+            <h5 class="card-title">Status:{{items.status}}</h5>
+            <h5 class="card-title">Total Amount:{{items.total|currency:'INR'}}</h5>
+            <button class="btn btn-danger" type="button" (click)="deletetodo(items._id);splice(items)" >Delete</button>
+            <button class="btn btn-primary" type="button" (click)="popup = true" >Order Status </button>
+
+          </div>
+          <div  class="card text-center" class="btn btn-success"*ngIf="popup">
+            <select  style="margin-left: 391px;
+              margin-top: -51px;" class="custom-select col-md-4 "  required name="status" [(ngModel)]="model.status">
+              <option selected value="placed" >placed</option>
+              <option selected value="complete">complete</option>
+            </select>
+            <button class="btn btn-primary" type="button" (click)="statusorder(items._id)" >Order confirm </button>
+          </div>
+        </div>
+      </div> -->
+
+

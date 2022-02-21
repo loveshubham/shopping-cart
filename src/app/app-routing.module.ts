@@ -20,6 +20,8 @@ import { DetailUserComponent } from './components/user/detail-user/detail-user.c
 import { DeleteUserComponent } from './components/user/delete-user/delete-user.component';
 import { AuthGuard } from './components/auth.guard';
 import { ViewUserComponent } from './components/user/view-user/view-user.component';
+import { OrderComponent } from './components/shoppingcart/order/order.component';
+import { AllordersComponent } from './components/shoppingcart/allorders/allorders.component';
 const routes: Routes = [
   {path:'' , redirectTo:'/shop', pathMatch:'full'},
   {path:'login', component:LoginComponent},
@@ -48,6 +50,8 @@ const routes: Routes = [
   {path:'deleteuser/:id' , component:DeleteUserComponent },
   {path:'viewuser/:id',component:ViewUserComponent},
   {path:'detailuser' , component:DetailUserComponent },
+  {path:'orders' , component:OrderComponent },
+  {path:'Allorders/:id' , component:AllordersComponent },
   {path:'forbidden',component:ForbiddenComponent},
   {path:'**', component:PageNotFoundComponent}
 

@@ -7,8 +7,13 @@ import { Product } from '../models/product';
 import { map } from 'rxjs';
 
 const sendtocarturl='http://localhost:3001/api/cart';
-
+const updateCart='http://localhost:3001/api/cart/';
+const decreasecart='http://localhost:3001/api/cart';
+const delparticularitem='http://localhost:3001/api/cart';
 const getcartUrl='http://localhost:3001/api/cart/mycart';
+const getorderUrl='http://localhost:3001/api/orders/MyOrder';
+const orderurl='http://localhost:3001/api/orders';
+
 
 @Injectable({
   providedIn: 'root'
@@ -57,15 +62,40 @@ export class CartService {
   addProductsToCart(productId: any): Observable<any>{
     return this.http.post(sendtocarturl,{productId});
   }
-  removeFromCart(product:any){
-    return this.http.delete(getcartUrl +'/'+ product._id)
+  removeFromCart(productId:any):Observable<any>{
+    console.log("63",productId)
+    return this.http.delete<any>(delparticularitem +'/'+productId)
   }
 
-  // sendMsg(product: Product){
-  //   // console.log("13",product)
-  // this.subject.next(product as Product)//triggering an event
+
+  empty(product:any):Observable<any>{
+    return this.http.delete<any>(sendtocarturl, product)
+  }
+
+  increasecartquant(productId: any): Observable<any>{
+    return this.http.post(updateCart,{productId})
+
+  }
+  decreasecartquant(productId:any): Observable<any>{
+
+    return this.http.put<any>(decreasecart+'/'+ productId,Product)
+
+  }
+  // deleteaproduct(){
+  //   return this.http.delete
   // }
-  // getMsg(){
-  //   return this.subject.asObservable()
-  // }
+  addcarttoorderhistory(address:any): Observable<any>{
+    return this.http.post<any>(orderurl,address);
+
+  }
+  getorderItem():Observable<any>{
+    return this.http.get<any>(getorderUrl)
+  }
 }
+
+
+
+
+
+
+

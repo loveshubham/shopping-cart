@@ -16,6 +16,11 @@ export class CartComponent implements OnInit {
   cartItems: Product[] = [];
   cartTotal=0
   product: any;
+  deleted:any;
+  popup!:boolean;
+  model:any={}
+
+
   constructor(private msg:MessengerService,
     private cartService:CartService) { }
 
@@ -31,7 +36,6 @@ export class CartComponent implements OnInit {
         console.log("29",product)
       this.loadCartItems()
 
-      //this.addProductTocart(product)
     })
 
   }
@@ -52,26 +56,35 @@ export class CartComponent implements OnInit {
     });
   }
 
-  itemdelete(product:Product){
-    //  OTHER LOGIC
-    // console.log(product)
-     const index= this.cartItems.indexOf(product)
-     this.cartItems.splice(index,1)
-     this.cartService.removeFromCart(product)
-
-    // this.cartItems.map((a:any , index:any)=>{
-    //   if(product.id===a.id){
-    //     this.cartItems.splice(index,1)
-    //   }
-    // })
-    // console.log(product)
-    this.cartService.removeFromCart(this.product).subscribe((deletedata)=>{
-
-      console.log("product to delete")
-    })
+  itemdelete(productId:any){
+    const index= this.cartItems.indexOf(productId)
+    this.cartItems.splice(index,1)
+    this.loadCartItems()
 
   }
+
+
+  deletetodo(product:any){
+    console.log(product)
+    this.cartService.empty(product).subscribe(data=>{
+      this.deleted=data;
+    })
+    window.location.reload();
+
+  }
+
+  orders(){
+    let Address={
+      address:this.model.Address,
+      total:this.cartTotal
+     };
+    console.log(Address)
+    console.log(this.cartTotal)
+
+     this.cartService.addcarttoorderhistory(Address).subscribe(()=>{
+        })
+        window.location.reload();
 }
 
 
-
+}

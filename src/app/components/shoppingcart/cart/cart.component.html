@@ -3,16 +3,49 @@
     <div class="class-header bg-primary " style="color: white; text-align: center;">
         <strong>Cart Items</strong>
     </div>
-    <div *ngIf="cartItems.length===0" class="alert alert-info">Your cart is empty
-      <a class="btn btn-primary" routerLink="/shop">Shop Now</a>
-    </div>
+
+        <div *ngIf="cartItems.length===0" class="alert alert-info">Your cart is empty
+          <a class="btn btn-primary" routerLink="/shop">Shop Now</a>
+        </div>
+
     <ul  *ngIf="cartItems.length > 0" class="list-group">
+
+      <div class="cart-item" >
+
         <li class="list-group-item" *ngFor="let items of cartItems">
             <app-cart-item [cartItem]="items" (todelete)="itemdelete($event)"></app-cart-item>
         </li>
         <li class="list-group-item active">
             <strong>Total:{{cartTotal| currency:'INR'}}</strong>
         </li>
+
+      <button type="button" class="btn btn-md btn-danger" style="position: relative; "
+
+       (click)="deletetodo(cartItems)">Delete cart</button>
+      <button type="button" class="btn btn-md btn-success" style="position: relative; "
+
+       (click)="popup = true" >Select Address</button>
+    </div>
     </ul>
+    <div class="overlay" *ngIf="popup">
+      <form class="row g-3" (ngSubmit)="AddproductForm.valid && orders()" #AddproductForm="ngForm">
+            <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="Address" [(ngModel)]="model.Address" required>
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity" name="City" [(ngModel)]="model.City" required>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip" name="Zip" [(ngModel)]="model.Zip" required>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" (click)="orders()" >Order Now</button>
+        </div>
+      </form>
+     </div>
 
 </div>
