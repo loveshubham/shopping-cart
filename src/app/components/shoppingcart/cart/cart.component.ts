@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { MessengerService} from 'src/app/components/shoppingcart/services/messenger.service'
 import { cartUrl } from '../config/api';
 import { CartItem } from '../models/cart-item';
@@ -86,7 +87,9 @@ sendresponseform:any;
     this.cartService.empty(product).subscribe(data=>{
       this.deleted=data;
     })
-    window.location.reload();
+    // window.location.reload();
+    // this.loadCartItems()
+    this.router.navigate(['/shop']);
 
   }
 
@@ -127,20 +130,13 @@ makepayment(event:any){
 
   payWithRazor(val:any) {
     const options: any = {
-      // key: 'rzp_test_key',
       amount:this.cartTotal , // amount should be in paise format to display Rs 1255 without decimal point
       currency: 'INR',
-      // name: '', // company name or product name
-      // description: '',  // product description
-      // image: './assets/logo.png', // company logo or product image
       order_id: val.sub.id, // order_id created by you in backend
       modal: {
-        // We should prevent closing of the form when esc key is pressed.
         escape: false,
       },
-      // notes: {
-        // include notes if any
-      // },
+
       theme: {
         color: '#0c238a'
       }
@@ -150,6 +146,7 @@ makepayment(event:any){
       this.newresponse=response;
       console.log(response);
       console.log(options);
+      this.msg.sendMsg(this.newresponse);
       this.sendresponse();
 
       // call your backend api to verify payment signature & capture transaction
@@ -157,12 +154,15 @@ makepayment(event:any){
     options.modal.ondismiss = (() => {
       // handle the case when user closes the form while transaction is in progress
       console.log('Transaction cancelled.');
+      alert("payment cancelled");
+      this.router.navigate(['/cart']);
+
       // this.loadCartItems();
 
     });
     const rzp = new this.winref.nativeWindow.Razorpay(options);
     rzp.open();
-    this.sendresponse();
+    // this.sendresponse();
 
 
 
@@ -175,16 +175,16 @@ makepayment(event:any){
       razorpay_payment_id:this.newresponse.razorpay_payment_id,
       razorpay_signature:this.newresponse.razorpay_signature,
     }
-    console.log("172",sendresponseform)
+    console.log(sendresponseform)
   this.priceservice.payresponse(sendresponseform).subscribe((data)=>{
     console.log(data)
-    this.orders();
-    // this.deletetodo(this.product)
-
-
-    // this.router.navigate(['/shop']);
   })
 
+  this.msg.sendMsg(this.newresponse);
+  this.orders();
+
+
+  this.router.navigate(['/orderstatus']);
 
 
   }

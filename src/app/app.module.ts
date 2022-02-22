@@ -44,6 +44,7 @@ import { SizeFiltersPipe } from './size-filters.pipe';
 import { PriceFiltersPipe } from './price-filters.pipe';
 import { OrderComponent } from './components/shoppingcart/order/order.component';
 import { AllordersComponent } from './components/shoppingcart/allorders/allorders.component';
+import { OrderstatusComponent } from './components/shoppingcart/order/orderstatus/orderstatus.component';
 
 
 @NgModule({
@@ -81,6 +82,7 @@ import { AllordersComponent } from './components/shoppingcart/allorders/allorder
     PriceFiltersPipe,
     OrderComponent,
     AllordersComponent,
+    OrderstatusComponent,
   ],
   imports: [
     BrowserModule,
