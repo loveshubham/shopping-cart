@@ -25,8 +25,11 @@ loadCartItems(){
 this.cartService.getorderItem().subscribe((items:any)=>{
   this.cartItems=items;
   console.log(this.cartItems)
-  
+
 
 })
+}
+printPage() {
+  window.print();
 }
 }

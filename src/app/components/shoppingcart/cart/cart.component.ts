@@ -87,8 +87,8 @@ sendresponseform:any;
     this.cartService.empty(product).subscribe(data=>{
       this.deleted=data;
     })
-    // window.location.reload();
-    // this.loadCartItems()
+    window.location.reload();
+    this.loadCartItems()
     this.router.navigate(['/shop']);
 
   }
@@ -184,7 +184,7 @@ makepayment(event:any){
   this.orders();
 
 
-  this.router.navigate(['/orderstatus']);
+  this.router.navigate(['/orders']);
 
 
   }

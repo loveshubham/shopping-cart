@@ -17,6 +17,7 @@
         <p class="card-text"><small class="text"> <h5>Address:{{items.address}}</h5></small></p>
         <p class="card-text"><small class="text"><h5>Order Status:{{items.status}}</h5></small></p>
         <th>Total Order Amount {{items.total|currency:'INR'}} </th>
+        <button class="btn btn-primary" (click)="printPage()"> print</button>
       </div>
     </div>
   </div>
